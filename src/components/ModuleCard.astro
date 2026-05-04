@@ -1,0 +1,174 @@
+---
+interface Props {
+  number: number;
+  title: string;
+  description: string;
+  slug: string;
+}
+
+const { number, title, description, slug } = Astro.props;
+---
+
+<a href={`/modules/${slug}`} class="module-card" data-module={slug}>
+  <div class="card-top">
+    <span class="card-number">{number}</span>
+    <span class="card-status" data-status={slug}>Not Started</span>
+  </div>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-description">{description}</p>
+  <div class="card-footer">
+    <span class="card-cta">
+      Open Module
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </span>
+  </div>
+</a>
+
+<style>
+  .module-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    padding: var(--space-6);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    border: 1px solid var(--color-border-light);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .module-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .module-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-4px);
+    border-color: var(--color-primary-200);
+  }
+
+  .module-card:hover::before {
+    opacity: 1;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-4);
+  }
+
+  .card-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
+    color: var(--color-primary);
+    font-size: var(--text-lg);
+    font-weight: 800;
+    border-radius: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .card-status {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    padding: var(--space-1) var(--space-3);
+    border-radius: 20px;
+    background: var(--color-bg);
+    color: var(--color-text-muted);
+  }
+
+  .card-status[data-state="progress"] {
+    background: var(--color-warning-light);
+    color: #92400e;
+  }
+
+  .card-status[data-state="done"] {
+    background: var(--color-success-light);
+    color: #065f46;
+  }
+
+  .card-title {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.02em;
+  }
+
+  .card-description {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-6);
+    flex: 1;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  .card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+    transition: gap var(--transition-fast);
+  }
+
+  .module-card:hover .card-cta {
+    gap: var(--space-3);
+  }
+
+  .card-cta svg {
+    transition: transform var(--transition-fast);
+  }
+
+  .module-card:hover .card-cta svg {
+    transform: translateX(2px);
+  }
+</style>
+
+<script>
+  function updateModuleStatuses() {
+    const cards = document.querySelectorAll('.module-card[data-module]');
+    cards.forEach((card) => {
+      const slug = card.getAttribute('data-module');
+      const statusEl = card.querySelector('.card-status') as HTMLElement;
+      if (!slug || !statusEl) return;
+
+      const state = localStorage.getItem(`module-${slug}-state`);
+      if (state === 'done') {
+        statusEl.textContent = 'Completed';
+        statusEl.setAttribute('data-state', 'done');
+      } else if (state === 'progress') {
+        statusEl.textContent = 'In Progress';
+        statusEl.setAttribute('data-state', 'progress');
+      } else {
+        statusEl.textContent = 'Not Started';
+        statusEl.removeAttribute('data-state');
+      }
+    });
+  }
+
+  updateModuleStatuses();
+</script>

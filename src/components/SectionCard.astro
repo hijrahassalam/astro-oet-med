@@ -1,0 +1,85 @@
+---
+interface Props {
+  id: string;
+  title: string;
+  icon?: string;
+}
+
+const { id, title, icon } = Astro.props;
+---
+
+<section id={id} data-section-content class="section-card">
+  <div class="section-header">
+    {icon && <span class="section-icon">{icon}</span>}
+    <h2 class="section-title">{title}</h2>
+  </div>
+  <div class="section-body">
+    <slot />
+  </div>
+</section>
+
+<style>
+  .section-card {
+    background: var(--color-surface);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--color-border-light);
+    padding: var(--space-8);
+    margin-bottom: var(--space-6);
+    transition: all var(--transition-base);
+  }
+
+  .section-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--color-border);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-5);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .section-icon {
+    font-size: var(--text-2xl);
+    line-height: 1;
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+  }
+
+  .section-body {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+  }
+
+  .section-body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .section-body :global(ul),
+  .section-body :global(ol) {
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-body :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  .section-body :global(code) {
+    background: var(--color-bg);
+    padding: var(--space-1) var(--space-2);
+    border-radius: 6px;
+    font-size: var(--text-sm);
+    font-family: var(--font-mono);
+  }
+</style>

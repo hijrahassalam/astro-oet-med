@@ -1,0 +1,143 @@
+---
+interface Props {
+  sections: { id: string; label: string }[];
+}
+
+const { sections } = Astro.props;
+---
+
+<aside class="sidebar">
+  <nav class="sidebar-nav">
+    <h4 class="sidebar-title">In this module</h4>
+    <ul class="sidebar-list">
+      {sections.map((section) => (
+        <li>
+          <a href={`#${section.id}`} class="sidebar-link" data-section={section.id}>
+            {section.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</aside>
+
+<style>
+  .sidebar {
+    position: sticky;
+    top: calc(var(--navbar-height) + var(--space-6));
+    max-height: calc(100vh - var(--navbar-height) - var(--space-12));
+    overflow-y: auto;
+    padding-right: var(--space-6);
+  }
+
+  .sidebar-nav {
+    border-right: 1px solid var(--color-border);
+    padding-right: var(--space-6);
+  }
+
+  .sidebar-title {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-4);
+  }
+
+  .sidebar-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .sidebar-link {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    border-radius: 8px;
+    border-left: 3px solid transparent;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .sidebar-link:hover {
+    color: var(--color-primary);
+    background-color: var(--color-primary-50);
+    border-left-color: var(--color-primary-100);
+  }
+
+  .sidebar-link.active {
+    color: var(--color-primary);
+    background-color: var(--color-primary-50);
+    border-left-color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  @media (max-width: 900px) {
+    .sidebar {
+      position: relative;
+      top: 0;
+      max-height: none;
+      padding-right: 0;
+      margin-bottom: var(--space-6);
+    }
+
+    .sidebar-nav {
+      border-right: none;
+      border-bottom: 1px solid var(--color-border);
+      padding-right: 0;
+      padding-bottom: var(--space-4);
+    }
+
+    .sidebar-list {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .sidebar-link {
+      border-left: none;
+      border-bottom: 2px solid transparent;
+      padding: var(--space-2) var(--space-3);
+      font-size: var(--text-xs);
+    }
+
+    .sidebar-link:hover,
+    .sidebar-link.active {
+      border-left-color: transparent;
+      border-bottom-color: var(--color-primary);
+    }
+  }
+</style>
+
+<script>
+  const links = document.querySelectorAll('.sidebar-link');
+  const sections = document.querySelectorAll('[data-section-content]');
+
+  function updateActiveLink() {
+    let currentSection = '';
+    const offset = 120;
+
+    sections.forEach((section) => {
+      const el = section as HTMLElement;
+      if (el.offsetTop - offset <= window.scrollY) {
+        currentSection = el.id;
+      }
+    });
+
+    links.forEach((link) => {
+      const el = link as HTMLElement;
+      if (el.dataset.section === currentSection) {
+        el.classList.add('active');
+      } else {
+        el.classList.remove('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveLink);
+  updateActiveLink();
+</script>

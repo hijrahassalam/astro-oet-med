@@ -1,0 +1,329 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+
+const modules = [
+  {
+    number: 1,
+    title: 'Introduction to OET',
+    description: 'Learn the foundational concepts, core vocabulary, and essential grammar for OET preparation.',
+    slug: 'module-1',
+  },
+  {
+    number: 2,
+    title: 'Reading & Listening',
+    description: 'Develop receptive skills with strategies for the OET Reading and Listening sub-tests.',
+    slug: 'module-2',
+  },
+  {
+    number: 3,
+    title: 'Writing Skills',
+    description: 'Master the OET Writing sub-test with structured letter writing and professional communication.',
+    slug: 'module-3',
+  },
+  {
+    number: 4,
+    title: 'Speaking Skills',
+    description: 'Build confidence in role-play scenarios with effective communication strategies.',
+    slug: 'module-4',
+  },
+  {
+    number: 5,
+    title: 'Review & Practice',
+    description: 'Final review, full practice tests, and exam-day preparation strategies.',
+    slug: 'module-5',
+  },
+];
+---
+
+<BaseLayout title="OET Learning Platform">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-glow"></div>
+    </div>
+    <div class="container hero-inner">
+      <div class="hero-badge">
+        <svg class="hero-badge-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M7 1L8.5 4.5L12.5 5L9.75 7.5L10.5 11.5L7 9.5L3.5 11.5L4.25 7.5L1.5 5L5.5 4.5L7 1Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        For Healthcare Professionals
+      </div>
+
+      <h1 class="hero-title">
+        Build the English Skills<br/>
+        <span class="hero-title-accent">You Need for the OET</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        A free, structured platform covering medical vocabulary, clinical
+        grammar, letter writing, and speaking strategies — designed for
+        doctors, nurses, and allied health professionals.
+      </p>
+
+      <div class="hero-actions">
+        <a href="/modules/module-1" class="btn btn-primary btn-lg">
+          Start Learning
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/about" class="btn btn-outline btn-lg">
+          View Syllabus
+        </a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span class="stat-value">5</span>
+          <span class="stat-label">Modules</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">35+</span>
+          <span class="stat-label">Lessons</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-value">100%</span>
+          <span class="stat-label">Free</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modules Grid -->
+  <section class="modules-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-heading">Learning Modules</h2>
+        <p class="section-subheading">
+          Work through each module sequentially to build your skills step by step.
+        </p>
+      </div>
+
+      <div class="modules-grid">
+        {modules.map((mod) => (
+          <ModuleCard
+            number={mod.number}
+            title={mod.title}
+            description={mod.description}
+            slug={mod.slug}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero */
+  .hero {
+    position: relative;
+    padding: var(--space-20) 0 var(--space-16);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      var(--color-primary-50) 0%,
+      var(--color-bg) 100%
+    );
+    z-index: 0;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, var(--color-primary-100) 1px, transparent 0);
+    background-size: 32px 32px;
+    opacity: 0.45;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 60%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 60%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Badge */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 6px var(--space-4) 6px var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-8);
+    box-shadow: var(--card-shadow);
+  }
+
+  .hero-badge-icon {
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  /* Title */
+  .hero-title {
+    font-size: clamp(2.5rem, 5.5vw, 3.75rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+    margin-bottom: var(--space-6);
+    max-width: 700px;
+  }
+
+  .hero-title-accent {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Subtitle */
+  .hero-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 520px;
+    margin: 0 0 var(--space-8);
+    line-height: var(--leading-relaxed);
+  }
+
+  /* Actions */
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-12);
+  }
+
+  /* Stats */
+  .hero-stats {
+    display: flex;
+    align-items: stretch;
+    gap: var(--space-4);
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-5) var(--space-6);
+    min-width: 120px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-base);
+  }
+
+  .stat-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+    border-color: var(--color-primary-200);
+  }
+
+  .stat-value {
+    font-size: var(--text-2xl);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  /* Modules Section */
+  .modules-section {
+    padding: var(--space-16) 0 var(--space-20);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-10);
+  }
+
+  .section-heading {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .section-subheading {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-12) 0 var(--space-10);
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .hero-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .hero-stats {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .stat-card {
+      flex-direction: row;
+      gap: var(--space-3);
+      min-width: auto;
+      padding: var(--space-4) var(--space-5);
+    }
+
+    .stat-value {
+      font-size: var(--text-xl);
+    }
+
+    .modules-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
