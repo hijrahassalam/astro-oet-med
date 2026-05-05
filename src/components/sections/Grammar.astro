@@ -14,12 +14,8 @@ const { data } = Astro.props;
 ---
 
 <div class="grammar-content">
-  <figure class="section-image header-image">
-    <img src={data.headerImage} alt="Grammar Header" width="157" height="157" />
-  </figure>
-
   <h3>4. Grammar for OET Speaking</h3>
-  <p>{data.grammarDescription}</p>
+  <p set:html={data.grammarDescription}></p>
 
   <div class="grammar-note">
     <p><strong>📌 Instruction for Students:</strong></p>
@@ -46,15 +42,6 @@ const { data } = Astro.props;
   .grammar-content p {
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-4);
-  }
-
-  .section-image {
-    margin: var(--space-4) 0;
-    text-align: center;
-  }
-
-  .section-image.header-image {
-    margin-bottom: var(--space-6);
   }
 
   .section-image img {

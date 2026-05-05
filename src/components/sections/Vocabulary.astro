@@ -10,9 +10,9 @@ interface VocabularyItem {
 
 interface Props {
   data: {
-    headerImage: string;
     vocabularyItems: VocabularyItem[];
     quizUrl: string;
+    quizImage: string;
   };
 }
 
@@ -20,10 +20,6 @@ const { data } = Astro.props;
 ---
 
 <div class="vocabulary-content">
-  <figure class="section-image header-image">
-    <img src={data.headerImage} alt="Key Vocabulary Header" width="386" height="217" />
-  </figure>
-
   <h3>3. Key Vocabulary for OET Speaking</h3>
   <p>🔑 <strong>15 Key Vocabulary Items</strong></p>
 
@@ -53,6 +49,9 @@ const { data } = Astro.props;
   <div class="vocab-exercise">
     <p><strong>✍️ Vocabulary Exercise</strong></p>
     <p>To identify how well your understanding of the vocabulary is, take the following quiz:</p>
+    <figure class="section-image quiz-image">
+      <img src={data.quizImage} alt="Vocabulary Quiz QR Code" width="200" height="200" />
+    </figure>
     <div class="exercise-cta">
       <CtaButton href={data.quizUrl} variant="primary" size="md">
         📝 Take Vocabulary Quiz
@@ -77,10 +76,6 @@ const { data } = Astro.props;
   .section-image {
     margin: var(--space-4) 0;
     text-align: center;
-  }
-
-  .section-image.header-image {
-    margin-bottom: var(--space-6);
   }
 
   .section-image img {
@@ -134,5 +129,16 @@ const { data } = Astro.props;
 
   .exercise-cta :global(.cta-btn) {
     text-decoration: none;
+  }
+
+  .quiz-image {
+    margin: var(--space-4) 0;
+  }
+
+  .quiz-image img {
+    max-width: 200px;
+    height: auto;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
   }
 </style>

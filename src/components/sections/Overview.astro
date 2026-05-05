@@ -7,6 +7,7 @@ interface Props {
       testDescription: string;
       videoUrl: string;
       quizUrl: string;
+      quizImage: string;
       frameworkMnemonic: string;
       frameworkDescription: string;
       frameworkPdf: string;
@@ -15,8 +16,8 @@ interface Props {
       languageSkills: string;
       clinicalCommunication: string;
       scoringPdf: string;
+      criteriaImage: string;
     };
-    blueprintImage: string;
   };
 }
 
@@ -36,11 +37,10 @@ const { data } = Astro.props;
         📝 Take Quiz
       </CtaButton>
     </div>
+    <figure class="quiz-image">
+      <img src={data.overview.quizImage} alt="Quiz QR Code" width="150" height="150" />
+    </figure>
   </div>
-
-  <figure class="section-image">
-    <img src={data.blueprintImage} alt="OET Speaking Blueprint" width="87" height="87" />
-  </figure>
 
   <h4>OET Speaking Blueprint: Clinical Dialogue Framework</h4>
   <p>{data.overview.frameworkDescription}</p>
@@ -54,6 +54,9 @@ const { data } = Astro.props;
   </p>
 
   <h3>2. Criteria of Speaking Sub-Test</h3>
+  <figure class="section-image criteria-image">
+    <img src={data.criteria.criteriaImage} alt="OET Speaking Criteria" width="386" height="217" />
+  </figure>
   <p set:html={data.criteria.languageSkills} />
   <p set:html={data.criteria.clinicalCommunication} />
   <p>
@@ -103,6 +106,18 @@ const { data } = Astro.props;
     border-radius: var(--card-radius);
     padding: var(--space-5);
     margin: var(--space-4) 0;
+    text-align: center;
+  }
+
+  .video-note .quiz-image {
+    margin-top: var(--space-4);
+  }
+
+  .video-note .quiz-image img {
+    max-width: 150px;
+    height: auto;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
   }
 
   .section-image {
@@ -114,6 +129,10 @@ const { data } = Astro.props;
     max-width: 100%;
     height: auto;
     border-radius: var(--card-radius);
+  }
+
+  .criteria-image {
+    margin-bottom: var(--space-6);
   }
 
   .cta-row {
