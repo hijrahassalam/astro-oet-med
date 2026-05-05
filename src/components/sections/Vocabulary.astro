@@ -1,4 +1,6 @@
 ---
+import CtaButton from '../CtaButton.astro';
+
 interface VocabularyItem {
   no: number;
   word: string;
@@ -51,7 +53,11 @@ const { data } = Astro.props;
   <div class="vocab-exercise">
     <p><strong>✍️ Vocabulary Exercise</strong></p>
     <p>To identify how well your understanding of the vocabulary is, take the following quiz:</p>
-    <p><strong>Quiz:</strong> <a href={data.quizUrl} target="_blank" rel="noopener">{data.quizUrl}</a></p>
+    <div class="exercise-cta">
+      <CtaButton href={data.quizUrl} variant="primary" size="md">
+        📝 Take Vocabulary Quiz
+      </CtaButton>
+    </div>
   </div>
 </div>
 
@@ -122,8 +128,11 @@ const { data } = Astro.props;
     margin: var(--space-4) 0;
   }
 
-  a {
-    color: var(--color-primary);
-    text-decoration: underline;
+  .exercise-cta {
+    margin-top: var(--space-4);
+  }
+
+  .exercise-cta :global(.cta-btn) {
+    text-decoration: none;
   }
 </style>

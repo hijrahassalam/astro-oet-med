@@ -1,4 +1,6 @@
 ---
+import CtaButton from '../CtaButton.astro';
+
 interface CriterionItem {
   section: string;
   criterion: string;
@@ -52,10 +54,11 @@ const { data } = Astro.props;
   </div>
 
   <p>You will be scored based on the following criteria.</p>
-  <p>
-    <strong>📄 OET-Based Assessment Criteria:</strong>
-    <a href={data.scoringTemplateUrl} target="_blank" rel="noopener">{data.scoringTemplateUrl}</a>
-  </p>
+  <div class="scoring-cta">
+    <CtaButton href={data.scoringTemplateUrl} variant="secondary" size="md">
+      📄 Download Assessment Criteria
+    </CtaButton>
+  </div>
 </div>
 
 <style>
@@ -112,8 +115,11 @@ const { data } = Astro.props;
     font-size: var(--text-xs);
   }
 
-  a {
-    color: var(--color-primary);
-    text-decoration: underline;
+  .scoring-cta {
+    margin-top: var(--space-4);
+  }
+
+  .scoring-cta :global(.cta-btn) {
+    text-decoration: none;
   }
 </style>

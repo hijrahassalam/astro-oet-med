@@ -1,4 +1,6 @@
 ---
+import CtaButton from '../CtaButton.astro';
+
 interface Props {
   data: {
     overview: {
@@ -26,18 +28,14 @@ const { data } = Astro.props;
   <p>{data.overview.testDescription}</p>
 
   <div class="video-note">
-    <p>
-      <strong>📺 To have a better understanding of Speaking part A, watch this video:</strong><br/>
-      <a href={data.overview.videoUrl} target="_blank" rel="noopener">
-        OET Speaking Test Part 1 #oet
-      </a>
-    </p>
-    <p>
-      <strong>📝 Quiz:</strong>
-      <a href={data.overview.quizUrl} target="_blank" rel="noopener">
-        {data.overview.quizUrl}
-      </a>
-    </p>
+    <div class="cta-row">
+      <CtaButton href={data.overview.videoUrl} variant="primary" size="md">
+        📺 Watch Video
+      </CtaButton>
+      <CtaButton href={data.overview.quizUrl} variant="secondary" size="md">
+        📝 Take Quiz
+      </CtaButton>
+    </div>
   </div>
 
   <figure class="section-image">
@@ -50,18 +48,18 @@ const { data } = Astro.props;
     <strong>{data.overview.frameworkMnemonic}</strong>
   </p>
   <p>
-    <a href={data.overview.frameworkPdf} target="_blank" rel="noopener">
-      📄 Clinical Communication Framework PDF
-    </a>
+    <CtaButton href={data.overview.frameworkPdf} variant="secondary" size="sm">
+      📄 Download Framework PDF
+    </CtaButton>
   </p>
 
   <h3>2. Criteria of Speaking Sub-Test</h3>
   <p set:html={data.criteria.languageSkills} />
   <p set:html={data.criteria.clinicalCommunication} />
   <p>
-    <a href={data.criteria.scoringPdf} target="_blank" rel="noopener">
-      📄 OET Speaking Scoring Simplified PDF
-    </a>
+    <CtaButton href={data.criteria.scoringPdf} variant="secondary" size="sm">
+      📄 Download Scoring Guide
+    </CtaButton>
   </p>
 </div>
 
@@ -118,8 +116,14 @@ const { data } = Astro.props;
     border-radius: var(--card-radius);
   }
 
-  a {
-    color: var(--color-primary);
-    text-decoration: underline;
+  .cta-row {
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-top: var(--space-3);
+  }
+
+  .cta-row :global(.cta-btn) {
+    text-decoration: none;
   }
 </style>

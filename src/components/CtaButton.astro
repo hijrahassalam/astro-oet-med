@@ -1,0 +1,91 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
+  external?: boolean;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  external = false,
+} = Astro.props;
+
+const isExternal = href.startsWith('http');
+---
+
+{isExternal ? (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class={`cta-btn cta-btn--${variant} cta-btn--${size}`}
+  >
+    <slot />
+  </a>
+) : (
+  <a
+    href={href}
+    class={`cta-btn cta-btn--${variant} cta-btn--${size}`}
+  >
+    <slot />
+  </a>
+)}
+
+<style>
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    text-align: center;
+  }
+
+  .cta-btn--primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.25);
+  }
+
+  .cta-btn--primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35);
+  }
+
+  .cta-btn--primary:active {
+    transform: translateY(0);
+  }
+
+  .cta-btn--secondary {
+    background: var(--color-surface);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+  }
+
+  .cta-btn--secondary:hover {
+    background: var(--color-primary-50);
+  }
+
+  .cta-btn--sm {
+    padding: var(--space-1) var(--space-3);
+    font-size: var(--text-xs);
+  }
+
+  .cta-btn--md {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+  }
+
+  .cta-btn--lg {
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+  }
+</style>

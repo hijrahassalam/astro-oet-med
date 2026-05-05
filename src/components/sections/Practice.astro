@@ -1,4 +1,6 @@
 ---
+import CtaButton from '../CtaButton.astro';
+
 interface CueCard {
   image: string;
   alt: string;
@@ -59,18 +61,16 @@ const { data } = Astro.props;
 
   <div class="chatbot-section">
     <p>
-      <strong>🤖 Click the chatbot link below and write your complete name</strong>
+      <strong>🤖 Practice with the AI Chatbot</strong>
     </p>
     <p>
       Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
       will guide you practice.
     </p>
     <div class="chatbot-with-qr">
-      <div class="chatbot-link">
-        <p>
-          <strong>Link:</strong> <a href={data.chatbot.link} target="_blank" rel="noopener">{data.chatbot.link}</a>
-        </p>
-      </div>
+      <CtaButton href={data.chatbot.link} variant="primary" size="lg">
+        🤖 Open Chatbot
+      </CtaButton>
       <figure class="qr-code">
         <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
         <figcaption>Scan to open chatbot</figcaption>
@@ -107,25 +107,25 @@ const { data } = Astro.props;
     <p><strong>Prompt:</strong> {data.mergePrompt}</p>
   </div>
   <p>
-    The result of your work has to be like the example is available here:<br/>
-    <a href={data.exampleLink} target="_blank" rel="noopener">{data.exampleLink}</a>
+    The result of your work has to be like the example is available here:
   </p>
+  <CtaButton href={data.exampleLink} variant="secondary" size="sm">
+    📄 View Example Document
+  </CtaButton>
 
   <h4>AI CHATBOT AS CONVERSATIONAL PARTNER</h4>
   <div class="chatbot-section">
     <p>
-      <strong>🤖 Click the chatbot link below and write your complete name</strong>
+      <strong>🤖 Practice with the AI Chatbot</strong>
     </p>
     <p>
       Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
       will guide you practice.
     </p>
     <div class="chatbot-with-qr">
-      <div class="chatbot-link">
-        <p>
-          <strong>Link:</strong> <a href={data.chatbot.link} target="_blank" rel="noopener">{data.chatbot.link}</a>
-        </p>
-      </div>
+      <CtaButton href={data.chatbot.link} variant="primary" size="lg">
+        🤖 Open Chatbot
+      </CtaButton>
       <figure class="qr-code">
         <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
         <figcaption>Scan to open chatbot</figcaption>
@@ -140,10 +140,11 @@ const { data } = Astro.props;
     ))}
   </ol>
   <p>
-    Here is an example of doing roleplay conversation with the chatbot, as speaking partner is
-    available in this link:<br/>
-    <a href={data.partnerExampleLink} target="_blank" rel="noopener">{data.partnerExampleLink}</a>
+    Here is an example of doing roleplay conversation with the chatbot, as speaking partner:
   </p>
+  <CtaButton href={data.partnerExampleLink} variant="secondary" size="sm">
+    📄 View Conversation Example
+  </CtaButton>
 
   <div class="feedback-tip">
     <p>
@@ -211,13 +212,13 @@ const { data } = Astro.props;
   .chatbot-with-qr {
     display: flex;
     align-items: center;
-    gap: var(--space-4);
+    gap: var(--space-6);
     flex-wrap: wrap;
+    margin-top: var(--space-4);
   }
 
-  .chatbot-link {
-    flex: 1;
-    min-width: 200px;
+  .chatbot-with-qr :global(.cta-btn) {
+    text-decoration: none;
   }
 
   .qr-code {
@@ -262,10 +263,5 @@ const { data } = Astro.props;
 
   ol :global(li) > ul {
     margin-top: var(--space-2);
-  }
-
-  a {
-    color: var(--color-primary);
-    text-decoration: underline;
   }
 </style>
