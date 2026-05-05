@@ -1,0 +1,76 @@
+---
+interface Props {
+  data: {
+    headerImage: string;
+    grammarDescription: string;
+    grammarPdf: string;
+    videoUrl: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="grammar-content">
+  <figure class="section-image header-image">
+    <img src={data.headerImage} alt="Grammar Header" width="157" height="157" />
+  </figure>
+
+  <h3>4. Grammar for OET Speaking</h3>
+  <p>{data.grammarDescription}</p>
+
+  <div class="grammar-note">
+    <p><strong>📌 Instruction for Students:</strong></p>
+    <p>
+      Please read this full file <a href={data.grammarPdf} target="_blank" rel="noopener">OET Speaking Grammar PDF</a>
+      carefully to learn the grammar patterns in detail. This will help you speak more clearly
+      and confidently in the OET Speaking test.
+    </p>
+    <p>
+      Or you can watch a video here:<br/>
+      <a href={data.videoUrl} target="_blank" rel="noopener">{data.videoUrl}</a>
+    </p>
+  </div>
+</div>
+
+<style>
+  .grammar-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  .grammar-content p {
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-image {
+    margin: var(--space-4) 0;
+    text-align: center;
+  }
+
+  .section-image.header-image {
+    margin-bottom: var(--space-6);
+  }
+
+  .section-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--card-radius);
+  }
+
+  .grammar-note {
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

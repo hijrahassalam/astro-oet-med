@@ -1,0 +1,271 @@
+---
+interface CueCard {
+  image: string;
+  alt: string;
+  caption: string;
+}
+
+interface ChatbotInfo {
+  link: string;
+  qrImage: string;
+}
+
+interface Props {
+  data: {
+    cueCardsDoctor: CueCard[];
+    cueCardsCaregiver: CueCard[];
+    cueCardsPatient: CueCard[];
+    chatbot: ChatbotInfo;
+    stepsDoctor: string[];
+    stepsPatient: string[];
+    mergePrompt: string;
+    exampleLink: string;
+    stepsPartner: string[];
+    partnerPrompt: string;
+    partnerExampleLink: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="practice-content">
+  <h3>5. Practice with AI Chatbot</h3>
+  <p>
+    Read the following cue card. Read it carefully to understand the context.
+  </p>
+
+  {data.cueCardsDoctor.map((card) => (
+    <figure class="cue-card">
+      <img src={card.image} alt={card.alt} width="326" height="460" />
+      <figcaption>{card.caption}</figcaption>
+    </figure>
+  ))}
+
+  <p>
+    And here is the other cue card as a caregiver. Read it carefully to understand the context.
+  </p>
+
+  {data.cueCardsCaregiver.map((card) => (
+    <figure class="cue-card">
+      <img src={card.image} alt={card.alt} width="386" height="545" />
+      <figcaption>{card.caption}</figcaption>
+    </figure>
+  ))}
+
+  <p>
+    After completing the exercises above, use the AI chatbot to practice.
+  </p>
+
+  <div class="chatbot-section">
+    <p>
+      <strong>🤖 Click the chatbot link below and write your complete name</strong>
+    </p>
+    <p>
+      Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
+      will guide you practice.
+    </p>
+    <div class="chatbot-with-qr">
+      <div class="chatbot-link">
+        <p>
+          <strong>Link:</strong> <a href={data.chatbot.link} target="_blank" rel="noopener">{data.chatbot.link}</a>
+        </p>
+      </div>
+      <figure class="qr-code">
+        <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
+        <figcaption>Scan to open chatbot</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h4>Steps to Use the Chatbot for OET Speaking Practice (as a DOCTOR)</h4>
+  <ol>
+    {data.stepsDoctor.map((step) => (
+      <li set:html={step} />
+    ))}
+  </ol>
+
+  <h4>Steps to Use the Chatbot for OET Speaking Practice (as a PATIENT)</h4>
+  {data.cueCardsPatient.map((card) => (
+    <figure class="cue-card">
+      <img src={card.image} alt={card.alt} width="377" height="460" />
+      <figcaption>{card.caption}</figcaption>
+    </figure>
+  ))}
+  <ol>
+    {data.stepsPatient.map((step) => (
+      <li set:html={step} />
+    ))}
+  </ol>
+
+  <h4>Merging Doctor and Patient Responses</h4>
+  <p>
+    Now merge all the responses from the doctor and patient. Upload the new page/file (A complete
+    dialogue between doctor and patient) and use this following prompt:
+  </p>
+  <div class="prompt-box">
+    <p><strong>Prompt:</strong> {data.mergePrompt}</p>
+  </div>
+  <p>
+    The result of your work has to be like the example is available here:<br/>
+    <a href={data.exampleLink} target="_blank" rel="noopener">{data.exampleLink}</a>
+  </p>
+
+  <h4>AI CHATBOT AS CONVERSATIONAL PARTNER</h4>
+  <div class="chatbot-section">
+    <p>
+      <strong>🤖 Click the chatbot link below and write your complete name</strong>
+    </p>
+    <p>
+      Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
+      will guide you practice.
+    </p>
+    <div class="chatbot-with-qr">
+      <div class="chatbot-link">
+        <p>
+          <strong>Link:</strong> <a href={data.chatbot.link} target="_blank" rel="noopener">{data.chatbot.link}</a>
+        </p>
+      </div>
+      <figure class="qr-code">
+        <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
+        <figcaption>Scan to open chatbot</figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h4>Steps to Use the Chatbot as a Conversational Partner</h4>
+  <ol>
+    {data.stepsPartner.map((step) => (
+      <li set:html={step} />
+    ))}
+  </ol>
+  <p>
+    Here is an example of doing roleplay conversation with the chatbot, as speaking partner is
+    available in this link:<br/>
+    <a href={data.partnerExampleLink} target="_blank" rel="noopener">{data.partnerExampleLink}</a>
+  </p>
+
+  <div class="feedback-tip">
+    <p>
+      <strong>💡 Ask the chatbot for feedback:</strong><br/>
+      "Can you provide feedback for my performance as a doctor?"<br/>
+      Screenshot the results and save them in Google Docs.
+    </p>
+  </div>
+</div>
+
+<style>
+  .practice-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  .practice-content h4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+
+  .practice-content p {
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .cue-card {
+    margin: var(--space-6) auto;
+    text-align: center;
+    background: var(--color-bg);
+    padding: var(--space-4);
+    border-radius: var(--card-radius);
+    max-width: 600px;
+  }
+
+  .cue-card img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+  }
+
+  .cue-card figcaption {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .chatbot-section {
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+  }
+
+  .chatbot-with-qr {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .chatbot-link {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .qr-code {
+    flex-shrink: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .qr-code img {
+    border-radius: var(--card-radius);
+  }
+
+  .qr-code figcaption {
+    margin-top: var(--space-1);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+
+  .prompt-box {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--card-radius);
+    padding: var(--space-4);
+    margin: var(--space-4) 0;
+  }
+
+  .feedback-tip {
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+  }
+
+  ol, ul {
+    padding-left: var(--space-6);
+    margin-bottom: var(--space-4);
+  }
+
+  ol :global(li), ul :global(li) {
+    margin-bottom: var(--space-2);
+  }
+
+  ol :global(li) > ul {
+    margin-top: var(--space-2);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

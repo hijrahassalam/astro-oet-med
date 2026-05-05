@@ -1,0 +1,75 @@
+---
+interface ReflectionSection {
+  title: string;
+  questions: string[];
+}
+
+interface Props {
+  data: {
+    formUrl: string;
+    sections: ReflectionSection[];
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="reflection-content">
+  <h3>F. Reflection</h3>
+  <p>
+    Answer the following questions by filing in a form in this link:<br/>
+    <a href={data.formUrl} target="_blank" rel="noopener">{data.formUrl}</a>
+  </p>
+
+  {data.sections.map((section) => (
+    <div class="reflection-section">
+      <h4>{section.title}</h4>
+      <ul>
+        {section.questions.map((q) => (
+          <li>{q}</li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</div>
+
+<style>
+  .reflection-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  .reflection-content h4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+
+  .reflection-content p {
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .reflection-section {
+    margin-bottom: var(--space-4);
+  }
+
+  ul {
+    padding-left: var(--space-6);
+  }
+
+  li {
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-relaxed);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,119 @@
+---
+interface CriterionItem {
+  section: string;
+  criterion: string;
+  descriptor: string;
+}
+
+interface Props {
+  data: {
+    introduction: string;
+    executingRoleplay: string;
+    feedbackFromLecturer: string;
+    criteria: CriterionItem[];
+    scoringTemplateUrl: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="exercise-content">
+  <h3>In-Class Activities</h3>
+
+  <h4>Introduction to In-Class Activities</h4>
+  <p>{data.introduction}</p>
+
+  <h4>Executing the Role-Play</h4>
+  <p>{data.executingRoleplay}</p>
+
+  <h4>Feedback from the Lecturer Based on the Criteria</h4>
+  <p>{data.feedbackFromLecturer}</p>
+
+  <div class="table-wrapper">
+    <table class="criteria-table">
+      <thead>
+        <tr>
+          <th>Section</th>
+          <th>Criterion</th>
+          <th>Descriptor Focus</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.criteria.map((item) => (
+          <tr>
+            <td set:html={item.section} />
+            <td set:html={item.criterion} />
+            <td set:html={item.descriptor} />
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <p>You will be scored based on the following criteria.</p>
+  <p>
+    <strong>📄 OET-Based Assessment Criteria:</strong>
+    <a href={data.scoringTemplateUrl} target="_blank" rel="noopener">{data.scoringTemplateUrl}</a>
+  </p>
+</div>
+
+<style>
+  .exercise-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  .exercise-content h4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+
+  .exercise-content p {
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    margin: var(--space-4) 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+
+  th, td {
+    border: 1px solid var(--color-border);
+    padding: var(--space-3);
+    text-align: left;
+  }
+
+  th {
+    background: var(--color-primary-50);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  td {
+    vertical-align: top;
+  }
+
+  .criteria-table th,
+  .criteria-table td {
+    font-size: var(--text-xs);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

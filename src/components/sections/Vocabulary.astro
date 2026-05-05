@@ -1,0 +1,129 @@
+---
+interface VocabularyItem {
+  no: number;
+  word: string;
+  meaning: string;
+  example: string;
+}
+
+interface Props {
+  data: {
+    headerImage: string;
+    vocabularyItems: VocabularyItem[];
+    quizUrl: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="vocabulary-content">
+  <figure class="section-image header-image">
+    <img src={data.headerImage} alt="Key Vocabulary Header" width="386" height="217" />
+  </figure>
+
+  <h3>3. Key Vocabulary for OET Speaking</h3>
+  <p>🔑 <strong>15 Key Vocabulary Items</strong></p>
+
+  <div class="table-wrapper">
+    <table class="vocab-table">
+      <thead>
+        <tr>
+          <th>No.</th>
+          <th>Vocabulary</th>
+          <th>Meaning (Simple)</th>
+          <th>Example Sentences</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.vocabularyItems.map((item) => (
+          <tr>
+            <td>{item.no}</td>
+            <td><strong>{item.word}</strong></td>
+            <td>{item.meaning}</td>
+            <td>{item.example}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="vocab-exercise">
+    <p><strong>✍️ Vocabulary Exercise</strong></p>
+    <p>To identify how well your understanding of the vocabulary is, take the following quiz:</p>
+    <p><strong>Quiz:</strong> <a href={data.quizUrl} target="_blank" rel="noopener">{data.quizUrl}</a></p>
+  </div>
+</div>
+
+<style>
+  .vocabulary-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  .vocabulary-content p {
+    line-height: var(--leading-relaxed);
+  }
+
+  .section-image {
+    margin: var(--space-4) 0;
+    text-align: center;
+  }
+
+  .section-image.header-image {
+    margin-bottom: var(--space-6);
+  }
+
+  .section-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--card-radius);
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    margin: var(--space-4) 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+
+  th, td {
+    border: 1px solid var(--color-border);
+    padding: var(--space-3);
+    text-align: left;
+  }
+
+  th {
+    background: var(--color-primary-50);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  td {
+    vertical-align: top;
+  }
+
+  .vocab-table td:first-child {
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .vocab-exercise {
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,125 @@
+---
+interface Props {
+  data: {
+    overview: {
+      testDescription: string;
+      videoUrl: string;
+      quizUrl: string;
+      frameworkMnemonic: string;
+      frameworkDescription: string;
+      frameworkPdf: string;
+    };
+    criteria: {
+      languageSkills: string;
+      clinicalCommunication: string;
+      scoringPdf: string;
+    };
+    blueprintImage: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="overview-content">
+  <h3>1. Overview of the Speaking Sub-Test</h3>
+  <p>{data.overview.testDescription}</p>
+
+  <div class="video-note">
+    <p>
+      <strong>📺 To have a better understanding of Speaking part A, watch this video:</strong><br/>
+      <a href={data.overview.videoUrl} target="_blank" rel="noopener">
+        OET Speaking Test Part 1 #oet
+      </a>
+    </p>
+    <p>
+      <strong>📝 Quiz:</strong>
+      <a href={data.overview.quizUrl} target="_blank" rel="noopener">
+        {data.overview.quizUrl}
+      </a>
+    </p>
+  </div>
+
+  <figure class="section-image">
+    <img src={data.blueprintImage} alt="OET Speaking Blueprint" width="87" height="87" />
+  </figure>
+
+  <h4>OET Speaking Blueprint: Clinical Dialogue Framework</h4>
+  <p>{data.overview.frameworkDescription}</p>
+  <p class="framework-mnemonic">
+    <strong>{data.overview.frameworkMnemonic}</strong>
+  </p>
+  <p>
+    <a href={data.overview.frameworkPdf} target="_blank" rel="noopener">
+      📄 Clinical Communication Framework PDF
+    </a>
+  </p>
+
+  <h3>2. Criteria of Speaking Sub-Test</h3>
+  <p set:html={data.criteria.languageSkills} />
+  <p set:html={data.criteria.clinicalCommunication} />
+  <p>
+    <a href={data.criteria.scoringPdf} target="_blank" rel="noopener">
+      📄 OET Speaking Scoring Simplified PDF
+    </a>
+  </p>
+</div>
+
+<style>
+  .overview-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  .overview-content h3:first-child {
+    margin-top: 0;
+  }
+
+  .overview-content h4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+
+  .overview-content p {
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .framework-mnemonic {
+    font-size: var(--text-xl);
+    text-align: center;
+    padding: var(--space-4);
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    letter-spacing: 0.05em;
+  }
+
+  .video-note {
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+  }
+
+  .section-image {
+    margin: var(--space-4) 0;
+    text-align: center;
+  }
+
+  .section-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--card-radius);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+</style>

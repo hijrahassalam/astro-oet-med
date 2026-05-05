@@ -1,0 +1,28 @@
+---
+interface Props {
+  data: {
+    content: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="summary-content">
+  <h3>D. Summary</h3>
+  <p>{data.content}</p>
+</div>
+
+<style>
+  .summary-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  .summary-content p {
+    line-height: var(--leading-relaxed);
+  }
+</style>

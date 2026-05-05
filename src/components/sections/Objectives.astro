@@ -1,0 +1,43 @@
+---
+interface Props {
+  data: {
+    objectives: string[];
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="objectives-box">
+  <h3>Learning Objectives</h3>
+  <p>By the end of this chapter, students will be able to:</p>
+  <ul>
+    {data.objectives.map((obj) => (
+      <li>{obj}</li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .objectives-box {
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-surface));
+    border: 1px solid var(--color-primary-200);
+    border-radius: var(--card-radius);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  .objectives-box h3 {
+    color: var(--color-primary);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .objectives-box ul {
+    margin-bottom: 0;
+  }
+
+  .objectives-box li {
+    margin-bottom: var(--space-2);
+  }
+</style>
