@@ -5,110 +5,95 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <BaseLayout title="About">
   <div class="about-page">
     <div class="container">
-      <div class="about-header">
+      <div class="page-header">
         <h1>About</h1>
-        <p class="about-subtitle">Learn more about the platform and the lecturer behind it.</p>
+        <p>Learn more about the platform and the lecturer behind it.</p>
       </div>
 
-      <!-- SECTION A: About the Platform -->
-      <section class="platform-section">
-        <div class="section-badge">About the Platform</div>
+      <div class="platform-section">
+        <span class="badge">About the Platform</span>
         <h2>OET Learning Platform</h2>
-        <p class="platform-intro">
+        <p class="lead">
           A structured digital learning platform designed specifically for healthcare professionals
           preparing for the Occupational English Test (OET). Our mission is to make English
           language learning accessible, practical, and relevant to medical contexts.
         </p>
 
-        <div class="platform-grid">
-          <div class="platform-card">
-            <div class="platform-icon">🎯</div>
+        <div class="card-grid">
+          <div class="card">
+            <span class="card-icon">🎯</span>
             <h3>Who It's For</h3>
             <p>
               Healthcare professionals including doctors, nurses, pharmacists, dentists, and
-              allied health workers who need to prove their English proficiency for registration
-              or work in English-speaking environments.
+              allied health workers who need to prove their English proficiency.
             </p>
           </div>
 
-          <div class="platform-card">
-            <div class="platform-icon">💡</div>
+          <div class="card">
+            <span class="card-icon">💡</span>
             <h3>Why It Exists</h3>
             <p>
-              Traditional OET resources often lack medical specificity and real-world practice
-              opportunities. This platform bridges that gap with contextually relevant materials,
-              AI-assisted practice, and structured learning paths.
+              Traditional OET resources often lack medical specificity. This platform bridges
+              that gap with contextually relevant materials and AI-assisted practice.
             </p>
           </div>
 
-          <div class="platform-card">
-            <div class="platform-icon">📚</div>
+          <div class="card">
+            <span class="card-icon">📚</span>
             <h3>Learning Approach</h3>
             <p>
-              We use a <strong>flipped classroom model</strong> where you learn concepts at home
-              through our modules and practice skills in class or via AI chatbot sessions.
-              This allows for more interactive, personalized learning.
+              We use a flipped classroom model where you learn concepts at home through modules
+              and practice skills via AI chatbot sessions.
             </p>
           </div>
         </div>
 
-        <div class="platform-features">
+        <div class="features-box">
           <h3>What You'll Find Here</h3>
-          <ul class="features-list">
-            <li>
-              <strong>Structured Modules</strong> — Progressive learning from foundations to mastery
-            </li>
-            <li>
-              <strong>AI-Assisted Practice</strong> — Chatbot-powered role-play and speaking practice
-            </li>
-            <li>
-              <strong>Real Medical Contexts</strong> — Vocabulary, scenarios, and dialogues drawn from actual healthcare settings
-            </li>
-            <li>
-              <strong>Immediate Feedback</strong> — AI-powered evaluation of your speaking and writing
-            </li>
+          <ul>
+            <li><strong>Structured Modules</strong> — Progressive learning from foundations to mastery</li>
+            <li><strong>AI-Assisted Practice</strong> — Chatbot-powered role-play and speaking practice</li>
+            <li><strong>Real Medical Contexts</strong> — Vocabulary, scenarios, and dialogues from healthcare settings</li>
+            <li><strong>Immediate Feedback</strong> — AI-powered evaluation of your speaking and writing</li>
           </ul>
         </div>
-      </section>
+      </div>
 
-      <!-- SECTION B: About the Lecturer -->
-      <section class="lecturer-section">
-        <div class="section-badge">About the Lecturer</div>
+      <div class="divider"></div>
 
-        <div class="profile-card">
-          <div class="profile-header">
-            <div class="profile-avatar">
+      <div class="lecturer-section">
+        <span class="badge">About the Lecturer</span>
+
+        <div class="lecturer-card">
+          <div class="lecturer-header">
+            <div class="avatar">
               <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
                 <circle cx="32" cy="32" r="32" fill="#2563eb"/>
                 <circle cx="32" cy="26" r="12" fill="#93c5fd"/>
                 <path d="M12 56C12 44.954 20.954 36 32 36C43.046 36 52 44.954 52 56" fill="#93c5fd"/>
               </svg>
             </div>
-            <div class="profile-info">
-              <h2 class="profile-name">Emilius German</h2>
-              <p class="profile-role">Academic & Lecturer — President University</p>
+            <div>
+              <h3 class="lecturer-name">Emilius German</h3>
+              <p class="lecturer-role">Academic & Lecturer — President University</p>
             </div>
           </div>
-
-          <div class="profile-body">
-            <p class="profile-intro">
-              <strong>Emilius German</strong> is an academic and lecturer specializing in English
-              Language Education with a strong focus on Educational Technology (EdTech). He is
-              actively engaged in teaching, research, and the development of digital-based
-              learning innovations.
-            </p>
-            <p class="profile-intro">
-              As an academic adapting to the evolving educational landscape, Emilius emphasizes
-              enhancing learning quality through the effective use of technology, particularly in
-              English language education within the digital era.
-            </p>
-          </div>
+          <p>
+            <strong>Emilius German</strong> is an academic and lecturer specializing in English
+            Language Education with a focus on Educational Technology (EdTech). He is actively
+            engaged in teaching, research, and developing digital-based learning innovations.
+          </p>
+          <p>
+            As an academic adapting to the evolving educational landscape, Emilius emphasizes
+            enhancing learning quality through technology, particularly in English language
+            education within the digital era.
+          </p>
         </div>
 
-        <div class="lecturer-grid">
-          <div class="section-card">
+        <div class="card-grid">
+          <div class="card">
             <h3>Areas of Expertise</h3>
-            <ul class="expertise-list">
+            <ul>
               <li>English Language Education</li>
               <li>Educational Technology (EdTech)</li>
               <li>Applied Linguistics</li>
@@ -116,9 +101,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             </ul>
           </div>
 
-          <div class="section-card">
+          <div class="card">
             <h3>Research Interests</h3>
-            <ul class="expertise-list">
+            <ul>
               <li>Online learning</li>
               <li>Self-regulated learning</li>
               <li>Technology integration in language learning</li>
@@ -127,22 +112,22 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
 
-        <div class="section-card">
+        <div class="card">
           <h3>Academic Profile</h3>
           <p>
             Emilius German maintains an <strong>applied research orientation</strong>, focusing on
             practical solutions in education. His research explores how technology can improve
-            learning effectiveness, especially within the Indonesian educational context.
+            learning effectiveness within the Indonesian educational context.
           </p>
           <p>
             He is currently pursuing a <strong>Doctoral (Ph.D.) degree in Educational Technology</strong>,
-            demonstrating his commitment to advancing expertise and contributing broadly to the field.
+            demonstrating his commitment to advancing expertise in the field.
           </p>
         </div>
 
-        <div class="section-card">
+        <div class="card">
           <h3>Scholarly Characteristics</h3>
-          <ul class="expertise-list">
+          <ul>
             <li>Interdisciplinary — bridging education, technology, and language</li>
             <li>Practice-oriented and implementation-focused</li>
             <li>Responsive to digital learning developments</li>
@@ -150,7 +135,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </ul>
         </div>
 
-        <div class="section-card summary-card">
+        <div class="card highlight">
           <h3>Summary</h3>
           <p>
             Emilius German is an academic dedicated to advancing technology-enhanced English language
@@ -158,12 +143,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             developing effective, adaptive, and impactful learning innovations in modern education.
           </p>
         </div>
-      </section>
+      </div>
 
-      <div class="developed-by">
-        <p>
-          Developed by <a href="https://hijrahassalam.com" target="_blank" rel="noopener">hijrahassalam.com</a>
-        </p>
+      <div class="footer">
+        <p>Developed by <a href="https://hijrahassalam.com" target="_blank" rel="noopener">hijrahassalam.com</a></p>
       </div>
     </div>
   </div>
@@ -174,24 +157,24 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     padding: var(--space-12) 0 var(--space-20);
   }
 
-  .about-header {
+  .page-header {
     text-align: center;
     margin-bottom: var(--space-12);
   }
 
-  .about-header h1 {
+  .page-header h1 {
     font-size: var(--text-4xl);
     font-weight: 800;
     letter-spacing: -0.03em;
     margin-bottom: var(--space-3);
   }
 
-  .about-subtitle {
+  .page-header p {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
   }
 
-  .section-badge {
+  .badge {
     display: inline-block;
     padding: var(--space-1) var(--space-3);
     background: var(--color-primary-50);
@@ -206,7 +189,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   /* Platform Section */
   .platform-section {
-    margin-bottom: var(--space-16);
+    max-width: 800px;
+    margin: 0 auto var(--space-16);
   }
 
   .platform-section h2 {
@@ -217,77 +201,101 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     margin-bottom: var(--space-4);
   }
 
-  .platform-intro {
+  .lead {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
     line-height: var(--leading-relaxed);
-    max-width: 720px;
     margin-bottom: var(--space-8);
   }
 
-  .platform-grid {
+  .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-6);
-    margin-bottom: var(--space-8);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-6);
   }
 
-  .platform-card {
+  .card {
     background: var(--color-surface);
-    border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
     border: 1px solid var(--color-border-light);
-    padding: var(--space-6);
+    border-radius: var(--card-radius);
+    padding: var(--space-5);
   }
 
-  .platform-icon {
-    font-size: 2rem;
+  .card-icon {
+    font-size: 1.75rem;
+    display: block;
     margin-bottom: var(--space-3);
   }
 
-  .platform-card h3 {
-    font-size: var(--text-lg);
+  .card h3 {
+    font-size: var(--text-base);
     font-weight: 700;
     color: var(--color-text);
     margin-bottom: var(--space-2);
   }
 
-  .platform-card p {
+  .card p,
+  .card li {
     font-size: var(--text-sm);
     color: var(--color-text-secondary);
     line-height: var(--leading-relaxed);
   }
 
-  .platform-features {
+  .card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .card li {
+    padding-left: var(--space-5);
+    position: relative;
+    margin-bottom: var(--space-2);
+  }
+
+  .card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+
+  .features-box {
     background: linear-gradient(135deg, var(--color-primary-50), var(--color-surface));
     border: 1px solid var(--color-primary-100);
     border-radius: var(--card-radius);
-    padding: var(--space-8);
+    padding: var(--space-6);
   }
 
-  .platform-features h3 {
-    font-size: var(--text-xl);
+  .features-box h3 {
+    font-size: var(--text-lg);
     font-weight: 700;
     color: var(--color-text);
     margin-bottom: var(--space-4);
   }
 
-  .features-list {
+  .features-box ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
   }
 
-  .features-list li {
-    font-size: var(--text-base);
+  .features-box li {
+    font-size: var(--text-sm);
     color: var(--color-text-secondary);
-    padding-left: var(--space-6);
+    padding-left: var(--space-5);
     position: relative;
   }
 
-  .features-list li::before {
+  .features-box li::before {
     content: '✓';
     position: absolute;
     left: 0;
@@ -295,158 +303,98 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-weight: 700;
   }
 
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: var(--color-border);
+    margin: var(--space-12) 0;
+  }
+
   /* Lecturer Section */
   .lecturer-section {
-    border-top: 1px solid var(--color-border);
-    padding-top: var(--space-12);
+    max-width: 800px;
+    margin: 0 auto;
   }
 
-  .profile-card {
+  .lecturer-card {
     background: var(--color-surface);
-    border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
     border: 1px solid var(--color-border-light);
-    padding: var(--space-8);
-    margin-bottom: var(--space-6);
     border-top: 4px solid var(--color-primary);
+    border-radius: var(--card-radius);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
   }
 
-  .profile-header {
+  .lecturer-header {
     display: flex;
     align-items: center;
-    gap: var(--space-5);
-    margin-bottom: var(--space-6);
-    padding-bottom: var(--space-6);
+    gap: var(--space-4);
+    margin-bottom: var(--space-5);
+    padding-bottom: var(--space-5);
     border-bottom: 1px solid var(--color-border-light);
   }
 
-  .profile-avatar {
+  .avatar {
     flex-shrink: 0;
   }
 
-  .profile-info {
-    flex: 1;
-  }
-
-  .profile-name {
-    font-size: var(--text-2xl);
+  .lecturer-name {
+    font-size: var(--text-xl);
     font-weight: 700;
     color: var(--color-text);
     margin-bottom: var(--space-1);
-    letter-spacing: -0.02em;
   }
 
-  .profile-role {
-    font-size: var(--text-base);
-    color: var(--color-text-muted);
-  }
-
-  .profile-body {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-  }
-
-  .profile-intro {
-    font-size: var(--text-base);
-    line-height: var(--leading-relaxed);
-    color: var(--color-text-secondary);
-  }
-
-  .lecturer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-6);
-    margin-bottom: var(--space-6);
-  }
-
-  .section-card {
-    background: var(--color-surface);
-    border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
-    border: 1px solid var(--color-border-light);
-    padding: var(--space-6);
-    margin-bottom: var(--space-4);
-  }
-
-  .section-card h3 {
-    font-size: var(--text-lg);
-    font-weight: 700;
-    color: var(--color-text);
-    margin-bottom: var(--space-4);
-    letter-spacing: -0.01em;
-  }
-
-  .section-card p {
-    font-size: var(--text-base);
-    line-height: var(--leading-relaxed);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-3);
-  }
-
-  .section-card p:last-child {
-    margin-bottom: 0;
-  }
-
-  .expertise-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .expertise-list li {
-    font-size: var(--text-base);
-    color: var(--color-text-secondary);
-    padding-left: var(--space-6);
-    position: relative;
-  }
-
-  .expertise-list li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 8px;
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--color-primary);
-  }
-
-  .summary-card {
-    border-left: 4px solid var(--color-primary);
-  }
-
-  .developed-by {
-    text-align: center;
-    padding: var(--space-10) 0;
-    margin-top: var(--space-6);
-    border-top: 1px solid var(--color-border);
-  }
-
-  .developed-by p {
+  .lecturer-role {
     font-size: var(--text-sm);
     color: var(--color-text-muted);
   }
 
-  .developed-by a {
+  .lecturer-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-3);
+  }
+
+  .lecturer-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .highlight {
+    border-left: 4px solid var(--color-primary);
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: var(--space-12) 0;
+    margin-top: var(--space-12);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .footer a {
     color: var(--color-primary);
     text-decoration: none;
     font-weight: 600;
   }
 
-  .developed-by a:hover {
+  .footer a:hover {
     text-decoration: underline;
   }
 
   @media (max-width: 640px) {
-    .profile-header {
+    .lecturer-header {
       flex-direction: column;
       text-align: center;
     }
 
-    .platform-grid {
+    .card-grid {
       grid-template-columns: 1fr;
     }
   }
