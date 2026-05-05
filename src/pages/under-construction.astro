@@ -2,23 +2,50 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Under Construction">
+<BaseLayout title="Coming Soon">
   <div class="construction-page">
     <div class="construction-content">
       <div class="construction-icon">
         <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <circle cx="40" cy="40" r="36" stroke="#2563eb" stroke-width="4" stroke-dasharray="8 8"/>
-          <path d="M40 24V44L52 52" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <rect x="8" y="24" width="64" height="48" rx="4" stroke="#2563eb" stroke-width="3"/>
+          <path d="M8 36H72" stroke="#2563eb" stroke-width="3"/>
+          <circle cx="40" cy="14" r="8" stroke="#2563eb" stroke-width="3"/>
+          <path d="M40 6V22" stroke="#2563eb" stroke-width="3" stroke-linecap="round"/>
         </svg>
       </div>
-      <h1 class="construction-title">Under Construction</h1>
+
+      <div class="section-badge">Coming Soon</div>
+
+      <h1 class="construction-title">This Section is Being Prepared</h1>
+
       <p class="construction-description">
-        This section is currently being developed. Please check back later
-        or explore our available modules.
+        As part of our comprehensive OET learning platform, this section is currently being
+        developed to provide you with complete course resources and learning materials.
       </p>
+
+      <div class="coming-soon-details">
+        <h2>What's Coming</h2>
+        <ul class="details-list">
+          <li>
+            <span class="detail-icon">📋</span>
+            <div>
+              <strong>RPS (Rencana Pembelajaran Semester)</strong>
+              <p>Complete course syllabus and semester learning plan</p>
+            </div>
+          </li>
+          <li>
+            <span class="detail-icon">🧠</span>
+            <div>
+              <strong>Learning Model</strong>
+              <p>Explanation of teaching and learning approaches used in this course</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
       <div class="construction-actions">
-        <a href="/modules/module-1" class="btn btn-primary btn-lg">
-          Go to Module 1
+        <a href="/modules/module-2" class="btn btn-primary btn-lg">
+          Continue Learning
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
             <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
@@ -37,37 +64,101 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-8);
+    padding: var(--space-12) var(--space-8);
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-primary-50) 100%);
   }
 
   .construction-content {
     text-align: center;
-    max-width: 480px;
+    max-width: 560px;
+    background: var(--color-surface);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow-elevated);
+    border: 1px solid var(--color-border-light);
+    padding: var(--space-10);
   }
 
   .construction-icon {
-    margin-bottom: var(--space-8);
-    animation: pulse 2s ease-in-out infinite;
+    margin-bottom: var(--space-6);
   }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
+  .section-badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-4);
+    background: var(--color-primary-50);
+    color: var(--color-primary);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--space-4);
   }
 
   .construction-title {
-    font-size: var(--text-3xl);
+    font-size: var(--text-2xl);
     font-weight: 800;
     color: var(--color-text);
-    margin-bottom: var(--space-4);
     letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
   }
 
   .construction-description {
-    font-size: var(--text-lg);
+    font-size: var(--text-base);
     color: var(--color-text-secondary);
     line-height: var(--leading-relaxed);
     margin-bottom: var(--space-8);
+  }
+
+  .coming-soon-details {
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    padding: var(--space-6);
+    margin-bottom: var(--space-8);
+    text-align: left;
+  }
+
+  .coming-soon-details h2 {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-4);
+  }
+
+  .details-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .details-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+
+  .detail-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .details-list strong {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+  }
+
+  .details-list p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: var(--leading-relaxed);
   }
 
   .construction-actions {

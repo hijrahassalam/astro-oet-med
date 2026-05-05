@@ -7,80 +7,158 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <div class="container">
       <div class="about-header">
         <h1>About</h1>
-        <p class="about-subtitle">Learn more about the project and its creator.</p>
+        <p class="about-subtitle">Learn more about the platform and the lecturer behind it.</p>
       </div>
 
-      <div class="profile-card">
-        <div class="profile-header">
-          <div class="profile-avatar">
-            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
-              <circle cx="32" cy="32" r="32" fill="#2563eb"/>
-              <circle cx="32" cy="26" r="12" fill="#93c5fd"/>
-              <path d="M12 56C12 44.954 20.954 36 32 36C43.046 36 52 44.954 52 56" fill="#93c5fd"/>
-            </svg>
+      <!-- SECTION A: About the Platform -->
+      <section class="platform-section">
+        <div class="section-badge">About the Platform</div>
+        <h2>OET Learning Platform</h2>
+        <p class="platform-intro">
+          A structured digital learning platform designed specifically for healthcare professionals
+          preparing for the Occupational English Test (OET). Our mission is to make English
+          language learning accessible, practical, and relevant to medical contexts.
+        </p>
+
+        <div class="platform-grid">
+          <div class="platform-card">
+            <div class="platform-icon">🎯</div>
+            <h3>Who It's For</h3>
+            <p>
+              Healthcare professionals including doctors, nurses, pharmacists, dentists, and
+              allied health workers who need to prove their English proficiency for registration
+              or work in English-speaking environments.
+            </p>
           </div>
-          <div class="profile-info">
-            <h2 class="profile-name">Emilius German</h2>
-            <p class="profile-role">Academic & Lecturer</p>
+
+          <div class="platform-card">
+            <div class="platform-icon">💡</div>
+            <h3>Why It Exists</h3>
+            <p>
+              Traditional OET resources often lack medical specificity and real-world practice
+              opportunities. This platform bridges that gap with contextually relevant materials,
+              AI-assisted practice, and structured learning paths.
+            </p>
+          </div>
+
+          <div class="platform-card">
+            <div class="platform-icon">📚</div>
+            <h3>Learning Approach</h3>
+            <p>
+              We use a <strong>flipped classroom model</strong> where you learn concepts at home
+              through our modules and practice skills in class or via AI chatbot sessions.
+              This allows for more interactive, personalized learning.
+            </p>
           </div>
         </div>
 
-        <div class="profile-body">
-          <p class="profile-intro">
-            <strong>Emilius German</strong> is an academic and lecturer in the field of English Language Education with a strong focus on the integration of technology in learning processes (Educational Technology/EdTech). He is currently affiliated with President University and actively engaged in teaching, research, and the development of digital-based learning innovations.
+        <div class="platform-features">
+          <h3>What You'll Find Here</h3>
+          <ul class="features-list">
+            <li>
+              <strong>Structured Modules</strong> — Progressive learning from foundations to mastery
+            </li>
+            <li>
+              <strong>AI-Assisted Practice</strong> — Chatbot-powered role-play and speaking practice
+            </li>
+            <li>
+              <strong>Real Medical Contexts</strong> — Vocabulary, scenarios, and dialogues drawn from actual healthcare settings
+            </li>
+            <li>
+              <strong>Immediate Feedback</strong> — AI-powered evaluation of your speaking and writing
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SECTION B: About the Lecturer -->
+      <section class="lecturer-section">
+        <div class="section-badge">About the Lecturer</div>
+
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="32" fill="#2563eb"/>
+                <circle cx="32" cy="26" r="12" fill="#93c5fd"/>
+                <path d="M12 56C12 44.954 20.954 36 32 36C43.046 36 52 44.954 52 56" fill="#93c5fd"/>
+              </svg>
+            </div>
+            <div class="profile-info">
+              <h2 class="profile-name">Emilius German</h2>
+              <p class="profile-role">Academic & Lecturer — President University</p>
+            </div>
+          </div>
+
+          <div class="profile-body">
+            <p class="profile-intro">
+              <strong>Emilius German</strong> is an academic and lecturer specializing in English
+              Language Education with a strong focus on Educational Technology (EdTech). He is
+              actively engaged in teaching, research, and the development of digital-based
+              learning innovations.
+            </p>
+            <p class="profile-intro">
+              As an academic adapting to the evolving educational landscape, Emilius emphasizes
+              enhancing learning quality through the effective use of technology, particularly in
+              English language education within the digital era.
+            </p>
+          </div>
+        </div>
+
+        <div class="lecturer-grid">
+          <div class="section-card">
+            <h3>Areas of Expertise</h3>
+            <ul class="expertise-list">
+              <li>English Language Education</li>
+              <li>Educational Technology (EdTech)</li>
+              <li>Applied Linguistics</li>
+              <li>Curriculum Development</li>
+            </ul>
+          </div>
+
+          <div class="section-card">
+            <h3>Research Interests</h3>
+            <ul class="expertise-list">
+              <li>Online learning</li>
+              <li>Self-regulated learning</li>
+              <li>Technology integration in language learning</li>
+              <li>Development of teaching methods and learning media</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <h3>Academic Profile</h3>
+          <p>
+            Emilius German maintains an <strong>applied research orientation</strong>, focusing on
+            practical solutions in education. His research explores how technology can improve
+            learning effectiveness, especially within the Indonesian educational context.
           </p>
-          <p class="profile-intro">
-            As an academic who adapts to the evolving educational landscape, Emilius German emphasizes enhancing learning quality through the effective use of technology, particularly in the context of English language education in the digital era.
+          <p>
+            He is currently pursuing a <strong>Doctoral (Ph.D.) degree in Educational Technology</strong>,
+            demonstrating his commitment to advancing expertise and contributing broadly to the field.
           </p>
         </div>
-      </div>
 
-      <div class="section-card">
-        <h3>Areas of Expertise</h3>
-        <ul class="expertise-list">
-          <li>English Language Education</li>
-          <li>Educational Technology (EdTech)</li>
-          <li>Applied Linguistics</li>
-          <li>Curriculum Development</li>
-        </ul>
-      </div>
+        <div class="section-card">
+          <h3>Scholarly Characteristics</h3>
+          <ul class="expertise-list">
+            <li>Interdisciplinary — bridging education, technology, and language</li>
+            <li>Practice-oriented and implementation-focused</li>
+            <li>Responsive to digital learning developments</li>
+            <li>Committed to improving learning quality</li>
+          </ul>
+        </div>
 
-      <div class="section-card">
-        <h3>Research Interests</h3>
-        <ul class="expertise-list">
-          <li>Online learning</li>
-          <li>Self-regulated learning</li>
-          <li>Technology integration in language learning</li>
-          <li>Development of teaching methods and learning media</li>
-        </ul>
-      </div>
-
-      <div class="section-card">
-        <h3>Academic Profile</h3>
-        <p>
-          Emilius German is an academic with an <strong>applied research orientation</strong>, focusing on practical solutions in education. His research primarily explores how technology can be implemented to improve learning effectiveness, especially within the Indonesian educational context.
-        </p>
-        <p>
-          He is currently pursuing a <strong>Doctoral (Ph.D.) degree in Educational Technology</strong>, reflecting his commitment to advancing his academic expertise and contributing more broadly to the field of education.
-        </p>
-      </div>
-
-      <div class="section-card">
-        <h3>Scholarly Characteristics</h3>
-        <ul class="expertise-list">
-          <li>Interdisciplinary (education, technology, and language)</li>
-          <li>Practice-oriented and implementation-focused</li>
-          <li>Responsive to digital learning developments</li>
-          <li>Committed to improving learning quality</li>
-        </ul>
-      </div>
-
-      <div class="section-card summary-card">
-        <h3>Summary</h3>
-        <p>
-          Emilius German is an academic dedicated to advancing technology-enhanced English language learning. With a practical and context-relevant approach, he continues to contribute to the development of effective, adaptive, and impactful learning innovations in modern education.
-        </p>
-      </div>
+        <div class="section-card summary-card">
+          <h3>Summary</h3>
+          <p>
+            Emilius German is an academic dedicated to advancing technology-enhanced English language
+            learning. With a practical and context-relevant approach, he continues to contribute to
+            developing effective, adaptive, and impactful learning innovations in modern education.
+          </p>
+        </div>
+      </section>
 
       <div class="developed-by">
         <p>
@@ -98,7 +176,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   .about-header {
     text-align: center;
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-12);
   }
 
   .about-header h1 {
@@ -111,6 +189,116 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .about-subtitle {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
+  }
+
+  .section-badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-3);
+    background: var(--color-primary-50);
+    color: var(--color-primary);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: var(--space-4);
+  }
+
+  /* Platform Section */
+  .platform-section {
+    margin-bottom: var(--space-16);
+  }
+
+  .platform-section h2 {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-4);
+  }
+
+  .platform-intro {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    max-width: 720px;
+    margin-bottom: var(--space-8);
+  }
+
+  .platform-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-8);
+  }
+
+  .platform-card {
+    background: var(--color-surface);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--color-border-light);
+    padding: var(--space-6);
+  }
+
+  .platform-icon {
+    font-size: 2rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .platform-card h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-2);
+  }
+
+  .platform-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .platform-features {
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-surface));
+    border: 1px solid var(--color-primary-100);
+    border-radius: var(--card-radius);
+    padding: var(--space-8);
+  }
+
+  .platform-features h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .features-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .features-list li {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .features-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+
+  /* Lecturer Section */
+  .lecturer-section {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-12);
   }
 
   .profile-card {
@@ -163,6 +351,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     font-size: var(--text-base);
     line-height: var(--leading-relaxed);
     color: var(--color-text-secondary);
+  }
+
+  .lecturer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-6);
   }
 
   .section-card {
@@ -249,6 +444,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     .profile-header {
       flex-direction: column;
       text-align: center;
+    }
+
+    .platform-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
