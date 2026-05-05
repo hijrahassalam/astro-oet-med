@@ -1,0 +1,783 @@
+---
+import ModuleLayout from '../../layouts/ModuleLayout.astro';
+import SectionCard from '../../components/SectionCard.astro';
+
+const learningObjectives = [
+  "C1 Identify the structure and criteria of OET Speaking",
+  "C2 Explain patient-friendly vocabulary, based on the context",
+  "C2 Explain grammar, and empathy strategies",
+  "C3 Apply appropriate language in structured speaking tasks using chatbot",
+  "C4 Analyze patient needs and emotional cues and do a roleplay with the chatbot.",
+  "C5 Evaluate speaking performance using OET criteria and AI feedback",
+  "C6 Produce a clear, empathetic, and coherent OET role-play",
+];
+---
+
+<ModuleLayout
+  moduleNumber={2}
+  title="Speaking 1"
+  description="Learn the foundational skills for OET Speaking sub-test including structure, vocabulary, grammar, and practice with AI chatbot."
+>
+  <SectionCard id="overview" title="Overview">
+    <div class="objectives-box">
+      <h3>Learning Objectives</h3>
+      <p>By the end of this chapter, students will be able to:</p>
+      <ul>
+        {learningObjectives.map((obj) => (
+          <li>{obj}</li>
+        ))}
+      </ul>
+    </div>
+
+    <h3>1. Overview of the Speaking Sub-Test</h3>
+    <p>
+      The OET Speaking test has a short warm-up (not scored) and two role-plays. In each role-play,
+      you act as a healthcare professional, and the examiner is the patient or carer. Before speaking,
+      you have 3 minutes to prepare. During this time, read the situation, understand your role,
+      check the patient's problem, and think of simple phrases to use.
+    </p>
+    <p>
+      During the role-play, start with a polite greeting, ask simple questions, and show empathy.
+      Give clear explanations and advice using easy and polite language. Do not speak too directly.
+      Also, give the patient time to respond and keep the conversation natural.
+    </p>
+    <p>
+      To improve, practice role-plays, learn useful phrases, and remember that effective
+      communication is more important than perfect grammar.
+    </p>
+
+    <div class="video-note">
+      <p>
+        <strong>📺 To have a better understanding of Speaking part A, watch this video:</strong><br/>
+        <a href="https://www.youtube.com/results?search_query=OET+Speaking+Test+Part1" target="_blank" rel="noopener">
+          OET Speaking Test Part 1 #oet
+        </a>
+      </p>
+      <p>
+        <strong>📝 Quiz:</strong>
+        <a href="https://app.edcafe.ai/youtube-quiz/696deafbf109ed45c70fe1f2" target="_blank" rel="noopener">
+          https://app.edcafe.ai/youtube-quiz/696deafbf109ed45c70fe1f2
+        </a>
+      </p>
+    </div>
+
+    <figure class="section-image">
+      <img src="/images/image6.png" alt="OET Speaking Blueprint" width="87" height="87" />
+    </figure>
+
+    <h4>OET Speaking Blueprint: Clinical Dialogue Framework</h4>
+    <p>
+      The "OET Speaking Blueprint: Beginner's Clinical Dialogue Guide" provides a standardized,
+      six-step framework designed to facilitate clear and professional communication between
+      healthcare providers and patients. The framework, summarized by the mnemonic:
+    </p>
+    <p class="framework-mnemonic">
+      <strong>OPEN → ASK → EXPLAIN → REASSURE → ADVISE → CLOSE</strong>
+    </p>
+    <p>
+      prioritizes polite engagement, systematic information gathering, and structured delivery
+      of medical information. Key takeaways include the differentiation of dialogue based on
+      clinical setting (clinic vs. hospital) and a specific pedagogical model for explaining
+      medical conditions: linking cause, symptoms, treatment, and preventative advice in a
+      logical sequence.
+    </p>
+    <p>
+      <a href="/docs/Clinical_Communication_Framework.pdf.pdf" target="_blank" rel="noopener">
+        📄 Clinical Communication Framework PDF
+      </a>
+    </p>
+
+    <h3>2. Criteria of Speaking Sub-Test</h3>
+    <p>
+      The OET speaking subtest is assessed based on two main areas: <strong>language skills</strong>
+      and <strong>clinical communication</strong>.
+    </p>
+    <p>
+      <em>Language skills</em> focus on how clearly and smoothly you speak, including clarity
+      (easy to understand), fluency (natural speed), appropriateness (using the right tone),
+      and accuracy (correct grammar and vocabulary).
+    </p>
+    <p>
+      At the same time, <em>clinical communication</em> measures how well you interact with the
+      patient, such as building a good relationship, understanding the patient's feelings,
+      organizing the conversation clearly, and giving and gathering information effectively.
+    </p>
+    <p>
+      To get a good score, you need to speak clearly, use simple and correct language, show empathy,
+      and guide the patient step by step during the conversation.
+    </p>
+    <p>
+      <a href="/docs/OET_Speaking_Scoring_Simplified.pdf" target="_blank" rel="noopener">
+        📄 OET Speaking Scoring Simplified PDF
+      </a>
+    </p>
+  </SectionCard>
+
+  <SectionCard id="vocabulary" title="Vocabulary">
+    <figure class="section-image header-image">
+      <img src="/images/image1.png" alt="Key Vocabulary Header" width="386" height="217" />
+    </figure>
+
+    <h3>3. Key Vocabulary for OET Speaking</h3>
+    <p>🔑 <strong>15 Key Vocabulary Items</strong></p>
+
+    <div class="table-wrapper">
+      <table class="vocab-table">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Vocabulary</th>
+            <th>Meaning (Simple)</th>
+            <th>Example Sentences</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>pregnant</td>
+            <td>having a baby in the body</td>
+            <td>You may be pregnant, but we need to confirm it first.</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>pregnancy test</td>
+            <td>a test to check pregnancy</td>
+            <td>Have you taken a pregnancy test yet?</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>positive</td>
+            <td>showing yes/result is true</td>
+            <td>A positive result usually means you are pregnant.</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>worried</td>
+            <td>feeling nervous or concerned</td>
+            <td>I understand that you are feeling worried right now.</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>shocked</td>
+            <td>very surprised</td>
+            <td>It's okay to feel shocked after hearing this result.</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>advice</td>
+            <td>helpful suggestion</td>
+            <td>I will give you some advice on what to do next.</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>confidential</td>
+            <td>private, not shared with others</td>
+            <td>Everything we talk about here is confidential.</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>decision</td>
+            <td>a choice you make</td>
+            <td>This is your decision, and we will respect it.</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>support</td>
+            <td>help from someone</td>
+            <td>You don't have to go through this alone, we can support you.</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>options</td>
+            <td>different choices</td>
+            <td>Let me explain the options available to you.</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>specialist</td>
+            <td>doctor with special knowledge</td>
+            <td>I can refer you to a specialist for further care.</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>trust</td>
+            <td>to believe someone is safe or honest</td>
+            <td>You can trust me to help you through this situation.</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>parents</td>
+            <td>mother and father</td>
+            <td>Have you talked to your parents about this?</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>unexpected</td>
+            <td>not planned or not expected</td>
+            <td>I understand this may be an unexpected situation for you.</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>discuss</td>
+            <td>to talk about something</td>
+            <td>We can discuss your concerns and any questions you have.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="vocab-exercise">
+      <p><strong>✍️ Vocabulary Exercise</strong></p>
+      <p>To identify how well your understanding of the vocabulary is, take the following quiz:</p>
+      <p><strong>Quiz:</strong> <a href="https://app.edcafe.ai/quizzes/69899ca63159d0c298cf730f" target="_blank" rel="noopener">https://app.edcafe.ai/quizzes/69899ca63159d0c298cf730f</a></p>
+    </div>
+  </SectionCard>
+
+  <SectionCard id="grammar" title="Grammar">
+    <figure class="section-image header-image">
+      <img src="/images/image5.png" alt="Grammar Header" width="157" height="157" />
+    </figure>
+
+    <h3>4. Grammar for OET Speaking</h3>
+    <p>
+      In OET Speaking, you should use simple and clear grammar to communicate with patients.
+      You do not need long or difficult sentences. Instead, use an easy pattern like
+      <strong>Subject + Modal + Verb + Object</strong> (e.g., <em>I need to check your leg first</em>)
+      to make your speech polite and clear.
+    </p>
+    <p>
+      Use modal verbs like <em>can</em>, <em>should</em>, <em>need to</em>, and <em>cannot</em> to sound
+      more polite, especially when giving advice or refusing requests.
+    </p>
+    <p>
+      You can also use simple if-sentences (first conditional) to explain risks, such as what may
+      happen if a patient takes certain medicine.
+    </p>
+    <p>
+      The key idea is to speak in short, simple sentences, use everyday words, and avoid complicated
+      grammar so the patient can easily understand you.
+    </p>
+
+    <div class="grammar-note">
+      <p><strong>📌 Instruction for Students:</strong></p>
+      <p>
+        Please read this full file <a href="/docs/OET_Speaking_Grammar.pdf" target="_blank" rel="noopener">OET Speaking Grammar PDF</a>
+        carefully to learn the grammar patterns in detail. This will help you speak more clearly
+        and confidently in the OET Speaking test.
+      </p>
+      <p>
+        Or you can watch a video here:<br/>
+        <a href="https://youtu.be/WURhySarfuA" target="_blank" rel="noopener">https://youtu.be/WURhySarfuA</a>
+      </p>
+    </div>
+  </SectionCard>
+
+  <SectionCard id="practice" title="Practice">
+    <h3>5. Practice with AI Chatbot</h3>
+    <p>
+      Read the following cue card. Read it carefully to understand the context.
+    </p>
+
+    <figure class="cue-card">
+      <img src="/images/image3.png" alt="Doctor Cue Card" width="326" height="460" />
+      <figcaption>Cue Card (Doctor Role)</figcaption>
+    </figure>
+
+    <p>
+      And here is the other cue card as a caregiver. Read it carefully to understand the context.
+    </p>
+
+    <figure class="cue-card">
+      <img src="/images/image2.png" alt="Caregiver Cue Card" width="386" height="545" />
+      <figcaption>Cue Card (Caregiver Role)</figcaption>
+    </figure>
+
+    <p>
+      After completing the exercises above, use the AI chatbot to practice.
+    </p>
+
+    <div class="chatbot-section">
+      <p>
+        <strong>🤖 Click the chatbot link below and write your complete name</strong>
+      </p>
+      <p>
+        Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
+        will guide you practice.
+      </p>
+      <div class="chatbot-with-qr">
+        <div class="chatbot-link">
+          <p>
+            <strong>Link:</strong> <a href="https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad" target="_blank" rel="noopener">https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad</a>
+          </p>
+        </div>
+        <figure class="qr-code">
+          <img src="/images/image4.png" alt="Chatbot QR Code" width="137" height="137" />
+          <figcaption>Scan to open chatbot</figcaption>
+        </figure>
+      </div>
+    </div>
+    <p>
+      After completing the exercises above, use the AI chatbot to practice.
+    </p>
+
+    <div class="chatbot-section">
+      <p>
+        <strong>🤖 Click the chatbot link below and write your complete name</strong>
+      </p>
+      <p>
+        Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
+        will guide you practice.
+      </p>
+      <p>
+        <strong>Link:</strong> <a href="https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad" target="_blank" rel="noopener">https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad</a>
+      </p>
+    </div>
+
+    <h4>Steps to Use the Chatbot for OET Speaking Practice (as a DOCTOR)</h4>
+    <ol>
+      <li>Open the chatbot link and enter your full name.</li>
+      <li>Take a screenshot of the role-play cue card (Doctor or Patient) and upload it to the chatbot.</li>
+      <li>
+        Type the prompt:<br/>
+        <em>"Read the attached cue card and guide me to practice."</em><br/>
+        In this context a chatbot functions as structured practice tool and automatic feedback.
+      </li>
+      <li>Follow the chatbot's guidance step by step:
+        <ul>
+          <li>Speak one idea at a time</li>
+          <li>Use short, clear sentences</li>
+          <li>Pronounce words clearly</li>
+          <li>Repeat the practice until all tasks on the cue card are completed.</li>
+        </ul>
+      </li>
+      <li>Read the summary feedback provided by the chatbot.</li>
+      <li>Answer the reflection questions about your speaking experience.</li>
+      <li>Copy all your answers into one page to form a complete dialogue (doctor–patient).</li>
+    </ol>
+
+    <h4>Steps to Use the Chatbot for OET Speaking Practice (as a PATIENT)</h4>
+    <figure class="cue-card">
+      <img src="/images/image3.png" alt="Patient Cue Card" width="377" height="460" />
+      <figcaption>Cue Card (Patient Role)</figcaption>
+    </figure>
+
+    <figure class="cue-card">
+      <img src="/images/image2.png" alt="Caregiver Cue Card" width="386" height="545" />
+      <figcaption>Cue Card (Caregiver Role)</figcaption>
+    </figure>
+
+    <ol>
+      <li>Take a screenshot of the role-play cue card (Patient) and upload it to the chatbot.</li>
+      <li>Type the prompt: "Read the attached cue card and guide me to practice."</li>
+      <li>Follow the chatbot's guidance step by step:
+        <ul>
+          <li>Speak one idea at a time</li>
+          <li>Use short, clear sentences</li>
+          <li>Pronounce words clearly</li>
+          <li>Repeat the practice until all tasks on the cue card are completed.</li>
+        </ul>
+      </li>
+      <li>Read the summary feedback provided by the chatbot.</li>
+      <li>Answer the reflection questions about your speaking experience.</li>
+    </ol>
+
+    <h4>Merging Doctor and Patient Responses</h4>
+    <p>
+      Now merge all the responses from the doctor and patient. Upload the new page/file (A complete
+      dialogue between doctor and patient) and use this following prompt:
+    </p>
+    <div class="prompt-box">
+      <p><strong>Prompt:</strong> Merge the conversation between a doctor and a patient in the attached file so it becomes a complete dialogue between a patient and a doctor</p>
+    </div>
+    <p>
+      The result of your work has to be like the example is available here:<br/>
+      <a href="https://docs.google.com/document/d/1UTEDSJ3nujgSJsKYZ523A8mbQCI9XzZp_495p3V0H6I/edit?usp=sharing" target="_blank" rel="noopener">
+        Steps in using Chatbot for Speaking Activities
+      </a>
+    </p>
+
+    <h4>AI CHATBOT AS CONVERSATIONAL PARTNER</h4>
+    <div class="chatbot-section">
+      <p>
+        <strong>🤖 Click the chatbot link below and write your complete name</strong>
+      </p>
+      <p>
+        Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
+        will guide you practice.
+      </p>
+      <div class="chatbot-with-qr">
+        <div class="chatbot-link">
+          <p>
+            <strong>Link:</strong> <a href="https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad" target="_blank" rel="noopener">https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad</a>
+          </p>
+        </div>
+        <figure class="qr-code">
+          <img src="/images/image4.png" alt="Chatbot QR Code" width="137" height="137" />
+          <figcaption>Scan to open chatbot</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <h4>Steps to Use the Chatbot as a Conversational Partner</h4>
+    <ol>
+      <li>Open your pdf files you uploaded before to help you respond the chatbot</li>
+      <li>Upload two cue cards: doctor and patient</li>
+      <li>
+        To start, Use this prompt:<br/>
+        <em>"Read the attached cue cards and be my conversational partner. You take a role as a patient.
+        I will be a doctor. Make sure your questions are in line with the patient's task in the cue card.
+        Can we start?"</em><br/>
+        In this context a chatbot functions as conversational partner.
+      </li>
+    </ol>
+    <p>
+      Here is an example of doing roleplay conversation with the chatbot, as speaking partner is
+      available in this link:<br/>
+      <a href="https://docs.google.com/document/d/1Z53yrMLP0JvIzKIDf_AVhD5zbry4NKJkC3b-b9LkGhI/edit?usp=sharing" target="_blank" rel="noopener">
+        https://docs.google.com/document/d/1Z53yrMLP0JvIzKIDf_AVhD5zbry4NKJkC3b-b9LkGhI/edit?usp=sharing
+      </a>
+    </p>
+
+    <div class="feedback-tip">
+      <p>
+        <strong>💡 Ask the chatbot for feedback:</strong><br/>
+        "Can you provide feedback for my performance as a doctor?"<br/>
+        Screenshot the results and save them in Google Docs.
+      </p>
+    </div>
+  </SectionCard>
+
+  <SectionCard id="exercise" title="Exercise">
+    <h3>In-Class Activities</h3>
+
+    <h4>Introduction to In-Class Activities</h4>
+    <p>
+      After you finish the pre-class and chatbot practice, you are ready to practice in class.
+      At this stage, you will apply what you have learned in real speaking activities. You will
+      practice, get feedback, and improve step by step. These activities help you speak more
+      clearly and communicate better in a clinical situation.
+    </p>
+
+    <h4>Executing the Role-Play</h4>
+    <p>
+      In this stage, you do a role-play with a partner. One of you is the doctor, and the other
+      is the patient. You use OET-style situations. You try to start, continue, and finish the
+      conversation. You should speak clearly, use simple and appropriate language, and show care
+      to the patient.
+    </p>
+
+    <h4>Feedback from the Lecturer Based on the Criteria</h4>
+    <p>
+      After the role-play, you get feedback from the lecturer. The feedback looks at your fluency,
+      pronunciation, vocabulary, and how you communicate with the patient. You use this feedback
+      to understand what you did well and what you need to improve.
+    </p>
+
+    <div class="table-wrapper">
+      <table class="criteria-table">
+        <thead>
+          <tr>
+            <th>Section</th>
+            <th>Criterion</th>
+            <th>Descriptor Focus</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="5"><strong>A. Linguistic Competence</strong></td>
+            <td><strong>Intelligibility</strong></td>
+            <td>Pronunciation clarity, stress, and intonation<br/>Is the speech clear and easy to understand?</td>
+          </tr>
+          <tr>
+            <td><strong>Fluency</strong></td>
+            <td>Speech flow, pace, and hesitation<br/>Is the speech smooth or full of hesitation?</td>
+          </tr>
+          <tr>
+            <td><strong>Appropriateness of Language</strong></td>
+            <td>Use of patient-friendly and professional language<br/>Is the language polite, professional, patient-friendly?</td>
+          </tr>
+          <tr>
+            <td><strong>Grammar & Expression</strong></td>
+            <td>Control and range of grammatical structures<br/>Are sentences accurate and varied?</td>
+          </tr>
+          <tr>
+            <td><strong>Vocabulary Range</strong></td>
+            <td>Precision and breadth of vocabulary<br/>Is vocabulary precise and appropriate?</td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>Linguistic Subtotal</strong></td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td rowspan="5"><strong>B. Clinical Communication Competence</strong></td>
+            <td><strong>Relationship Building</strong></td>
+            <td>Empathy, rapport, and respect<br/>Does the speaker show empathy and rapport?</td>
+          </tr>
+          <tr>
+            <td><strong>Understanding Patient Perspective</strong></td>
+            <td>Acknowledgement of patient concerns and feelings<br/>Are patient concerns acknowledged?</td>
+          </tr>
+          <tr>
+            <td><strong>Providing Structure</strong></td>
+            <td>Organization and clear signposting<br/>Is the conversation organized logically?</td>
+          </tr>
+          <tr>
+            <td><strong>Information Gathering</strong></td>
+            <td>Effective questioning and active listening<br/>Are relevant questions asked?</td>
+          </tr>
+          <tr>
+            <td><strong>Information Giving</strong></td>
+            <td>Clarity and usefulness of explanations<br/>Is information clear and understandable?</td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>Clinical Subtotal</strong></td>
+            <td>—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>You will be scored based on the following criteria.</p>
+    <p>
+      <strong>📄 OET-Based Assessment Criteria:</strong>
+      <a href="/docs/oet_speaking_scoring_template_auto_rows.xlsx" target="_blank" rel="noopener">oet_speaking_scoring_template_auto_rows.xlsx</a>
+    </p>
+  </SectionCard>
+
+  <SectionCard id="summary" title="Summary">
+    <h3>D. Summary</h3>
+    <p>
+      This chapter strengthened OET Speaking skills by integrating key medical vocabulary,
+      patient-friendly grammar, and empathetic communication strategies. Through a flipped
+      classroom supported by AI tools, students progressed from recognizing language forms to
+      creating complete, confident, and compassionate OET role-plays aligned with Band D–C
+      expectations.
+    </p>
+  </SectionCard>
+
+  <SectionCard id="reflection" title="Reflection">
+    <h3>F. Reflection</h3>
+    <p>
+      Answer the following questions by filing in a form in this link:<br/>
+      <a href="https://forms.gle/L7MMW1HAfDqb4rtKA" target="_blank" rel="noopener">https://forms.gle/L7MMW1HAfDqb4rtKA</a>
+    </p>
+
+    <h4>Language Reflection</h4>
+    <ul>
+      <li>Which vocabulary felt most useful today?</li>
+      <li>Which grammar structure helped me sound more professional?</li>
+      <li>Which part of the learning process do you find interesting? And why?</li>
+    </ul>
+
+    <h4>Personal Reflection</h4>
+    <ul>
+      <li>How confident did I feel speaking today?</li>
+      <li>One improvement I will focus on next time is: _____</li>
+      <li>How will I improve it?</li>
+    </ul>
+
+    <h4>AI Chatbot Reflection</h4>
+    <ul>
+      <li>Does the chatbot help me improve?</li>
+      <li>How does the chatbot improve it?</li>
+    </ul>
+  </SectionCard>
+</ModuleLayout>
+
+<style>
+  .objectives-box {
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-surface));
+    border: 1px solid var(--color-primary-200);
+    border-radius: var(--card-radius);
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
+
+  .objectives-box h3 {
+    color: var(--color-primary);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+  }
+
+  .objectives-box ul {
+    margin-bottom: 0;
+  }
+
+  .objectives-box li {
+    margin-bottom: var(--space-2);
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  h3:first-child {
+    margin-top: 0;
+  }
+
+  h4 {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-3);
+  }
+
+  .framework-mnemonic {
+    font-size: var(--text-xl);
+    text-align: center;
+    padding: var(--space-4);
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    letter-spacing: 0.05em;
+  }
+
+  .video-note,
+  .grammar-note,
+  .vocab-exercise,
+  .chatbot-section,
+  .feedback-tip {
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+  }
+
+  .prompt-box {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--card-radius);
+    padding: var(--space-4);
+    margin: var(--space-4) 0;
+  }
+
+  .table-wrapper {
+    overflow-x: auto;
+    margin: var(--space-4) 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+  }
+
+  th, td {
+    border: 1px solid var(--color-border);
+    padding: var(--space-3);
+    text-align: left;
+  }
+
+  th {
+    background: var(--color-primary-50);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  td {
+    vertical-align: top;
+  }
+
+  .vocab-table td:first-child {
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .criteria-table th,
+  .criteria-table td {
+    font-size: var(--text-xs);
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  ol, ul {
+    padding-left: var(--space-6);
+  }
+
+  ol > li, ul > li {
+    margin-bottom: var(--space-2);
+  }
+
+  ol > li > ul {
+    margin-top: var(--space-2);
+  }
+
+  .section-image {
+    margin: var(--space-4) 0;
+    text-align: center;
+  }
+
+  .section-image.header-image {
+    margin-bottom: var(--space-6);
+  }
+
+  .section-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--card-radius);
+  }
+
+  .cue-card {
+    margin: var(--space-6) auto;
+    text-align: center;
+    background: var(--color-bg);
+    padding: var(--space-4);
+    border-radius: var(--card-radius);
+    max-width: 600px;
+  }
+
+  .cue-card img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+  }
+
+  .cue-card figcaption {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .chatbot-with-qr {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .chatbot-link {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .qr-code {
+    flex-shrink: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .qr-code img {
+    border-radius: var(--card-radius);
+  }
+
+  .qr-code figcaption {
+    margin-top: var(--space-1);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+  }
+</style>
