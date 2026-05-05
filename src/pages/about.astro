@@ -1,0 +1,254 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="About">
+  <div class="about-page">
+    <div class="container">
+      <div class="about-header">
+        <h1>About</h1>
+        <p class="about-subtitle">Learn more about the project and its creator.</p>
+      </div>
+
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="profile-avatar">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+              <circle cx="32" cy="32" r="32" fill="#2563eb"/>
+              <circle cx="32" cy="26" r="12" fill="#93c5fd"/>
+              <path d="M12 56C12 44.954 20.954 36 32 36C43.046 36 52 44.954 52 56" fill="#93c5fd"/>
+            </svg>
+          </div>
+          <div class="profile-info">
+            <h2 class="profile-name">Emilius German</h2>
+            <p class="profile-role">Academic & Lecturer</p>
+          </div>
+        </div>
+
+        <div class="profile-body">
+          <p class="profile-intro">
+            <strong>Emilius German</strong> is an academic and lecturer in the field of English Language Education with a strong focus on the integration of technology in learning processes (Educational Technology/EdTech). He is currently affiliated with President University and actively engaged in teaching, research, and the development of digital-based learning innovations.
+          </p>
+          <p class="profile-intro">
+            As an academic who adapts to the evolving educational landscape, Emilius German emphasizes enhancing learning quality through the effective use of technology, particularly in the context of English language education in the digital era.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-card">
+        <h3>Areas of Expertise</h3>
+        <ul class="expertise-list">
+          <li>English Language Education</li>
+          <li>Educational Technology (EdTech)</li>
+          <li>Applied Linguistics</li>
+          <li>Curriculum Development</li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h3>Research Interests</h3>
+        <ul class="expertise-list">
+          <li>Online learning</li>
+          <li>Self-regulated learning</li>
+          <li>Technology integration in language learning</li>
+          <li>Development of teaching methods and learning media</li>
+        </ul>
+      </div>
+
+      <div class="section-card">
+        <h3>Academic Profile</h3>
+        <p>
+          Emilius German is an academic with an <strong>applied research orientation</strong>, focusing on practical solutions in education. His research primarily explores how technology can be implemented to improve learning effectiveness, especially within the Indonesian educational context.
+        </p>
+        <p>
+          He is currently pursuing a <strong>Doctoral (Ph.D.) degree in Educational Technology</strong>, reflecting his commitment to advancing his academic expertise and contributing more broadly to the field of education.
+        </p>
+      </div>
+
+      <div class="section-card">
+        <h3>Scholarly Characteristics</h3>
+        <ul class="expertise-list">
+          <li>Interdisciplinary (education, technology, and language)</li>
+          <li>Practice-oriented and implementation-focused</li>
+          <li>Responsive to digital learning developments</li>
+          <li>Committed to improving learning quality</li>
+        </ul>
+      </div>
+
+      <div class="section-card summary-card">
+        <h3>Summary</h3>
+        <p>
+          Emilius German is an academic dedicated to advancing technology-enhanced English language learning. With a practical and context-relevant approach, he continues to contribute to the development of effective, adaptive, and impactful learning innovations in modern education.
+        </p>
+      </div>
+
+      <div class="developed-by">
+        <p>
+          Developed by <a href="https://hijrahassalam.com" target="_blank" rel="noopener">hijrahassalam.com</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-page {
+    padding: var(--space-12) 0 var(--space-20);
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: var(--space-10);
+  }
+
+  .about-header h1 {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-3);
+  }
+
+  .about-subtitle {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+  }
+
+  .profile-card {
+    background: var(--color-surface);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--color-border-light);
+    padding: var(--space-8);
+    margin-bottom: var(--space-6);
+    border-top: 4px solid var(--color-primary);
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-5);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-6);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .profile-avatar {
+    flex-shrink: 0;
+  }
+
+  .profile-info {
+    flex: 1;
+  }
+
+  .profile-name {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+    letter-spacing: -0.02em;
+  }
+
+  .profile-role {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+  }
+
+  .profile-body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .profile-intro {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+  }
+
+  .section-card {
+    background: var(--color-surface);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--color-border-light);
+    padding: var(--space-6);
+    margin-bottom: var(--space-4);
+  }
+
+  .section-card h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.01em;
+  }
+
+  .section-card p {
+    font-size: var(--text-base);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-3);
+  }
+
+  .section-card p:last-child {
+    margin-bottom: 0;
+  }
+
+  .expertise-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .expertise-list li {
+    font-size: var(--text-base);
+    color: var(--color-text-secondary);
+    padding-left: var(--space-6);
+    position: relative;
+  }
+
+  .expertise-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-primary);
+  }
+
+  .summary-card {
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .developed-by {
+    text-align: center;
+    padding: var(--space-10) 0;
+    margin-top: var(--space-6);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .developed-by p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .developed-by a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  .developed-by a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .profile-header {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
