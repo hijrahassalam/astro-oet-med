@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Under Construction">
+  <div class="construction-page">
+    <div class="construction-content">
+      <div class="construction-icon">
+        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="40" r="36" stroke="#2563eb" stroke-width="4" stroke-dasharray="8 8"/>
+          <path d="M40 24V44L52 52" stroke="#2563eb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1 class="construction-title">Under Construction</h1>
+      <p class="construction-description">
+        This section is currently being developed. Please check back later
+        or explore our available modules.
+      </p>
+      <div class="construction-actions">
+        <a href="/modules/module-1" class="btn btn-primary btn-lg">
+          Go to Module 1
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+        <a href="/" class="btn btn-outline btn-lg">
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .construction-page {
+    min-height: calc(100vh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-8);
+  }
+
+  .construction-content {
+    text-align: center;
+    max-width: 480px;
+  }
+
+  .construction-icon {
+    margin-bottom: var(--space-8);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }
+
+  .construction-title {
+    font-size: var(--text-3xl);
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+    letter-spacing: -0.02em;
+  }
+
+  .construction-description {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-8);
+  }
+
+  .construction-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .construction-actions .btn {
+    justify-content: center;
+  }
+</style>
