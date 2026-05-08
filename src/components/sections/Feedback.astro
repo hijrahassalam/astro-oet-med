@@ -1,26 +1,63 @@
 ---
-interface Props {
-  data?: {
-    placeholderText?: string;
-  };
+import CtaButton from '../CtaButton.astro';
+
+interface CriterionItem {
+  section: string;
+  criterion: string;
+  descriptor: string;
 }
 
-const { data } = Astro.props;
+const criteria: CriterionItem[] = [
+  { section: "<strong>A. Linguistic Competence</strong>", criterion: "<strong>Intelligibility</strong>", descriptor: "Pronunciation clarity, stress, and intonation<br/>Is the speech clear and easy to understand?" },
+  { section: "", criterion: "<strong>Fluency</strong>", descriptor: "Speech flow, pace, and hesitation<br/>Is the speech smooth or full of hesitation?" },
+  { section: "", criterion: "<strong>Appropriateness of Language</strong>", descriptor: "Use of patient-friendly and professional language<br/>Is the language polite, professional, patient-friendly?" },
+  { section: "", criterion: "<strong>Grammar & Expression</strong>", descriptor: "Control and range of grammatical structures<br/>Are sentences accurate and varied?" },
+  { section: "", criterion: "<strong>Vocabulary Range</strong>", descriptor: "Precision and breadth of vocabulary<br/>Is vocabulary precise and appropriate?" },
+  { section: "<strong>Linguistic Subtotal</strong>", criterion: "—", descriptor: "—" },
+  { section: "<strong>B. Clinical Communication Competence</strong>", criterion: "<strong>Relationship Building</strong>", descriptor: "Empathy, rapport, and respect<br/>Does the speaker show empathy and rapport?" },
+  { section: "", criterion: "<strong>Understanding Patient Perspective</strong>", descriptor: "Acknowledgement of patient concerns and feelings<br/>Are patient concerns acknowledged?" },
+  { section: "", criterion: "<strong>Providing Structure</strong>", descriptor: "Organization and clear signposting<br/>Is the conversation organized logically?" },
+  { section: "", criterion: "<strong>Information Gathering</strong>", descriptor: "Effective questioning and active listening<br/>Are relevant questions asked?" },
+  { section: "", criterion: "<strong>Information Giving</strong>", descriptor: "Clarity and usefulness of explanations<br/>Is information clear and understandable?" },
+  { section: "<strong>Clinical Subtotal</strong>", criterion: "—", descriptor: "—" },
+];
+
+const scoringTemplateUrl = "https://docs.google.com/spreadsheets/d/1BAXEw1zzsxVuAgN9jWypBL5yzOLW6Zke/edit?usp=sharing&ouid=117030556830380000197&rtpof=true&sd=true";
 ---
 
 <div class="feedback-content">
   <h3>Feedback from Lecturer</h3>
-  <div class="feedback-placeholder">
-    <p><strong>📋 Feedback Session</strong></p>
-    <p>After completing your role-play, you will receive feedback from your lecturer or tutor. The feedback will cover:</p>
-    <ul>
-      <li>Fluency and pronunciation</li>
-      <li>Appropriateness of language and vocabulary</li>
-      <li>Grammar accuracy</li>
-      <li>Clinical communication skills</li>
-      <li>Overall OET speaking performance</li>
-    </ul>
-    <p class="feedback-note">Use this feedback to identify areas for improvement before your next practice session.</p>
+  <p>
+    After the role-play, you will receive feedback from the lecturer or tutor. The feedback will look at your fluency, pronunciation, vocabulary, and how you communicate with the patient. Use this feedback to understand what you did well and what you need to improve.
+  </p>
+
+  <p>You will be scored based on the following criteria:</p>
+
+  <div class="table-wrapper">
+    <table class="criteria-table">
+      <thead>
+        <tr>
+          <th>Section</th>
+          <th>Criterion</th>
+          <th>Descriptor Focus</th>
+        </tr>
+      </thead>
+      <tbody>
+        {criteria.map((item) => (
+          <tr>
+            <td set:html={item.section} />
+            <td set:html={item.criterion} />
+            <td set:html={item.descriptor} />
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="scoring-cta">
+    <CtaButton href={scoringTemplateUrl} variant="secondary" size="md">
+      📄 Download Assessment Criteria
+    </CtaButton>
   </div>
 </div>
 
@@ -33,29 +70,44 @@ const { data } = Astro.props;
     margin-bottom: var(--space-4);
   }
 
-  .feedback-placeholder {
-    background: var(--color-bg);
-    border-radius: var(--card-radius);
-    padding: var(--space-5);
-    border: 1px dashed var(--color-border);
-  }
-
-  .feedback-placeholder ul {
-    padding-left: var(--space-6);
-    margin: var(--space-3) 0;
-  }
-
-  .feedback-placeholder li {
-    margin-bottom: var(--space-2);
+  .feedback-content p {
     line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
   }
 
-  .feedback-note {
-    margin-top: var(--space-4);
-    padding-top: var(--space-3);
-    border-top: 1px solid var(--color-border);
-    font-style: italic;
-    color: var(--color-text-muted);
+  .table-wrapper {
+    overflow-x: auto;
+    margin: var(--space-4) 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
     font-size: var(--text-sm);
+  }
+
+  th, td {
+    border: 1px solid var(--color-border);
+    padding: var(--space-3);
+    text-align: left;
+  }
+
+  th {
+    background: var(--color-primary-50);
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  td {
+    vertical-align: top;
+    font-size: var(--text-xs);
+  }
+
+  .scoring-cta {
+    margin-top: var(--space-4);
+  }
+
+  .scoring-cta :global(.cta-btn) {
+    text-decoration: none;
   }
 </style>
