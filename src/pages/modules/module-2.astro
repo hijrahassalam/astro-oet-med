@@ -7,9 +7,11 @@ import Vocabulary from '../../components/sections/Vocabulary.astro';
 import Grammar from '../../components/sections/Grammar.astro';
 import Practice from '../../components/sections/Practice.astro';
 import Exercise from '../../components/sections/Exercise.astro';
+import Feedback from '../../components/sections/Feedback.astro';
+import Assessment from '../../components/sections/Assessment.astro';
 import Summary from '../../components/sections/Summary.astro';
 import Reflection from '../../components/sections/Reflection.astro';
-import Feedback from '../../components/sections/Feedback.astro';
+import References from '../../components/sections/References.astro';
 
 const moduleData = {
   objectives: {
@@ -118,6 +120,20 @@ vocabulary: {
     content: "This chapter strengthened OET Speaking skills by integrating key medical vocabulary, patient-friendly grammar, and empathetic communication strategies. Through a flipped classroom supported by AI tools, students progressed from recognizing language forms to creating complete, confident, and compassionate OET role-plays aligned with Band D–C expectations.",
   },
 
+  assessment: {
+    title: "Formative Assessment and Evaluation",
+    description: "Your performance is scored from 1 to 6, with each level having a descriptor: 1 is very poor, 2 is poor, 3 is limited, 4 is adequate, 5 is good, and 6 is excellent. If you get a score of 4 (adequate), it means you can communicate well enough to continue to the next level. You can also move forward if you get 5 (good) or 6 (excellent), as your communication is strong. However, if you get 1 (very poor), 2 (poor), or 3 (limited), your communication is still not enough, so you need to do remedial roleplay to practice and improve before you can continue.",
+  },
+
+  references: {
+    references: [
+      "Edubenchmark.com. (2025). OET Speaking Test Role Play Cards. Edubenchmark.Com. <a href=\"https://edubenchmark.com/blog/oet-speaking-role-play-cards/#s3\" target=\"_blank\" rel=\"noopener\">https://edubenchmark.com/blog/oet-speaking-role-play-cards/#s3</a>",
+      "Eric H. Glendinning, B. A. S. H. (2005). English in Medicine 37131057416729 (3rd ed., pp. 5–32). Cambridge Professional English.",
+      "Www.occupationalenglishtest.org. (n.d.). Speaking sub-test: Assessment criteria and level descriptors (pp. 1–2). <a href=\"https://cdn-aus.aglty.io/oet/pdf-files/Speaking assessment criteria and level descriptors.pdf\" target=\"_blank\" rel=\"noopener\">https://cdn-aus.aglty.io/oet/pdf-files/Speaking assessment criteria and level descriptors.pdf</a>",
+      "Yovinalls, A. (2018). The Speaking Task. In Official Guide to OET (Kaplan the Official Guide to Oet) (pp. 157–168). New York State.",
+    ],
+  },
+
   reflection: {
     formUrl: "https://forms.gle/L7MMW1HAfDqb4rtKA",
     sections: [
@@ -157,11 +173,13 @@ const sections = [
   { id: 'exercise', title: 'Role-Play with Classmates', type: 'exercise' },
   { id: 'feedback', title: 'Feedback from Lecturer', type: 'feedback' },
   { id: 'summary', title: 'Summary', type: 'summary' },
+  { id: 'assessment', title: 'Formative Assessment and Evaluation', type: 'assessment' },
   { id: 'reflection', title: 'Reflection', type: 'reflection' },
+  { id: 'references', title: 'References', type: 'references' },
 ];
 
 const preClassSections = ['overview', 'vocabulary', 'grammar', 'practice'];
-const inClassSections = ['exercise', 'feedback', 'summary', 'reflection'];
+const inClassSections = ['exercise', 'feedback', 'summary', 'assessment', 'reflection', 'references'];
 
 const sidebarSections = [
   { id: 'overview', label: 'Overview', group: 'pre-class' },
@@ -171,7 +189,9 @@ const sidebarSections = [
   { id: 'exercise', label: 'Role-Play with Classmates', group: 'in-class' },
   { id: 'feedback', label: 'Feedback from Lecturer', group: 'in-class' },
   { id: 'summary', label: 'Summary', group: 'in-class' },
+  { id: 'assessment', label: 'Formative Assessment and Evaluation', group: 'in-class' },
   { id: 'reflection', label: 'Reflection', group: 'in-class' },
+  { id: 'references', label: 'References', group: 'in-class' },
 ];
 ---
 
@@ -204,7 +224,9 @@ const sidebarSections = [
         {section.type === 'exercise' && <Exercise data={moduleData.exercise} />}
         {section.type === 'feedback' && <Feedback />}
         {section.type === 'summary' && <Summary data={moduleData.summary} />}
+        {section.type === 'assessment' && <Assessment data={moduleData.assessment} />}
         {section.type === 'reflection' && <Reflection data={moduleData.reflection} />}
+        {section.type === 'references' && <References data={moduleData.references} />}
       </SectionCard>
     ))}
   </div>

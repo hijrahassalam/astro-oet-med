@@ -1,0 +1,45 @@
+---
+interface Props {
+  data: {
+    references: string[];
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="references">
+  <ul class="ref-list">
+    {data.references.map((ref) => (
+      <li class="ref-item">{ref}</li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  .references {
+    font-family: var(--font-body, sans-serif);
+  }
+
+  .ref-list {
+    list-style-type: decimal;
+    padding-left: var(--space-6, 1.5rem);
+    margin: 0;
+  }
+
+  .ref-item {
+    font-size: var(--text-sm, 0.875rem);
+    line-height: 1.7;
+    color: var(--color-text, #374151);
+    margin-bottom: var(--space-3, 0.75rem);
+  }
+
+  .ref-item :global(a) {
+    color: var(--color-primary, #2563eb);
+    text-decoration: underline;
+  }
+
+  .ref-item :global(a:hover) {
+    color: var(--color-primary-dark, #1d4ed8);
+  }
+</style>
