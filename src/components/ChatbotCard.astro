@@ -1,0 +1,78 @@
+---
+interface Props {
+  link: string;
+  qrImage: string;
+  btnImage: string;
+  qrLabel?: string;
+}
+
+const {
+  link,
+  qrImage,
+  btnImage,
+  qrLabel = "Scan this QR",
+} = Astro.props;
+---
+
+<div class="chatbotcard">
+  <a href={link} target="_blank" class="chatbotcard__btn">
+    <img src={btnImage} alt="Open Chatbot" />
+  </a>
+  <div class="chatbotcard__qr">
+    <img src={qrImage} alt="Chatbot QR Code" width="130" height="130" />
+    <span class="chatbotcard__label">{qrLabel}</span>
+  </div>
+</div>
+
+<style>
+  .chatbotcard {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .chatbotcard__btn {
+    display: inline-block;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .chatbotcard__btn img {
+    height: 60px;
+    width: auto;
+    border-radius: 0.375rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.2s ease;
+  }
+
+  .chatbotcard__btn img:hover {
+    opacity: 0.9;
+  }
+
+  .chatbotcard__qr {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    flex-shrink: 0;
+  }
+
+  .chatbotcard__qr img {
+    width: 130px;
+    height: 130px;
+    border-radius: 0.25rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .chatbotcard__label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-weight: 500;
+    text-align: center;
+  }
+</style>

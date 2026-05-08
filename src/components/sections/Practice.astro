@@ -1,5 +1,6 @@
 ---
 import CtaButton from '../CtaButton.astro';
+import ChatbotCard from '../ChatbotCard.astro';
 
 interface CueCard {
   image: string;
@@ -47,15 +48,12 @@ const { data } = Astro.props;
       Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
       will guide you practice.
     </p>
-    <div class="chatbot-with-qr">
-      <a href={data.chatbot.link} target="_blank" class="chatbot-btn-link">
-        <img src={data.chatbot.btnImage} alt="Open Chatbot" class="chatbot-btn-img" />
-      </a>
-      <figure class="qr-code">
-        <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
-        <figcaption>Scan to open chatbot</figcaption>
-      </figure>
-    </div>
+    <ChatbotCard
+      link={data.chatbot.link}
+      qrImage={data.chatbot.qrImage}
+      btnImage={data.chatbot.btnImage}
+      qrLabel="Scan to open chatbot"
+    />
   </div>
 
   <h4>Steps to Use the Chatbot for OET Speaking Practice (as a DOCTOR)</h4>
@@ -116,15 +114,12 @@ const { data } = Astro.props;
       Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
       will guide you practice.
     </p>
-    <div class="chatbot-with-qr">
-      <a href={data.chatbot.link} target="_blank" class="chatbot-btn-link">
-        <img src={data.chatbot.btnImage} alt="Open Chatbot" class="chatbot-btn-img" />
-      </a>
-      <figure class="qr-code">
-        <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
-        <figcaption>Scan to open chatbot</figcaption>
-      </figure>
-    </div>
+    <ChatbotCard
+      link={data.chatbot.link}
+      qrImage={data.chatbot.qrImage}
+      btnImage={data.chatbot.btnImage}
+      qrLabel="Scan to open chatbot"
+    />
   </div>
 
   <h4>Steps to Use the Chatbot as a Conversational Partner</h4>
@@ -224,51 +219,6 @@ const { data } = Astro.props;
     border-radius: var(--card-radius);
     padding: var(--space-5);
     margin: var(--space-4) 0;
-  }
-
-  .chatbot-with-qr {
-    display: flex;
-    align-items: center;
-    gap: var(--space-6);
-    flex-wrap: wrap;
-    margin-top: var(--space-4);
-  }
-
-  .chatbot-with-qr :global(.cta-btn) {
-    text-decoration: none;
-  }
-
-  .chatbot-btn-link {
-    display: inline-block;
-    text-decoration: none;
-  }
-
-  .chatbot-btn-img {
-    height: 60px;
-    width: auto;
-    border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
-    transition: opacity 0.2s ease;
-  }
-
-  .chatbot-btn-img:hover {
-    opacity: 0.9;
-  }
-
-  .qr-code {
-    flex-shrink: 0;
-    margin: 0;
-    text-align: center;
-  }
-
-  .qr-code img {
-    border-radius: var(--card-radius);
-  }
-
-  .qr-code figcaption {
-    margin-top: var(--space-1);
-    font-size: var(--text-xs);
-    color: var(--color-text-muted);
   }
 
   .prompt-box {
