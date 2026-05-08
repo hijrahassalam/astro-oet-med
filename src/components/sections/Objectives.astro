@@ -13,7 +13,7 @@ const { data } = Astro.props;
   <p>By the end of this chapter, students will be able to:</p>
   <ul>
     {data.objectives.map((obj) => (
-      <li>{obj}</li>
+      <li set:html={obj} />
     ))}
   </ul>
 </div>
