@@ -54,11 +54,17 @@ const { data } = Astro.props;
   </div>
 
   <h4>OET Speaking Blueprint: Clinical Dialogue Framework</h4>
-  <p>{data.overview.frameworkDescription}</p>
+  <p>
+    The <em>OET Speaking Blueprint: Beginner's Clinical Dialogue Guide</em> provides a standardized, six-step framework designed to facilitate clear and professional communication between healthcare providers and patients.
+  </p>
   <p class="framework-mnemonic">
-    <strong>{data.overview.frameworkMnemonic}</strong>
+    OPEN → ASK → EXPLAIN → REASSURE → ADVISE → CLOSE
   </p>
   <p>
+    The framework prioritizes polite engagement, systematic information gathering, and structured delivery of medical information. Key takeaways include the differentiation of dialogue based on clinical setting (clinic vs. hospital) and a specific pedagogical model for explaining medical conditions: linking cause, symptoms, treatment, and preventative advice in a logical sequence.
+  </p>
+  <p class="framework-link">
+    For further explanation:
     <CtaButton href={data.overview.frameworkPdf} variant="secondary" size="sm">
       📄 Download Framework PDF
     </CtaButton>
@@ -106,10 +112,25 @@ const { data } = Astro.props;
   .framework-mnemonic {
     font-size: var(--text-xl);
     text-align: center;
-    padding: var(--space-4);
-    background: var(--color-bg);
+    padding: var(--space-5) var(--space-4);
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-surface));
+    border: 2px solid var(--color-primary-300);
     border-radius: var(--card-radius);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: var(--space-6) 0;
+  }
+
+  .framework-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .framework-link :global(.cta-btn) {
+    text-decoration: none;
   }
 
   .video-section {
