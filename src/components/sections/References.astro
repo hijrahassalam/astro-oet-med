@@ -1,7 +1,12 @@
 ---
+interface Reference {
+  text: string;
+  url?: string;
+}
+
 interface Props {
   data: {
-    references: string[];
+    references: Reference[];
   };
 }
 
@@ -11,7 +16,14 @@ const { data } = Astro.props;
 <div class="references">
   <ul class="ref-list">
     {data.references.map((ref) => (
-      <li class="ref-item">{ref}</li>
+      <li class="ref-item">
+        {ref.text}
+        {ref.url && (
+          <a href={ref.url} target="_blank" rel="noopener noreferrer">
+            {ref.url}
+          </a>
+        )}
+      </li>
     ))}
   </ul>
 </div>
@@ -34,12 +46,13 @@ const { data } = Astro.props;
     margin-bottom: var(--space-3, 0.75rem);
   }
 
-  .ref-item :global(a) {
+  .ref-item a {
     color: var(--color-primary, #2563eb);
     text-decoration: underline;
+    word-break: break-word;
   }
 
-  .ref-item :global(a:hover) {
+  .ref-item a:hover {
     color: var(--color-primary-dark, #1d4ed8);
   }
 </style>
