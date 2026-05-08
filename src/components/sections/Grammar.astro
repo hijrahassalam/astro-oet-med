@@ -5,6 +5,8 @@ interface Props {
   data: {
     headerImage: string;
     grammarDescription: string;
+    grammarPattern: string;
+    grammarExample: string;
     grammarPdf: string;
     videoUrl: string;
   };
@@ -15,11 +17,27 @@ const { data } = Astro.props;
 
 <div class="grammar-content">
   <h3>4. Grammar for OET Speaking</h3>
-  <p set:html={data.grammarDescription}></p>
+  <figure class="section-image grammar-image">
+    <img src={data.headerImage} alt="Grammar for OET Speaking" width="386" height="217" />
+  </figure>
+
+  <p class="grammar-lead">{data.grammarDescription}</p>
+
+  <div class="grammar-pattern">
+    <span class="grammar-pattern__label">Key Pattern:</span>
+    <code class="grammar-pattern__code">{data.grammarPattern}</code>
+    <span class="grammar-pattern__example">e.g., {data.grammarExample}</span>
+  </div>
+
+  <p>
+    Use modal verbs like <em>can</em>, <em>should</em>, <em>need to</em>, and <em>cannot</em> to sound more polite, especially when giving advice or refusing requests. You can also use simple if-sentences (first conditional) to explain risks, such as what may happen if a patient takes certain medicine. The key idea is to speak in short, simple sentences, use everyday words, and avoid complicated grammar so the patient can easily understand you.
+  </p>
 
   <div class="grammar-note">
-    <p><strong>📌 Instruction for Students:</strong></p>
-    <div class="cta-stack">
+    <p class="grammar-note__title"><strong>📌 Instruction for Students:</strong></p>
+    <p class="grammar-note__text">Please read this full file carefully to learn the grammar patterns in detail. This will help you speak more clearly and confidently in the OET Speaking test.</p>
+    <p class="grammar-note__text">Or you can watch a video here:</p>
+    <div class="grammar-cta">
       <CtaButton href={data.grammarPdf} variant="secondary" size="md">
         📄 Download Grammar PDF
       </CtaButton>
@@ -44,10 +62,56 @@ const { data } = Astro.props;
     margin-bottom: var(--space-4);
   }
 
-  .section-image img {
-    max-width: 100%;
+  .grammar-lead {
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .grammar-pattern {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-primary-50);
+    border: 1px solid var(--color-primary-200);
+    border-radius: 0.5rem;
+    padding: 0.875rem 1.25rem;
+    margin: var(--space-4) 0;
+  }
+
+  .grammar-pattern__label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .grammar-pattern__code {
+    font-family: var(--font-mono, monospace);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--color-primary-dark);
+    background: white;
+    padding: 0.25rem 0.625rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--color-primary-300);
+    letter-spacing: 0.02em;
+  }
+
+  .grammar-pattern__example {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .grammar-image {
+    margin-bottom: var(--space-6);
+  }
+
+  .grammar-image img {
+    max-width: 386px;
     height: auto;
     border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
   }
 
   .grammar-note {
@@ -57,15 +121,26 @@ const { data } = Astro.props;
     margin: var(--space-4) 0;
   }
 
-  .cta-stack {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    margin-top: var(--space-4);
+  .grammar-note__title {
+    font-weight: 600;
+    margin-bottom: var(--space-2);
   }
 
-  .cta-stack :global(.cta-btn) {
+  .grammar-note__text {
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+    line-height: var(--leading-relaxed);
+  }
+
+  .grammar-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
+  }
+
+  .grammar-cta :global(.cta-btn) {
     text-decoration: none;
-    width: fit-content;
   }
 </style>

@@ -6,19 +6,27 @@ interface Props {
   title: string;
   description?: string;
   moduleNumber: number;
+  sections?: {
+    id: string;
+    label: string;
+    group?: string;
+  }[];
 }
 
-const { title, description, moduleNumber } = Astro.props;
+const { title, description, moduleNumber, sections: layoutSections } = Astro.props;
 
-const sections = [
-  { id: 'overview', label: 'Overview' },
-  { id: 'vocabulary', label: 'Vocabulary' },
-  { id: 'grammar', label: 'Grammar' },
-  { id: 'practice', label: 'Practice' },
-  { id: 'exercise', label: 'Exercise' },
-  { id: 'summary', label: 'Summary' },
-  { id: 'reflection', label: 'Reflection' },
+const defaultSections = [
+  { id: 'overview', label: 'Overview', group: 'pre-class' },
+  { id: 'vocabulary', label: 'Vocabulary', group: 'pre-class' },
+  { id: 'grammar', label: 'Grammar', group: 'pre-class' },
+  { id: 'practice', label: 'Practice with AI Chatbot', group: 'pre-class' },
+  { id: 'exercise', label: 'Role-Play with Classmates', group: 'in-class' },
+  { id: 'feedback', label: 'Feedback from Lecturer', group: 'in-class' },
+  { id: 'summary', label: 'Summary', group: 'in-class' },
+  { id: 'reflection', label: 'Reflection', group: 'in-class' },
 ];
+
+const sections = layoutSections || defaultSections;
 ---
 
 <BaseLayout title={`${title} — Module ${moduleNumber}`} description={description}>

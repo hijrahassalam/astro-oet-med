@@ -1,5 +1,6 @@
 ---
 import CtaButton from '../CtaButton.astro';
+import ChatbotCard from '../ChatbotCard.astro';
 
 interface CueCard {
   image: string;
@@ -10,12 +11,13 @@ interface CueCard {
 interface ChatbotInfo {
   link: string;
   qrImage: string;
+  iconImage?: string;
+  btnImage?: string;
 }
 
 interface Props {
   data: {
     cueCardsDoctor: CueCard[];
-    cueCardsCaregiver: CueCard[];
     cueCardsPatient: CueCard[];
     chatbot: ChatbotInfo;
     stepsDoctor: string[];
@@ -37,28 +39,7 @@ const { data } = Astro.props;
     Read the following cue card. Read it carefully to understand the context.
   </p>
 
-  {data.cueCardsDoctor.map((card) => (
-    <figure class="cue-card">
-      <img src={card.image} alt={card.alt} width="326" height="460" />
-      <figcaption>{card.caption}</figcaption>
-    </figure>
-  ))}
-
-  <p>
-    And here is the other cue card as a caregiver. Read it carefully to understand the context.
-  </p>
-
-  {data.cueCardsCaregiver.map((card) => (
-    <figure class="cue-card">
-      <img src={card.image} alt={card.alt} width="386" height="545" />
-      <figcaption>{card.caption}</figcaption>
-    </figure>
-  ))}
-
-  <p>
-    After completing the exercises above, use the AI chatbot to practice.
-  </p>
-
+  <h4>AI CHATBOT AS A TUTOR/TOOLS</h4>
   <div class="chatbot-section">
     <p>
       <strong>🤖 Practice with the AI Chatbot</strong>
@@ -67,15 +48,12 @@ const { data } = Astro.props;
       Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
       will guide you practice.
     </p>
-    <div class="chatbot-with-qr">
-      <CtaButton href={data.chatbot.link} variant="primary" size="lg">
-        🤖 Open Chatbot
-      </CtaButton>
-      <figure class="qr-code">
-        <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
-        <figcaption>Scan to open chatbot</figcaption>
-      </figure>
-    </div>
+    <ChatbotCard
+      link={data.chatbot.link}
+      qrImage={data.chatbot.qrImage}
+      btnImage={data.chatbot.btnImage}
+      qrLabel="Scan to open chatbot"
+    />
   </div>
 
   <h4>Steps to Use the Chatbot for OET Speaking Practice (as a DOCTOR)</h4>
@@ -85,18 +63,32 @@ const { data } = Astro.props;
     ))}
   </ol>
 
-  <h4>Steps to Use the Chatbot for OET Speaking Practice (as a PATIENT)</h4>
-  {data.cueCardsPatient.map((card) => (
-    <figure class="cue-card">
-      <img src={card.image} alt={card.alt} width="377" height="460" />
+  <p>
+    Read the Doctor Cue Card below to guide your practice.
+  </p>
+  {data.cueCardsDoctor.map((card) => (
+    <figure class="cue-card cue-card--doctor">
+      <img src={card.image} alt={card.alt} width="326" height="460" />
       <figcaption>{card.caption}</figcaption>
     </figure>
   ))}
+
+  <h4>Steps to Use the Chatbot for OET Speaking Practice (as a PATIENT)</h4>
   <ol>
     {data.stepsPatient.map((step) => (
       <li set:html={step} />
     ))}
   </ol>
+
+  <p>
+    Read the Patient Cue Card below to guide your practice.
+  </p>
+  {data.cueCardsPatient.map((card) => (
+    <figure class="cue-card cue-card--patient">
+      <img src={card.image} alt={card.alt} width="386" height="545" />
+      <figcaption>{card.caption}</figcaption>
+    </figure>
+  ))}
 
   <h4>Merging Doctor and Patient Responses</h4>
   <p>
@@ -122,15 +114,12 @@ const { data } = Astro.props;
       Use the chatbot to practice fluency, not to learn the rules. Mr. OET Speaking, chatbot,
       will guide you practice.
     </p>
-    <div class="chatbot-with-qr">
-      <CtaButton href={data.chatbot.link} variant="primary" size="lg">
-        🤖 Open Chatbot
-      </CtaButton>
-      <figure class="qr-code">
-        <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
-        <figcaption>Scan to open chatbot</figcaption>
-      </figure>
-    </div>
+    <ChatbotCard
+      link={data.chatbot.link}
+      qrImage={data.chatbot.qrImage}
+      btnImage={data.chatbot.btnImage}
+      qrLabel="Scan to open chatbot"
+    />
   </div>
 
   <h4>Steps to Use the Chatbot as a Conversational Partner</h4>
@@ -202,39 +191,34 @@ const { data } = Astro.props;
     font-style: italic;
   }
 
+  .cue-card--doctor {
+    border-left: 4px solid #2563eb;
+    background: #eff6ff;
+  }
+
+  .cue-card--patient {
+    border-left: 4px solid #f59e0b;
+    background: #fffbeb;
+  }
+
+  .chatbot-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .chatbot-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--card-radius);
+  }
+
   .chatbot-section {
     background: var(--color-bg);
     border-radius: var(--card-radius);
     padding: var(--space-5);
     margin: var(--space-4) 0;
-  }
-
-  .chatbot-with-qr {
-    display: flex;
-    align-items: center;
-    gap: var(--space-6);
-    flex-wrap: wrap;
-    margin-top: var(--space-4);
-  }
-
-  .chatbot-with-qr :global(.cta-btn) {
-    text-decoration: none;
-  }
-
-  .qr-code {
-    flex-shrink: 0;
-    margin: 0;
-    text-align: center;
-  }
-
-  .qr-code img {
-    border-radius: var(--card-radius);
-  }
-
-  .qr-code figcaption {
-    margin-top: var(--space-1);
-    font-size: var(--text-xs);
-    color: var(--color-text-muted);
   }
 
   .prompt-box {

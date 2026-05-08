@@ -1,0 +1,22 @@
+## Summary of Changes
+
+### Fixes Applied (per client review):
+
+1. **#1 Video URL Fix** — Updated video URL in Overview section to correct OET Speaking Part 1 demo
+2. **#3 & #4 Caregiver → Patient** — Removed all cueCardsCaregiver references; consolidated to Doctor/Patient roles only (blue = doctor, orange = patient)
+3. **#5 Chatbot Subheading** — Added 'AI CHATBOT AS A TUTOR/TOOLS' subheading before the tutor section in Practice
+4. **#6 Reflection Question** — Removed underline blanks from 'One improvement I will focus on next time is?' question
+5. **#9 Pre-Class / In-Class Structure** — Added section grouping labels to sidebar navigation (Pre-Class: Objectives, Overview, Vocabulary, Grammar, Practice | In-Class: Role-Play, Summary, Reflection)
+6. **Sidebar Label** — Changed 'Exercise' → 'Role-Play' in sidebar (global, all 5 modules)
+
+### Pending Items (need client input):
+- **#7 Grammar Icon** — Google Drive file ID provided resolves to a 15-page PDF, not an icon image. Client please provide: (a) direct PNG URL, or (b) correct Google Drive file ID for a single icon image
+- **#8 Chatbot Icon** — No Google Drive link was provided in the review document. Client please supply the icon asset
+
+## Files Changed
+- src/pages/modules/module-2.astro
+- src/components/sections/Practice.astro
+- src/components/sections/Sidebar.astro
+- src/layouts/ModuleLayout.astro
+
+Branch: fix/client-review-1 → main

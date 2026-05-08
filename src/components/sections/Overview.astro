@@ -1,5 +1,6 @@
 ---
 import CtaButton from '../CtaButton.astro';
+import QuizCard from '../QuizCard.astro';
 
 interface Props {
   data: {
@@ -28,26 +29,36 @@ const { data } = Astro.props;
   <h3>1. Overview of the Speaking Sub-Test</h3>
   <p>{data.overview.testDescription}</p>
 
-  <div class="video-note">
+  <div class="video-section">
+    <p class="video-intro">
+      To have a better understanding of Speaking part A, watch this video:
+    </p>
     <div class="cta-row">
       <CtaButton href={data.overview.videoUrl} variant="primary" size="md">
         📺 Watch Video
       </CtaButton>
-      <CtaButton href={data.overview.quizUrl} variant="secondary" size="md">
-        📝 Take Quiz
-      </CtaButton>
     </div>
-    <figure class="quiz-image">
-      <img src={data.overview.quizImage} alt="Quiz QR Code" width="150" height="150" />
-    </figure>
+  </div>
+
+  <div class="quiz-section">
+    <p class="quiz-intro">
+      To identify how well you understand the video, answer questions in the following link:
+    </p>
+    <QuizCard quizUrl={data.overview.quizUrl} quizImage={data.overview.quizImage} />
   </div>
 
   <h4>OET Speaking Blueprint: Clinical Dialogue Framework</h4>
-  <p>{data.overview.frameworkDescription}</p>
+  <p>
+    The <em>OET Speaking Blueprint: Beginner's Clinical Dialogue Guide</em> provides a standardized, six-step framework designed to facilitate clear and professional communication between healthcare providers and patients.
+  </p>
   <p class="framework-mnemonic">
-    <strong>{data.overview.frameworkMnemonic}</strong>
+    OPEN → ASK → EXPLAIN → REASSURE → ADVISE → CLOSE
   </p>
   <p>
+    The framework prioritizes polite engagement, systematic information gathering, and structured delivery of medical information. Key takeaways include the differentiation of dialogue based on clinical setting (clinic vs. hospital) and a specific pedagogical model for explaining medical conditions: linking cause, symptoms, treatment, and preventative advice in a logical sequence.
+  </p>
+  <p class="framework-link">
+    For further explanation:
     <CtaButton href={data.overview.frameworkPdf} variant="secondary" size="sm">
       📄 Download Framework PDF
     </CtaButton>
@@ -59,7 +70,8 @@ const { data } = Astro.props;
   </figure>
   <p set:html={data.criteria.languageSkills} />
   <p set:html={data.criteria.clinicalCommunication} />
-  <p>
+  <p class="criteria-link">
+    For further explanation:
     <CtaButton href={data.criteria.scoringPdf} variant="secondary" size="sm">
       📄 Download Scoring Guide
     </CtaButton>
@@ -95,29 +107,62 @@ const { data } = Astro.props;
   .framework-mnemonic {
     font-size: var(--text-xl);
     text-align: center;
-    padding: var(--space-4);
-    background: var(--color-bg);
+    padding: var(--space-5) var(--space-4);
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-surface));
+    border: 2px solid var(--color-primary-300);
     border-radius: var(--card-radius);
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin: var(--space-6) 0;
   }
 
-  .video-note {
+  .criteria-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .criteria-link :global(.cta-btn) {
+    text-decoration: none;
+  }
+
+  .framework-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .framework-link :global(.cta-btn) {
+    text-decoration: none;
+  }
+
+  .video-section {
     background: var(--color-bg);
     border-radius: var(--card-radius);
     padding: var(--space-5);
     margin: var(--space-4) 0;
-    text-align: center;
   }
 
-  .video-note .quiz-image {
-    margin-top: var(--space-4);
+  .video-intro {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-base);
+    color: var(--color-text);
   }
 
-  .video-note .quiz-image img {
-    max-width: 150px;
-    height: auto;
+  .quiz-section {
+    background: var(--color-bg);
     border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
+    padding: var(--space-5);
+    margin: var(--space-4) 0;
+  }
+
+  .quiz-intro {
+    margin-bottom: var(--space-3);
+    font-size: var(--text-base);
+    color: var(--color-text);
   }
 
   .section-image {

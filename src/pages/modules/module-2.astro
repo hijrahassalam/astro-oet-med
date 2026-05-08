@@ -7,18 +7,21 @@ import Vocabulary from '../../components/sections/Vocabulary.astro';
 import Grammar from '../../components/sections/Grammar.astro';
 import Practice from '../../components/sections/Practice.astro';
 import Exercise from '../../components/sections/Exercise.astro';
+import Feedback from '../../components/sections/Feedback.astro';
+import Assessment from '../../components/sections/Assessment.astro';
 import Summary from '../../components/sections/Summary.astro';
 import Reflection from '../../components/sections/Reflection.astro';
+import References from '../../components/sections/References.astro';
 
 const moduleData = {
   objectives: {
     objectives: [
       "C1 Identify the structure and criteria of OET Speaking",
-      "C2 Explain patient-friendly vocabulary, based on the context",
+      "C2 Explain patient-friendly vocabulary based on the <strong><u>pregnancy case</u></strong> context",
       "C2 Explain grammar, and empathy strategies",
       "C3 Apply appropriate language in structured speaking tasks using chatbot",
       "C4 Analyze patient needs and emotional cues and do a roleplay with the chatbot.",
-      "C5 Evaluate speaking performance using OET criteria and AI feedback",
+      "C5 Evaluate or reflect on their learning experience by identifying useful vocabulary, evaluating their grammar and speaking confidence, describing areas for improvement, and explaining how the AI chatbot supports their English learning development.",
       "C6 Produce a clear, empathetic, and coherent OET role-play",
     ],
   },
@@ -26,7 +29,7 @@ const moduleData = {
   overview: {
     overview: {
       testDescription: "The OET Speaking test has a short warm-up (not scored) and two role-plays. In each role-play, you act as a healthcare professional, and the examiner is the patient or carer. Before speaking, you have 3 minutes to prepare. During this time, read the situation, understand your role, check the patient's problem, and think of simple phrases to use. During the role-play, start with a polite greeting, ask simple questions, and show empathy. Give clear explanations and advice using easy and polite language. Do not speak too directly. Also, give the patient time to respond and keep the conversation natural. To improve, practice role-plays, learn useful phrases, and remember that effective communication is more important than perfect grammar.",
-      videoUrl: "https://www.youtube.com/results?search_query=OET+Speaking+Test+Part1",
+      videoUrl: "https://youtu.be/akVuiN3m49c?si=6ef3Kwx1Sxo45fEX",
       quizUrl: "https://app.edcafe.ai/youtube-quiz/696deafbf109ed45c70fe1f2",
       quizImage: "/images/image6.png",
       frameworkMnemonic: "OPEN → ASK → EXPLAIN → REASSURE → ADVISE → CLOSE",
@@ -64,7 +67,10 @@ vocabulary: {
   },
 
   grammar: {
-    grammarDescription: "In OET Speaking, you should use simple and clear grammar to communicate with patients. You do not need long or difficult sentences. Instead, use an easy pattern like <strong>Subject + Modal + Verb + Object</strong> (e.g., <em>I need to check your leg first</em>) to make your speech polite and clear. Use modal verbs like <em>can</em>, <em>should</em>, <em>need to</em>, and <em>cannot</em> to sound more polite, especially when giving advice or refusing requests. You can also use simple if-sentences (first conditional) to explain risks, such as what may happen if a patient takes certain medicine. The key idea is to speak in short, simple sentences, use everyday words, and avoid complicated grammar so the patient can easily understand you.",
+    headerImage: "/images/grammar-icon.png",
+    grammarDescription: "In OET Speaking, you should use simple and clear grammar to communicate with patients. You do not need long or difficult sentences. Instead, use an easy pattern to make your speech polite and clear.",
+    grammarPattern: "Subject + Modal + Verb + Object",
+    grammarExample: "I need to check your leg first",
     grammarPdf: "https://drive.google.com/file/d/1n2dSd8KL1iB_rFrGbj-G_qPekImbSyTg/view",
     videoUrl: "https://youtu.be/WURhySarfuA",
   },
@@ -73,16 +79,13 @@ vocabulary: {
     cueCardsDoctor: [
       { image: "/images/image3.png", alt: "Doctor Cue Card", caption: "Cue Card (Doctor Role)" },
     ],
-    cueCardsCaregiver: [
-      { image: "/images/image2.png", alt: "Caregiver Cue Card", caption: "Cue Card (Caregiver Role)" },
-    ],
     cueCardsPatient: [
-      { image: "/images/image3.png", alt: "Patient Cue Card", caption: "Cue Card (Patient Role)" },
-      { image: "/images/image2.png", alt: "Caregiver Cue Card", caption: "Cue Card (Caregiver Role)" },
+      { image: "/images/image2.png", alt: "Patient Cue Card", caption: "Cue Card (Patient Role)" },
     ],
     chatbot: {
       link: "https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad",
       qrImage: "/images/image4.png",
+      btnImage: "/images/chatbot-btn.png",
     },
     stepsDoctor: [
       "Open the chatbot link and enter your full name.",
@@ -113,26 +116,34 @@ vocabulary: {
   exercise: {
     introduction: "After you finish the pre-class and chatbot practice, you are ready to practice in class. At this stage, you will apply what you have learned in real speaking activities. You will practice, get feedback, and improve step by step. These activities help you speak more clearly and communicate better in a clinical situation.",
     executingRoleplay: "In this stage, you do a role-play with a partner. One of you is the doctor, and the other is the patient. You use OET-style situations. You try to start, continue, and finish the conversation. You should speak clearly, use simple and appropriate language, and show care to the patient.",
-    feedbackFromLecturer: "After the role-play, you get feedback from the lecturer. The feedback looks at your fluency, pronunciation, vocabulary, and how you communicate with the patient. You use this feedback to understand what you did well and what you need to improve.",
-    scoringTemplateUrl: "https://docs.google.com/spreadsheets/d/1BAXEw1zzsxVuAgN9jWypBL5yzOLW6Zke/edit?usp=sharing&ouid=117030556830380000197&rtpof=true&sd=true",
-    criteria: [
-      { section: "<strong>A. Linguistic Competence</strong>", criterion: "<strong>Intelligibility</strong>", descriptor: "Pronunciation clarity, stress, and intonation<br/>Is the speech clear and easy to understand?" },
-      { section: "", criterion: "<strong>Fluency</strong>", descriptor: "Speech flow, pace, and hesitation<br/>Is the speech smooth or full of hesitation?" },
-      { section: "", criterion: "<strong>Appropriateness of Language</strong>", descriptor: "Use of patient-friendly and professional language<br/>Is the language polite, professional, patient-friendly?" },
-      { section: "", criterion: "<strong>Grammar & Expression</strong>", descriptor: "Control and range of grammatical structures<br/>Are sentences accurate and varied?" },
-      { section: "", criterion: "<strong>Vocabulary Range</strong>", descriptor: "Precision and breadth of vocabulary<br/>Is vocabulary precise and appropriate?" },
-      { section: "<strong>Linguistic Subtotal</strong>", criterion: "—", descriptor: "—" },
-      { section: "<strong>B. Clinical Communication Competence</strong>", criterion: "<strong>Relationship Building</strong>", descriptor: "Empathy, rapport, and respect<br/>Does the speaker show empathy and rapport?" },
-      { section: "", criterion: "<strong>Understanding Patient Perspective</strong>", descriptor: "Acknowledgement of patient concerns and feelings<br/>Are patient concerns acknowledged?" },
-      { section: "", criterion: "<strong>Providing Structure</strong>", descriptor: "Organization and clear signposting<br/>Is the conversation organized logically?" },
-      { section: "", criterion: "<strong>Information Gathering</strong>", descriptor: "Effective questioning and active listening<br/>Are relevant questions asked?" },
-      { section: "", criterion: "<strong>Information Giving</strong>", descriptor: "Clarity and usefulness of explanations<br/>Is information clear and understandable?" },
-      { section: "<strong>Clinical Subtotal</strong>", criterion: "—", descriptor: "—" },
-    ],
   },
 
   summary: {
     content: "This chapter strengthened OET Speaking skills by integrating key medical vocabulary, patient-friendly grammar, and empathetic communication strategies. Through a flipped classroom supported by AI tools, students progressed from recognizing language forms to creating complete, confident, and compassionate OET role-plays aligned with Band D–C expectations.",
+  },
+
+  assessment: {
+    title: "Formative Assessment and Evaluation",
+    description: "Your performance is scored from 1 to 6, with each level having a descriptor: 1 is very poor, 2 is poor, 3 is limited, 4 is adequate, 5 is good, and 6 is excellent. If you get a score of 4 (adequate), it means you can communicate well enough to continue to the next level. You can also move forward if you get 5 (good) or 6 (excellent), as your communication is strong. However, if you get 1 (very poor), 2 (poor), or 3 (limited), your communication is still not enough, so you need to do remedial roleplay to practice and improve before you can continue.",
+  },
+
+  references: {
+    references: [
+      {
+        text: "Edubenchmark.com. (2025). OET Speaking Test Role Play Cards. Edubenchmark.Com. ",
+        url: "https://edubenchmark.com/blog/oet-speaking-role-play-cards/#s3",
+      },
+      {
+        text: "Eric H. Glendinning, B. A. S. H. (2005). English in Medicine 37131057416729 (3rd ed., pp. 5–32). Cambridge Professional English.",
+      },
+      {
+        text: "Www.occupationalenglishtest.org. (n.d.). Speaking sub-test: Assessment criteria and level descriptors (pp. 1–2). ",
+        url: "https://cdn-aus.aglty.io/oet/pdf-files/Speaking assessment criteria and level descriptors.pdf",
+      },
+      {
+        text: "Yovinalls, A. (2018). The Speaking Task. In Official Guide to OET (Kaplan the Official Guide to Oet) (pp. 157–168). New York State.",
+      },
+    ],
   },
 
   reflection: {
@@ -150,7 +161,7 @@ vocabulary: {
         title: "Personal Reflection",
         questions: [
           "How confident did I feel speaking today?",
-          "One improvement I will focus on next time is: _____",
+          "One improvement I will focus on next time is?",
           "How will I improve it?",
         ],
       },
@@ -170,10 +181,29 @@ const sections = [
   { id: 'overview', title: 'Overview', type: 'overview' },
   { id: 'vocabulary', title: 'Vocabulary', type: 'vocabulary' },
   { id: 'grammar', title: 'Grammar', type: 'grammar' },
-  { id: 'practice', title: 'Practice', type: 'practice' },
-  { id: 'exercise', title: 'Exercise', type: 'exercise' },
+  { id: 'practice', title: 'Practice with AI Chatbot', type: 'practice' },
+  { id: 'exercise', title: 'Role-Play with Classmates', type: 'exercise' },
+  { id: 'feedback', title: 'Feedback from Lecturer', type: 'feedback' },
   { id: 'summary', title: 'Summary', type: 'summary' },
+  { id: 'assessment', title: 'Formative Assessment and Evaluation', type: 'assessment' },
   { id: 'reflection', title: 'Reflection', type: 'reflection' },
+  { id: 'references', title: 'References', type: 'references' },
+];
+
+const preClassSections = ['overview', 'vocabulary', 'grammar', 'practice'];
+const inClassSections = ['exercise', 'feedback', 'summary', 'assessment', 'reflection', 'references'];
+
+const sidebarSections = [
+  { id: 'overview', label: 'Overview', group: 'pre-class' },
+  { id: 'vocabulary', label: 'Vocabulary', group: 'pre-class' },
+  { id: 'grammar', label: 'Grammar', group: 'pre-class' },
+  { id: 'practice', label: 'Practice with AI Chatbot', group: 'pre-class' },
+  { id: 'exercise', label: 'Role-Play with Classmates', group: 'in-class' },
+  { id: 'feedback', label: 'Feedback from Lecturer', group: 'in-class' },
+  { id: 'summary', label: 'Summary', group: 'in-class' },
+  { id: 'assessment', label: 'Formative Assessment and Evaluation', group: 'in-class' },
+  { id: 'reflection', label: 'Reflection', group: 'in-class' },
+  { id: 'references', label: 'References', group: 'in-class' },
 ];
 ---
 
@@ -181,17 +211,52 @@ const sections = [
   moduleNumber={2}
   title="Speaking 1"
   description="Learn the foundational skills for OET Speaking sub-test including structure, vocabulary, grammar, and practice with AI chatbot."
+  sections={sidebarSections}
 >
-  {sections.map((section) => (
-    <SectionCard id={section.id} title={section.title}>
-      {section.type === 'objectives' && <Objectives data={moduleData.objectives} />}
-      {section.type === 'overview' && <Overview data={moduleData.overview} />}
-      {section.type === 'vocabulary' && <Vocabulary data={moduleData.vocabulary} />}
-      {section.type === 'grammar' && <Grammar data={moduleData.grammar} />}
-      {section.type === 'practice' && <Practice data={moduleData.practice} />}
-      {section.type === 'exercise' && <Exercise data={moduleData.exercise} />}
-      {section.type === 'summary' && <Summary data={moduleData.summary} />}
-      {section.type === 'reflection' && <Reflection data={moduleData.reflection} />}
-    </SectionCard>
-  ))}
+  <SectionCard id="objectives" title="Learning Objectives">
+    <Objectives data={moduleData.objectives} />
+  </SectionCard>
+
+  <div class="section-group">
+    <h2 class="group-label">Pre-Class Activities</h2>
+    {sections.filter(s => preClassSections.includes(s.id)).map((section) => (
+      <SectionCard id={section.id} title={section.title}>
+        {section.type === 'overview' && <Overview data={moduleData.overview} />}
+        {section.type === 'vocabulary' && <Vocabulary data={moduleData.vocabulary} />}
+        {section.type === 'grammar' && <Grammar data={moduleData.grammar} />}
+        {section.type === 'practice' && <Practice data={moduleData.practice} />}
+      </SectionCard>
+    ))}
+  </div>
+
+  <div class="section-group">
+    <h2 class="group-label">In-Class Activities</h2>
+    {sections.filter(s => inClassSections.includes(s.id)).map((section) => (
+      <SectionCard id={section.id} title={section.title}>
+        {section.type === 'exercise' && <Exercise data={moduleData.exercise} />}
+        {section.type === 'feedback' && <Feedback />}
+        {section.type === 'summary' && <Summary data={moduleData.summary} />}
+        {section.type === 'assessment' && <Assessment data={moduleData.assessment} />}
+        {section.type === 'reflection' && <Reflection data={moduleData.reflection} />}
+        {section.type === 'references' && <References data={moduleData.references} />}
+      </SectionCard>
+    ))}
+  </div>
 </ModuleLayout>
+
+<style>
+  .section-group {
+    margin-bottom: var(--space-10);
+  }
+
+  .group-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--color-primary);
+  }
+</style>
