@@ -1,23 +1,49 @@
 ---
+interface SidebarSection {
+  id: string;
+  label: string;
+  group?: string;
+}
+
 interface Props {
-  sections: { id: string; label: string }[];
+  sections: SidebarSection[];
 }
 
 const { sections } = Astro.props;
+
+const groups = sections.reduce<Record<string, SidebarSection[]>>((acc, section) => {
+  const group = section.group || 'default';
+  if (!acc[group]) acc[group] = [];
+  acc[group].push(section);
+  return acc;
+}, {});
+
+const groupLabels: Record<string, string> = {
+  'pre-class': 'Pre-Class Activities',
+  'in-class': 'In-Class Activities',
+  'default': '',
+};
 ---
 
 <aside class="sidebar">
   <nav class="sidebar-nav">
     <h4 class="sidebar-title">In this module</h4>
-    <ul class="sidebar-list">
-      {sections.map((section) => (
-        <li>
-          <a href={`#${section.id}`} class="sidebar-link" data-section={section.id}>
-            {section.label}
-          </a>
-        </li>
-      ))}
-    </ul>
+    {Object.entries(groups).map(([groupKey, groupSections]) => (
+      <div class="sidebar-group">
+        {groupLabels[groupKey] && (
+          <span class="sidebar-group-label">{groupLabels[groupKey]}</span>
+        )}
+        <ul class="sidebar-list">
+          {groupSections.map((section) => (
+            <li>
+              <a href={`#${section.id}`} class="sidebar-link" data-section={section.id}>
+                {section.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
   </nav>
 </aside>
 
@@ -74,6 +100,26 @@ const { sections } = Astro.props;
     background: linear-gradient(90deg, var(--color-primary-100) 0%, var(--color-primary-50) 100%);
     border-left-color: var(--color-primary);
     font-weight: 700;
+  }
+
+  .sidebar-group {
+    margin-bottom: var(--space-4);
+  }
+
+  .sidebar-group-label {
+    display: block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-2);
+    padding-bottom: var(--space-1);
+    border-bottom: 1px solid var(--color-primary-100);
+  }
+
+  .sidebar-group:not(:last-child) {
+    margin-bottom: var(--space-4);
   }
 
   @media (max-width: 900px) {

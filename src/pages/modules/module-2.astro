@@ -26,7 +26,7 @@ const moduleData = {
   overview: {
     overview: {
       testDescription: "The OET Speaking test has a short warm-up (not scored) and two role-plays. In each role-play, you act as a healthcare professional, and the examiner is the patient or carer. Before speaking, you have 3 minutes to prepare. During this time, read the situation, understand your role, check the patient's problem, and think of simple phrases to use. During the role-play, start with a polite greeting, ask simple questions, and show empathy. Give clear explanations and advice using easy and polite language. Do not speak too directly. Also, give the patient time to respond and keep the conversation natural. To improve, practice role-plays, learn useful phrases, and remember that effective communication is more important than perfect grammar.",
-      videoUrl: "https://www.youtube.com/results?search_query=OET+Speaking+Test+Part1",
+      videoUrl: "https://youtu.be/akVuiN3m49c?si=6ef3Kwx1Sxo45fEX",
       quizUrl: "https://app.edcafe.ai/youtube-quiz/696deafbf109ed45c70fe1f2",
       quizImage: "/images/image6.png",
       frameworkMnemonic: "OPEN → ASK → EXPLAIN → REASSURE → ADVISE → CLOSE",
@@ -73,12 +73,8 @@ vocabulary: {
     cueCardsDoctor: [
       { image: "/images/image3.png", alt: "Doctor Cue Card", caption: "Cue Card (Doctor Role)" },
     ],
-    cueCardsCaregiver: [
-      { image: "/images/image2.png", alt: "Caregiver Cue Card", caption: "Cue Card (Caregiver Role)" },
-    ],
     cueCardsPatient: [
-      { image: "/images/image3.png", alt: "Patient Cue Card", caption: "Cue Card (Patient Role)" },
-      { image: "/images/image2.png", alt: "Caregiver Cue Card", caption: "Cue Card (Caregiver Role)" },
+      { image: "/images/image2.png", alt: "Patient Cue Card", caption: "Cue Card (Patient Role)" },
     ],
     chatbot: {
       link: "https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad",
@@ -150,7 +146,7 @@ vocabulary: {
         title: "Personal Reflection",
         questions: [
           "How confident did I feel speaking today?",
-          "One improvement I will focus on next time is: _____",
+          "One improvement I will focus on next time is?",
           "How will I improve it?",
         ],
       },
@@ -171,10 +167,13 @@ const sections = [
   { id: 'vocabulary', title: 'Vocabulary', type: 'vocabulary' },
   { id: 'grammar', title: 'Grammar', type: 'grammar' },
   { id: 'practice', title: 'Practice', type: 'practice' },
-  { id: 'exercise', title: 'Exercise', type: 'exercise' },
+  { id: 'exercise', title: 'Role-Play', type: 'exercise' },
   { id: 'summary', title: 'Summary', type: 'summary' },
   { id: 'reflection', title: 'Reflection', type: 'reflection' },
 ];
+
+const preClassSections = ['objectives', 'overview', 'vocabulary', 'grammar', 'practice'];
+const inClassSections = ['exercise', 'summary', 'reflection'];
 ---
 
 <ModuleLayout
@@ -182,16 +181,44 @@ const sections = [
   title="Speaking 1"
   description="Learn the foundational skills for OET Speaking sub-test including structure, vocabulary, grammar, and practice with AI chatbot."
 >
-  {sections.map((section) => (
-    <SectionCard id={section.id} title={section.title}>
-      {section.type === 'objectives' && <Objectives data={moduleData.objectives} />}
-      {section.type === 'overview' && <Overview data={moduleData.overview} />}
-      {section.type === 'vocabulary' && <Vocabulary data={moduleData.vocabulary} />}
-      {section.type === 'grammar' && <Grammar data={moduleData.grammar} />}
-      {section.type === 'practice' && <Practice data={moduleData.practice} />}
-      {section.type === 'exercise' && <Exercise data={moduleData.exercise} />}
-      {section.type === 'summary' && <Summary data={moduleData.summary} />}
-      {section.type === 'reflection' && <Reflection data={moduleData.reflection} />}
-    </SectionCard>
-  ))}
+  <div class="section-group">
+    <h2 class="group-label">Pre-Class Activities</h2>
+    {sections.filter(s => preClassSections.includes(s.id)).map((section) => (
+      <SectionCard id={section.id} title={section.title}>
+        {section.type === 'objectives' && <Objectives data={moduleData.objectives} />}
+        {section.type === 'overview' && <Overview data={moduleData.overview} />}
+        {section.type === 'vocabulary' && <Vocabulary data={moduleData.vocabulary} />}
+        {section.type === 'grammar' && <Grammar data={moduleData.grammar} />}
+        {section.type === 'practice' && <Practice data={moduleData.practice} />}
+      </SectionCard>
+    ))}
+  </div>
+
+  <div class="section-group">
+    <h2 class="group-label">In-Class Activities</h2>
+    {sections.filter(s => inClassSections.includes(s.id)).map((section) => (
+      <SectionCard id={section.id} title={section.title}>
+        {section.type === 'exercise' && <Exercise data={moduleData.exercise} />}
+        {section.type === 'summary' && <Summary data={moduleData.summary} />}
+        {section.type === 'reflection' && <Reflection data={moduleData.reflection} />}
+      </SectionCard>
+    ))}
+  </div>
 </ModuleLayout>
+
+<style>
+  .section-group {
+    margin-bottom: var(--space-10);
+  }
+
+  .group-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--color-primary);
+  }
+</style>

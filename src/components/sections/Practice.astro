@@ -10,12 +10,12 @@ interface CueCard {
 interface ChatbotInfo {
   link: string;
   qrImage: string;
+  iconImage?: string;
 }
 
 interface Props {
   data: {
     cueCardsDoctor: CueCard[];
-    cueCardsCaregiver: CueCard[];
     cueCardsPatient: CueCard[];
     chatbot: ChatbotInfo;
     stepsDoctor: string[];
@@ -37,28 +37,7 @@ const { data } = Astro.props;
     Read the following cue card. Read it carefully to understand the context.
   </p>
 
-  {data.cueCardsDoctor.map((card) => (
-    <figure class="cue-card">
-      <img src={card.image} alt={card.alt} width="326" height="460" />
-      <figcaption>{card.caption}</figcaption>
-    </figure>
-  ))}
-
-  <p>
-    And here is the other cue card as a caregiver. Read it carefully to understand the context.
-  </p>
-
-  {data.cueCardsCaregiver.map((card) => (
-    <figure class="cue-card">
-      <img src={card.image} alt={card.alt} width="386" height="545" />
-      <figcaption>{card.caption}</figcaption>
-    </figure>
-  ))}
-
-  <p>
-    After completing the exercises above, use the AI chatbot to practice.
-  </p>
-
+  <h4>AI CHATBOT AS A TUTOR/TOOLS</h4>
   <div class="chatbot-section">
     <p>
       <strong>🤖 Practice with the AI Chatbot</strong>
@@ -85,10 +64,20 @@ const { data } = Astro.props;
     ))}
   </ol>
 
+  <p>
+    Read the Doctor Cue Card below to guide your practice.
+  </p>
+  {data.cueCardsDoctor.map((card) => (
+    <figure class="cue-card cue-card--doctor">
+      <img src={card.image} alt={card.alt} width="326" height="460" />
+      <figcaption>{card.caption}</figcaption>
+    </figure>
+  ))}
+
   <h4>Steps to Use the Chatbot for OET Speaking Practice (as a PATIENT)</h4>
   {data.cueCardsPatient.map((card) => (
-    <figure class="cue-card">
-      <img src={card.image} alt={card.alt} width="377" height="460" />
+    <figure class="cue-card cue-card--patient">
+      <img src={card.image} alt={card.alt} width="386" height="545" />
       <figcaption>{card.caption}</figcaption>
     </figure>
   ))}
@@ -200,6 +189,29 @@ const { data } = Astro.props;
     font-size: var(--text-sm);
     color: var(--color-text-muted);
     font-style: italic;
+  }
+
+  .cue-card--doctor {
+    border-left: 4px solid #2563eb;
+    background: #eff6ff;
+  }
+
+  .cue-card--patient {
+    border-left: 4px solid #f59e0b;
+    background: #fffbeb;
+  }
+
+  .chatbot-icon {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-3);
+  }
+
+  .chatbot-icon img {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--card-radius);
   }
 
   .chatbot-section {
