@@ -14,24 +14,25 @@ import Reflection from '../../components/sections/Reflection.astro';
 import References from '../../components/sections/References.astro';
 
 const moduleData = {
+
   objectives: {
     objectives: [
-      "C1 Identify the structure and criteria of OET Speaking",
-      "C2 Explain patient-friendly vocabulary based on the <strong><u>pregnancy case</u></strong> context",
+      "C1 Identify the structure and criteria of OET Speaking.",
+      "C2 Explain patient-friendly vocabulary based on the <strong><u>heart problem</u></strong> context.",
       "C2 Explain grammar, and empathy strategies",
       "C3 Apply appropriate language in structured speaking tasks using chatbot",
       "C4 Analyze patient needs and emotional cues and do a roleplay with the chatbot.",
       "C5 Evaluate or reflect on their learning experience by identifying useful vocabulary, evaluating their grammar and speaking confidence, describing areas for improvement, and explaining how the AI chatbot supports their English learning development.",
-      "C6 Produce a clear, empathetic, and coherent OET role-play",
+      "C6 Produce a clear, empathetic, and coherent OET role-play.",
     ],
   },
 
   overview: {
     overview: {
       testDescription: "The OET Speaking test has a short warm-up (not scored) and two role-plays. In each role-play, you act as a healthcare professional, and the examiner is the patient or carer. Before speaking, you have 3 minutes to prepare. During this time, read the situation, understand your role, check the patient's problem, and think of simple phrases to use. During the role-play, start with a polite greeting, ask simple questions, and show empathy. Give clear explanations and advice using easy and polite language. Do not speak too directly. Also, give the patient time to respond and keep the conversation natural. To improve, practice role-plays, learn useful phrases, and remember that effective communication is more important than perfect grammar.",
-      videoUrl: "https://youtu.be/akVuiN3m49c?si=6ef3Kwx1Sxo45fEX",
+      videoUrl: "https://youtu.be/GThF6ghbSqE",
       quizUrl: "https://app.edcafe.ai/youtube-quiz/696deafbf109ed45c70fe1f2",
-      quizImage: "/images/image6.png",
+      quizImage: "/images/speaking-2/quiz-overview-qr.png",
       frameworkMnemonic: "OPEN → ASK → EXPLAIN → REASSURE → ADVISE → CLOSE",
       frameworkDescription: 'The "OET Speaking Blueprint: Beginner\'s Clinical Dialogue Guide" provides a standardized, six-step framework designed to facilitate clear and professional communication between healthcare providers and patients. The framework prioritizes polite engagement, systematic information gathering, and structured delivery of medical information. Key takeaways include the differentiation of dialogue based on clinical setting (clinic vs. hospital) and a specific pedagogical model for explaining medical conditions: linking cause, symptoms, treatment, and preventative advice in a logical sequence.',
       frameworkPdf: "https://drive.google.com/file/d/1qhteybDPvAL2uzQiWKZ0DDBKIKocJiPL/view",
@@ -40,30 +41,29 @@ const moduleData = {
       languageSkills: "The OET speaking subtest is assessed based on two main areas: <strong>language skills</strong> and <strong>clinical communication</strong>. <em>Language skills</em> focus on how clearly and smoothly you speak, including clarity (easy to understand), fluency (natural speed), appropriateness (using the right tone), and accuracy (correct grammar and vocabulary).",
       clinicalCommunication: "<em>Clinical communication</em> measures how well you interact with the patient, such as building a good relationship, understanding the patient's feelings, organizing the conversation clearly, and giving and gathering information effectively. To get a good score, you need to speak clearly, use simple and correct language, show empathy, and guide the patient step by step during the conversation.",
       scoringPdf: "https://drive.google.com/file/d/1-lLyHjdWEBkx7N-IxAQv89WHfoqEBf1J/view",
-      criteriaImage: "/images/image1.png",
     },
   },
 
   vocabulary: {
-    context: "pregnancy",
+    context: "heart problem",
     quizUrl: "https://app.edcafe.ai/quizzes/69899ca63159d0c298cf730f",
-    quizImage: "/images/image5.png",
+    quizImage: "/images/speaking-2/quiz-vocab-qr.png",
     vocabularyItems: [
-      { no: 1, word: "pregnant", meaning: "having a baby in the body", example: "You may be pregnant, but we need to confirm it first." },
-      { no: 2, word: "pregnancy test", meaning: "a test to check pregnancy", example: "Have you taken a pregnancy test yet?" },
-      { no: 3, word: "positive", meaning: "showing yes/result is true", example: "A positive result usually means you are pregnant." },
-      { no: 4, word: "worried", meaning: "feeling nervous or concerned", example: "I understand that you are feeling worried right now." },
-      { no: 5, word: "shocked", meaning: "very surprised", example: "It's okay to feel shocked after hearing this result." },
-      { no: 6, word: "advice", meaning: "helpful suggestion", example: "I will give you some advice on what to do next." },
-      { no: 7, word: "confidential", meaning: "private, not shared with others", example: "Everything we talk about here is confidential." },
-      { no: 8, word: "decision", meaning: "a choice you make", example: "This is your decision, and we will respect it." },
-      { no: 9, word: "support", meaning: "help from someone", example: "You don't have to go through this alone, we can support you." },
-      { no: 10, word: "options", meaning: "different choices", example: "Let me explain the options available to you." },
-      { no: 11, word: "specialist", meaning: "doctor with special knowledge", example: "I can refer you to a specialist for further care." },
-      { no: 12, word: "trust", meaning: "to believe someone is safe or honest", example: "You can trust me to help you through this situation." },
-      { no: 13, word: "parents", meaning: "mother and father", example: "Have you talked to your parents about this?" },
-      { no: 14, word: "unexpected", meaning: "not planned or not expected", example: "I understand this may be an unexpected situation for you." },
-      { no: 15, word: "discuss", meaning: "to talk about something", example: "We can discuss your concerns and any questions you have." },
+      { no: 1, word: "Prescription", meaning: "doctor's medicine paper", example: "I will write you a prescription for this medicine." },
+      { no: 2, word: "Pain", meaning: "when something hurts", example: "Can you tell me where you feel the pain?" },
+      { no: 3, word: "Bruising", meaning: "blue or purple skin mark", example: "I can see some bruising on your arm." },
+      { no: 4, word: "Fall (fell)", meaning: "drop to the ground", example: "Did you fall or hurt yourself recently?" },
+      { no: 5, word: "Medicine", meaning: "something to help you feel better", example: "Please take this medicine twice a day after meals." },
+      { no: 6, word: "Assessment", meaning: "Checking a patient's condition", example: "I will do a quick assessment of your condition." },
+      { no: 7, word: "Safe / Safety", meaning: "Not dangerous", example: "We need to make sure you are safe at home." },
+      { no: 8, word: "Home visit", meaning: "doctor visits your home", example: "We can arrange a home visit if needed." },
+      { no: 9, word: "Refuse", meaning: "To say no", example: "You have the right to refuse any treatment." },
+      { no: 10, word: "Well-being", meaning: "health and comfort", example: "We are concerned about your overall well-being." },
+      { no: 11, word: "Injury", meaning: "body damage or hurt", example: "Do you have any injuries from the accident?" },
+      { no: 12, word: "Treatment", meaning: "medical help or care", example: "We will start your treatment today." },
+      { no: 13, word: "Recover", meaning: "get better", example: "It may take a few weeks for you to fully recover." },
+      { no: 14, word: "Appointment", meaning: "planned doctor meeting", example: "Please come back for a follow-up appointment next week." },
+      { no: 15, word: "Concern", meaning: "worry or problem", example: "Do you have any concerns about your condition?" },
     ],
   },
 
@@ -78,19 +78,19 @@ const moduleData = {
 
   practice: {
     cueCardsDoctor: [
-      { image: "/images/image3.png", alt: "Doctor Cue Card", caption: "Cue Card (Doctor Role)" },
+      { image: "/images/speaking-2/cue-card-doctor.png", alt: "Doctor Cue Card (Heart Problem)", caption: "Cue Card (Doctor Role)" },
     ],
     cueCardsPatient: [
-      { image: "/images/image2.png", alt: "Patient Cue Card", caption: "Cue Card (Patient Role)" },
+      { image: "/images/speaking-2/cue-card-patient.png", alt: "Patient Cue Card (Heart Problem)", caption: "Cue Card (Patient Role)" },
     ],
     chatbot: {
       link: "https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad",
-      qrImage: "/images/image4.png",
+      qrImage: "/images/speaking-2/chatbot-qr.png",
       btnImage: "/images/chatbot-btn.png",
     },
     stepsDoctor: [
       "Open the chatbot link and enter your full name.",
-      "Take a screenshot of the role-play cue card (Doctor or Patient) and upload it to the chatbot.",
+      "Take a screenshot of the role-play cue card (Doctor) and upload it to the chatbot.",
       'Type the prompt:<br/><em>"Read the attached cue card and guide me to practice."</em><br/>In this context a chatbot functions as structured practice tool and automatic feedback.',
       "Follow the chatbot's guidance step by step: <ul><li>Speak one idea at a time</li><li>Use short, clear sentences</li><li>Pronounce words clearly</li><li>Repeat the practice until all tasks on the cue card are completed.</li></ul>",
       "Read the summary feedback provided by the chatbot.",
@@ -98,7 +98,7 @@ const moduleData = {
       "Copy all your answers into one page to form a complete dialogue (doctor–patient).",
     ],
     stepsPatient: [
-      'Take a screenshot of the role-play cue card (Patient) and upload it to the chatbot.',
+      "Take a screenshot of the role-play cue card (Patient) and upload it to the chatbot.",
       'Type the prompt: "Read the attached cue card and guide me to practice."',
       "Follow the chatbot's guidance step by step: <ul><li>Speak one idea at a time</li><li>Use short, clear sentences</li><li>Pronounce words clearly</li><li>Repeat the practice until all tasks on the cue card are completed.</li></ul>",
       "Read the summary feedback provided by the chatbot.",
@@ -111,6 +111,7 @@ const moduleData = {
       "Upload two cue cards: doctor and patient",
       'To start, Use this prompt:<br/><em>"Read the attached cue cards and be my conversational partner. You take a role as a patient. I will be a doctor. Make sure your questions are in line with the patient\'s task in the cue card. Can we start?"</em><br/>In this context a chatbot functions as conversational partner.',
     ],
+    partnerPrompt: "Read the attached cue cards and be my conversational partner. You take a role as a patient. I will be a doctor.",
     partnerExampleLink: "https://docs.google.com/document/d/1Z53yrMLP0JvIzKIDf_AVhD5zbry4NKJkC3b-b9LkGhI/edit?usp=sharing",
   },
 
@@ -131,14 +132,14 @@ const moduleData = {
   references: {
     references: [
       {
-        text: "Edubenchmark.com. (2025). OET Speaking Test Role Play Cards. Edubenchmark.Com. ",
-        url: "https://edubenchmark.com/blog/oet-speaking-role-play-cards/#s3",
+        text: "Englishey.com. (2024). OET Speaking role play card 1 — OET Speaking Sample Test One – Role play card 1 for medicine: Reluctant patient. Englishey.Com.",
+        url: "https://englishey.com/lessons/oet-speaking-role-play-card-1/",
       },
       {
         text: "Eric H. Glendinning, B. A. S. H. (2005). English in Medicine 37131057416729 (3rd ed., pp. 5–32). Cambridge Professional English.",
       },
       {
-        text: "Www.occupationalenglishtest.org. (n.d.). Speaking sub-test: Assessment criteria and level descriptors (pp. 1–2). ",
+        text: "Www.occupationalenglishtest.org. (n.d.). Speaking sub-test: Assessment criteria and level descriptors (pp. 1–2).",
         url: "https://cdn-aus.aglty.io/oet/pdf-files/Speaking assessment criteria and level descriptors.pdf",
       },
       {
@@ -210,8 +211,8 @@ const sidebarSections = [
 
 <ModuleLayout
   moduleNumber={2}
-  title="Speaking 1"
-  description="Learn the foundational skills for OET Speaking sub-test including structure, vocabulary, grammar, and practice with AI chatbot."
+  title="Speaking 2"
+  description="Master OET Speaking skills with AI chatbot practice, role-plays, and patient-centered communication for heart problem cases."
   sections={sidebarSections}
 >
   <SectionCard id="objectives" title="Learning Objectives">

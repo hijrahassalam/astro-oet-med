@@ -11,6 +11,7 @@ interface VocabularyItem {
 
 interface Props {
   data: {
+    context: string;
     vocabularyItems: VocabularyItem[];
     quizUrl: string;
     quizImage: string;
@@ -25,7 +26,7 @@ const { data } = Astro.props;
 
   <h4>Core Vocabulary List (Patient-Centered Language)</h4>
   <p>
-    This module focuses on developing students' language skills and clinical communication when discussing pregnancy. To support this learning, the following key vocabulary items will help you communicate more effectively during practice sessions with the chatbot and your classmates. Read and understand them carefully before the class session.
+    This module focuses on developing students' language skills and clinical communication when discussing {data.context}. To support this learning, the following key vocabulary items will help you communicate more effectively during practice sessions with the chatbot and your classmates. Read and understand them carefully before the class session.
   </p>
 
   <p>🔑 <strong>15 Key Vocabulary Items</strong></p>

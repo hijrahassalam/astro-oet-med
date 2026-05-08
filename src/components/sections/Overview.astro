@@ -17,7 +17,7 @@ interface Props {
       languageSkills: string;
       clinicalCommunication: string;
       scoringPdf: string;
-      criteriaImage: string;
+      criteriaImage?: string;
     };
   };
 }
@@ -65,9 +65,11 @@ const { data } = Astro.props;
   </p>
 
   <h3>2. Criteria of Speaking Sub-Test</h3>
-  <figure class="section-image criteria-image">
-    <img src={data.criteria.criteriaImage} alt="OET Speaking Criteria" width="386" height="217" />
-  </figure>
+  {data.criteria.criteriaImage && (
+    <figure class="section-image criteria-image">
+      <img src={data.criteria.criteriaImage} alt="OET Speaking Criteria" width="386" height="217" />
+    </figure>
+  )}
   <p set:html={data.criteria.languageSkills} />
   <p set:html={data.criteria.clinicalCommunication} />
   <p class="criteria-link">
