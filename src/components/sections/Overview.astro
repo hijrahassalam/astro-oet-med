@@ -43,12 +43,13 @@ const { data } = Astro.props;
     <p class="quiz-intro">
       To identify how well you understand the video, answer questions in the following link:
     </p>
-    <div class="quiz-row">
+    <div class="quiz-card">
       <CtaButton href={data.overview.quizUrl} variant="secondary" size="md">
         📝 Take Quiz
       </CtaButton>
       <figure class="quiz-image">
-        <img src={data.overview.quizImage} alt="Quiz QR Code" width="150" height="150" />
+        <img src={data.overview.quizImage} alt="Quiz QR Code" width="120" height="120" />
+        <figcaption>Quiz</figcaption>
       </figure>
     </div>
   </div>
@@ -171,22 +172,39 @@ const { data } = Astro.props;
     color: var(--color-text);
   }
 
-  .quiz-row {
+  .quiz-card {
     display: flex;
     align-items: center;
     gap: var(--space-4);
-    flex-wrap: wrap;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--card-radius);
+    padding: var(--space-4) var(--space-5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
 
-  .quiz-row .quiz-image {
+  .quiz-card :global(.cta-btn) {
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .quiz-card .quiz-image {
     margin: 0;
+    flex-shrink: 0;
   }
 
-  .quiz-row .quiz-image img {
-    max-width: 150px;
+  .quiz-card .quiz-image img {
+    max-width: 120px;
     height: auto;
     border-radius: var(--card-radius);
     box-shadow: var(--card-shadow);
+  }
+
+  .quiz-card .quiz-image figcaption {
+    margin-top: var(--space-1);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-align: center;
   }
 
   .section-image {
