@@ -76,17 +76,21 @@ const { data } = Astro.props;
   ))}
 
   <h4>Steps to Use the Chatbot for OET Speaking Practice (as a PATIENT)</h4>
+  <ol>
+    {data.stepsPatient.map((step) => (
+      <li set:html={step} />
+    ))}
+  </ol>
+
+  <p>
+    Read the Patient Cue Card below to guide your practice.
+  </p>
   {data.cueCardsPatient.map((card) => (
     <figure class="cue-card cue-card--patient">
       <img src={card.image} alt={card.alt} width="386" height="545" />
       <figcaption>{card.caption}</figcaption>
     </figure>
   ))}
-  <ol>
-    {data.stepsPatient.map((step) => (
-      <li set:html={step} />
-    ))}
-  </ol>
 
   <h4>Merging Doctor and Patient Responses</h4>
   <p>
