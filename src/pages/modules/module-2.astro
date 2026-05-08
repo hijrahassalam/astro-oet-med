@@ -9,6 +9,7 @@ import Practice from '../../components/sections/Practice.astro';
 import Exercise from '../../components/sections/Exercise.astro';
 import Summary from '../../components/sections/Summary.astro';
 import Reflection from '../../components/sections/Reflection.astro';
+import Feedback from '../../components/sections/Feedback.astro';
 
 const moduleData = {
   objectives: {
@@ -168,26 +169,42 @@ const sections = [
   { id: 'overview', title: 'Overview', type: 'overview' },
   { id: 'vocabulary', title: 'Vocabulary', type: 'vocabulary' },
   { id: 'grammar', title: 'Grammar', type: 'grammar' },
-  { id: 'practice', title: 'Practice', type: 'practice' },
-  { id: 'exercise', title: 'Role-Play', type: 'exercise' },
+  { id: 'practice', title: 'Practice with AI Chatbot', type: 'practice' },
+  { id: 'exercise', title: 'Role-Play with Classmates', type: 'exercise' },
+  { id: 'feedback', title: 'Feedback from Lecturer', type: 'feedback' },
   { id: 'summary', title: 'Summary', type: 'summary' },
   { id: 'reflection', title: 'Reflection', type: 'reflection' },
 ];
 
-const preClassSections = ['objectives', 'overview', 'vocabulary', 'grammar', 'practice'];
-const inClassSections = ['exercise', 'summary', 'reflection'];
+const preClassSections = ['overview', 'vocabulary', 'grammar', 'practice'];
+const inClassSections = ['exercise', 'feedback', 'summary', 'reflection'];
+
+const sidebarSections = [
+  { id: 'overview', label: 'Overview', group: 'pre-class' },
+  { id: 'vocabulary', label: 'Vocabulary', group: 'pre-class' },
+  { id: 'grammar', label: 'Grammar', group: 'pre-class' },
+  { id: 'practice', label: 'Practice with AI Chatbot', group: 'pre-class' },
+  { id: 'exercise', label: 'Role-Play with Classmates', group: 'in-class' },
+  { id: 'feedback', label: 'Feedback from Lecturer', group: 'in-class' },
+  { id: 'summary', label: 'Summary', group: 'in-class' },
+  { id: 'reflection', label: 'Reflection', group: 'in-class' },
+];
 ---
 
 <ModuleLayout
   moduleNumber={2}
   title="Speaking 1"
   description="Learn the foundational skills for OET Speaking sub-test including structure, vocabulary, grammar, and practice with AI chatbot."
+  sections={sidebarSections}
 >
+  <SectionCard id="objectives" title="Learning Objectives">
+    <Objectives data={moduleData.objectives} />
+  </SectionCard>
+
   <div class="section-group">
     <h2 class="group-label">Pre-Class Activities</h2>
     {sections.filter(s => preClassSections.includes(s.id)).map((section) => (
       <SectionCard id={section.id} title={section.title}>
-        {section.type === 'objectives' && <Objectives data={moduleData.objectives} />}
         {section.type === 'overview' && <Overview data={moduleData.overview} />}
         {section.type === 'vocabulary' && <Vocabulary data={moduleData.vocabulary} />}
         {section.type === 'grammar' && <Grammar data={moduleData.grammar} />}
@@ -201,6 +218,7 @@ const inClassSections = ['exercise', 'summary', 'reflection'];
     {sections.filter(s => inClassSections.includes(s.id)).map((section) => (
       <SectionCard id={section.id} title={section.title}>
         {section.type === 'exercise' && <Exercise data={moduleData.exercise} />}
+        {section.type === 'feedback' && <Feedback />}
         {section.type === 'summary' && <Summary data={moduleData.summary} />}
         {section.type === 'reflection' && <Reflection data={moduleData.reflection} />}
       </SectionCard>

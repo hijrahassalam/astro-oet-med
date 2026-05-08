@@ -1,0 +1,61 @@
+---
+interface Props {
+  data?: {
+    placeholderText?: string;
+  };
+}
+
+const { data } = Astro.props;
+---
+
+<div class="feedback-content">
+  <h3>Feedback from Lecturer</h3>
+  <div class="feedback-placeholder">
+    <p><strong>📋 Feedback Session</strong></p>
+    <p>After completing your role-play, you will receive feedback from your lecturer or tutor. The feedback will cover:</p>
+    <ul>
+      <li>Fluency and pronunciation</li>
+      <li>Appropriateness of language and vocabulary</li>
+      <li>Grammar accuracy</li>
+      <li>Clinical communication skills</li>
+      <li>Overall OET speaking performance</li>
+    </ul>
+    <p class="feedback-note">Use this feedback to identify areas for improvement before your next practice session.</p>
+  </div>
+</div>
+
+<style>
+  .feedback-content h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-4);
+  }
+
+  .feedback-placeholder {
+    background: var(--color-bg);
+    border-radius: var(--card-radius);
+    padding: var(--space-5);
+    border: 1px dashed var(--color-border);
+  }
+
+  .feedback-placeholder ul {
+    padding-left: var(--space-6);
+    margin: var(--space-3) 0;
+  }
+
+  .feedback-placeholder li {
+    margin-bottom: var(--space-2);
+    line-height: var(--leading-relaxed);
+  }
+
+  .feedback-note {
+    margin-top: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--color-border);
+    font-style: italic;
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+  }
+</style>
