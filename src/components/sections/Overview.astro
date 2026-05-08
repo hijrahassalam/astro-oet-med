@@ -1,5 +1,6 @@
 ---
 import CtaButton from '../CtaButton.astro';
+import QuizCard from '../QuizCard.astro';
 
 interface Props {
   data: {
@@ -43,15 +44,7 @@ const { data } = Astro.props;
     <p class="quiz-intro">
       To identify how well you understand the video, answer questions in the following link:
     </p>
-    <div class="quiz-card">
-      <CtaButton href={data.overview.quizUrl} variant="secondary" size="md">
-        📝 Take Quiz
-      </CtaButton>
-      <figure class="quiz-image">
-        <img src={data.overview.quizImage} alt="Quiz QR Code" width="120" height="120" />
-        <figcaption>Quiz</figcaption>
-      </figure>
-    </div>
+    <QuizCard quizUrl={data.overview.quizUrl} quizImage={data.overview.quizImage} />
   </div>
 
   <h4>OET Speaking Blueprint: Clinical Dialogue Framework</h4>
@@ -170,45 +163,6 @@ const { data } = Astro.props;
     margin-bottom: var(--space-3);
     font-size: var(--text-base);
     color: var(--color-text);
-  }
-
-  .quiz-card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: var(--space-4);
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--card-radius);
-    padding: var(--space-4) var(--space-5);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    text-align: left;
-  }
-
-  .quiz-card :global(.cta-btn) {
-    display: inline-flex !important;
-    flex-shrink: 0;
-    text-decoration: none;
-  }
-
-  .quiz-card .quiz-image {
-    margin: 0;
-    flex-shrink: 0;
-  }
-
-  .quiz-card .quiz-image img {
-    max-width: 120px;
-    height: auto;
-    border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
-  }
-
-  .quiz-card .quiz-image figcaption {
-    margin-top: var(--space-1);
-    font-size: var(--text-xs);
-    color: var(--color-text-muted);
-    text-align: center;
   }
 
   .section-image {
