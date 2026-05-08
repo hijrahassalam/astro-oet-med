@@ -76,7 +76,8 @@ const { data } = Astro.props;
   </figure>
   <p set:html={data.criteria.languageSkills} />
   <p set:html={data.criteria.clinicalCommunication} />
-  <p>
+  <p class="criteria-link">
+    For further explanation:
     <CtaButton href={data.criteria.scoringPdf} variant="secondary" size="sm">
       📄 Download Scoring Guide
     </CtaButton>
@@ -120,6 +121,17 @@ const { data } = Astro.props;
     font-weight: 700;
     color: var(--color-primary);
     margin: var(--space-6) 0;
+  }
+
+  .criteria-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+
+  .criteria-link :global(.cta-btn) {
+    text-decoration: none;
   }
 
   .framework-link {
