@@ -11,6 +11,7 @@ interface ChatbotInfo {
   link: string;
   qrImage: string;
   iconImage?: string;
+  btnImage?: string;
 }
 
 interface Props {
@@ -47,9 +48,9 @@ const { data } = Astro.props;
       will guide you practice.
     </p>
     <div class="chatbot-with-qr">
-      <CtaButton href={data.chatbot.link} variant="primary" size="lg">
-        🤖 Open Chatbot
-      </CtaButton>
+      <a href={data.chatbot.link} target="_blank" class="chatbot-btn-link">
+        <img src={data.chatbot.btnImage} alt="Open Chatbot" class="chatbot-btn-img" />
+      </a>
       <figure class="qr-code">
         <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
         <figcaption>Scan to open chatbot</figcaption>
@@ -112,9 +113,9 @@ const { data } = Astro.props;
       will guide you practice.
     </p>
     <div class="chatbot-with-qr">
-      <CtaButton href={data.chatbot.link} variant="primary" size="lg">
-        🤖 Open Chatbot
-      </CtaButton>
+      <a href={data.chatbot.link} target="_blank" class="chatbot-btn-link">
+        <img src={data.chatbot.btnImage} alt="Open Chatbot" class="chatbot-btn-img" />
+      </a>
       <figure class="qr-code">
         <img src={data.chatbot.qrImage} alt="Chatbot QR Code" width="137" height="137" />
         <figcaption>Scan to open chatbot</figcaption>
@@ -231,6 +232,23 @@ const { data } = Astro.props;
 
   .chatbot-with-qr :global(.cta-btn) {
     text-decoration: none;
+  }
+
+  .chatbot-btn-link {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .chatbot-btn-img {
+    height: 60px;
+    width: auto;
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    transition: opacity 0.2s ease;
+  }
+
+  .chatbot-btn-img:hover {
+    opacity: 0.9;
   }
 
   .qr-code {
