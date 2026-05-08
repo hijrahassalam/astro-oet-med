@@ -1,62 +1,261 @@
 ---
 import ModuleLayout from '../../layouts/ModuleLayout.astro';
 import SectionCard from '../../components/SectionCard.astro';
+import Objectives from '../../components/sections/Objectives.astro';
+import Overview from '../../components/sections/Overview.astro';
+import Vocabulary from '../../components/sections/Vocabulary.astro';
+import Grammar from '../../components/sections/Grammar.astro';
+import Practice from '../../components/sections/Practice.astro';
+import Exercise from '../../components/sections/Exercise.astro';
+import Feedback from '../../components/sections/Feedback.astro';
+import Assessment from '../../components/sections/Assessment.astro';
+import Summary from '../../components/sections/Summary.astro';
+import Reflection from '../../components/sections/Reflection.astro';
+import References from '../../components/sections/References.astro';
+
+const moduleData = {
+
+  objectives: {
+    objectives: [
+      "C1 Identify the structure and criteria of OET Speaking.",
+      "C2 Explain patient-friendly vocabulary based on the <strong><u>blood sugar problem (diabetes)</u></strong> context.",
+      "C2 Explain grammar, and empathy strategies",
+      "C3 Apply appropriate language in structured speaking tasks using chatbot",
+      "C4 Analyze patient needs and emotional cues and do a roleplay with the chatbot.",
+      "C5 Evaluate or reflect on their learning experience by identifying useful vocabulary, evaluating their grammar and speaking confidence, describing areas for improvement, and explaining how the AI chatbot supports their English learning development.",
+      "C6 Produce a clear, empathetic, and coherent OET role-play.",
+    ],
+  },
+
+  overview: {
+    overview: {
+      testDescription: "The OET Speaking test has a short warm-up (not scored) and two role-plays. In each role-play, you act as a healthcare professional, and the examiner is the patient or carer. Before speaking, you have 3 minutes to prepare. During this time, read the situation, understand your role, check the patient's problem, and think of simple phrases to use. During the role-play, start with a polite greeting, ask simple questions, and show empathy. Give clear explanations and advice using easy and polite language. Do not speak too directly. Also, give the patient time to respond and keep the conversation natural. To improve, practice role-plays, learn useful phrases, and remember that effective communication is more important than perfect grammar.",
+      videoUrl: "https://www.youtube.com/watch?v=akVuiN3m49c",
+      quizUrl: "https://app.edcafe.ai/youtube-quiz/696deafbf109ed45c70fe1f2",
+      quizImage: "/images/speaking-2/quiz-overview-qr.png",
+      frameworkMnemonic: "OPEN → ASK → EXPLAIN → REASSURE → ADVISE → CLOSE",
+      frameworkDescription: 'The "OET Speaking Blueprint: Beginner\'s Clinical Dialogue Guide" provides a standardized, six-step framework designed to facilitate clear and professional communication between healthcare providers and patients. The framework prioritizes polite engagement, systematic information gathering, and structured delivery of medical information. Key takeaways include the differentiation of dialogue based on clinical setting (clinic vs. hospital) and a specific pedagogical model for explaining medical conditions: linking cause, symptoms, treatment, and preventative advice in a logical sequence.',
+      frameworkPdf: "https://drive.google.com/file/d/1qhteybDPvAL2uzQiWKZ0DDBKIKocJiPL/view",
+    },
+    criteria: {
+      languageSkills: "The OET speaking subtest is assessed based on two main areas: <strong>language skills</strong> and <strong>clinical communication</strong>. <em>Language skills</em> focus on how clearly and smoothly you speak, including clarity (easy to understand), fluency (natural speed), appropriateness (using the right tone), and accuracy (correct grammar and vocabulary).",
+      clinicalCommunication: "<em>Clinical communication</em> measures how well you interact with the patient, such as building a good relationship, understanding the patient's feelings, organizing the conversation clearly, and giving and gathering information effectively. To get a good score, you need to speak clearly, use simple and correct language, show empathy, and guide the patient step by step during the conversation.",
+      scoringPdf: "https://drive.google.com/file/d/1-lLyHjdWEBkx7N-IxAQv89WHfoqEBf1J/view",
+    },
+  },
+
+  vocabulary: {
+    context: "blood sugar problem (diabetes)",
+    quizUrl: "https://app.edcafe.ai/quizzes/69899ca63159d0c298cf730f",
+    quizImage: "/images/speaking-2/quiz-vocab-qr.png",
+    vocabularyItems: [
+      { no: 1, word: "Blood test", meaning: "test using blood", example: "We need to do a blood test to check your condition." },
+      { no: 2, word: "Fasting blood sugar", meaning: "blood sugar after not eating", example: "Your fasting blood sugar level is higher than normal." },
+      { no: 3, word: "Diabetes", meaning: "high blood sugar condition", example: "You may have diabetes, but we need to confirm it." },
+      { no: 4, word: "Type II diabetes", meaning: "common adult diabetes", example: "This result suggests you might have Type II diabetes." },
+      { no: 5, word: "Insulin", meaning: "hormone for blood sugar", example: "Your body may not be using insulin properly." },
+      { no: 6, word: "Diagnosis", meaning: "doctor's finding", example: "Based on the results, my diagnosis is Type II diabetes." },
+      { no: 7, word: "Guidelines", meaning: "official advice or rules", example: "We will follow the medical guidelines for your treatment." },
+      { no: 8, word: "Lifestyle changes", meaning: "healthier daily habits", example: "You will need to make some lifestyle changes." },
+      { no: 9, word: "Treatment", meaning: "medical care", example: "We will start your treatment as soon as possible." },
+      { no: 10, word: "Prevent", meaning: "stop from happening", example: "These steps can help prevent complications." },
+      { no: 11, word: "Exercise", meaning: "physical activity", example: "Regular exercise can help control your blood sugar." },
+      { no: 12, word: "Healthy diet", meaning: "good eating habits", example: "You should follow a healthy diet from now on." },
+      { no: 13, word: "Manage", meaning: "control something", example: "You can manage this condition with proper care." },
+      { no: 14, word: "Check-up", meaning: "health examination", example: "Please come for a regular check-up every month." },
+      { no: 15, word: "Risk", meaning: "chance of danger", example: "There is a risk of complications if it is not controlled." },
+    ],
+  },
+
+  grammar: {
+    headerImage: "/images/grammar-icon.png",
+    grammarDescription: "In OET Speaking, you should use simple and clear grammar to communicate with patients. You do not need long or difficult sentences. Instead, use an easy pattern to make your speech polite and clear.",
+    grammarPattern: "Subject + Modal + Verb + Object",
+    grammarExample: "I need to check your leg first",
+    grammarPdf: "https://drive.google.com/file/d/1n2dSd8KL1iB_rFrGbj-G_qPekImbSyTg/view",
+    videoUrl: "https://youtu.be/WURhySarfuA",
+  },
+
+  practice: {
+    cueCardsDoctor: [
+      { image: "/images/speaking-3/cue-card-doctor.png", alt: "Doctor Cue Card (Diabetes)", caption: "Cue Card (Doctor Role)" },
+    ],
+    cueCardsPatient: [
+      { image: "/images/speaking-3/cue-card-patient.png", alt: "Patient Cue Card (Diabetes)", caption: "Cue Card (Patient Role)" },
+    ],
+    chatbot: {
+      link: "https://app.edcafe.ai/chatbots/6980bd93bef19e699efac1ad",
+      qrImage: "/images/speaking-2/chatbot-qr.png",
+      btnImage: "/images/chatbot-btn.png",
+    },
+    stepsDoctor: [
+      "Open the chatbot link and enter your full name.",
+      "Take a screenshot of the role-play cue card (Doctor) and upload it to the chatbot.",
+      'Type the prompt:<br/><em>"Read the attached cue card and guide me to practice."</em><br/>In this context a chatbot functions as structured practice tool and automatic feedback.',
+      "Follow the chatbot's guidance step by step: <ul><li>Speak one idea at a time</li><li>Use short, clear sentences</li><li>Pronounce words clearly</li><li>Repeat the practice until all tasks on the cue card are completed.</li></ul>",
+      "Read the summary feedback provided by the chatbot.",
+      "Answer the reflection questions about your speaking experience.",
+      "Upload all your answers into one page to form a complete dialogue (doctor–patient).",
+    ],
+    stepsPatient: [
+      "Take a screenshot of the role-play cue card (Patient) and upload it to the chatbot.",
+      'Type the prompt: "Read the attached cue card and guide me to practice."',
+      "Follow the chatbot's guidance step by step: <ul><li>Speak one idea at a time</li><li>Use short, clear sentences</li><li>Pronounce words clearly</li><li>Repeat the practice until all tasks on the cue card are completed.</li></ul>",
+      "Read the summary feedback provided by the chatbot.",
+      "Answer the reflection questions about your speaking experience.",
+    ],
+    mergePrompt: "Merge the conversation between a doctor and a patient in the attached file so it becomes a complete dialogue between a patient and a doctor",
+    exampleLink: "https://docs.google.com/document/d/1UTEDSJ3nujgSJsKYZ523A8mbQCI9XzZp_495p3V0H6I/edit?usp=sharing",
+    stepsPartner: [
+      "Open your pdf files you uploaded before to help you respond the chatbot",
+      "Upload two cue cards: doctor and patient",
+      'To start, Use this prompt:<br/><em>"Read the attached cue cards and be my conversational partner. You take a role as a patient. I will be a doctor. Make sure your questions are in line with the patient\'s task in the cue card. Can we start?"</em><br/>In this context a chatbot functions as conversational partner.',
+    ],
+    partnerPrompt: "Read the attached cue cards and be my conversational partner. You take a role as a patient. I will be a doctor.",
+    partnerExampleLink: "https://docs.google.com/document/d/1Z53yrMLP0JvIzKIDf_AVhD5zbry4NKJkC3b-b9LkGhI/edit?usp=sharing",
+  },
+
+  exercise: {
+    introduction: "After you finish the pre-class and chatbot practice, you are ready to practice in class. At this stage, you will apply what you have learned in real speaking activities. You will practice, get feedback, and improve step by step. These activities help you speak more clearly and communicate better in a clinical situation.",
+    executingRoleplay: "In this stage, you do a role-play with a partner. One of you is the doctor, and the other is the patient. You use OET-style situations. You try to start, continue, and finish the conversation. You should speak clearly, use simple and appropriate language, and show care to the patient.",
+  },
+
+  summary: {
+    content: "This chapter strengthened OET Speaking skills by integrating key medical vocabulary, patient-friendly grammar, and empathetic communication strategies. Through a flipped classroom supported by AI tools, students progressed from recognizing language forms to creating complete, confident, and compassionate OET role-plays aligned with Band D–C expectations.",
+  },
+
+  assessment: {
+    title: "Formative Assessment and Evaluation",
+    description: "Your performance is scored from 1 to 6, with each level having a descriptor: 1 is very poor, 2 is poor, 3 is limited, 4 is adequate, 5 is good, and 6 is excellent. If you get a score of 4 (adequate), it means you can communicate well enough to continue to the next level. You can also move forward if you get 5 (good) or 6 (excellent), as your communication is strong. However, if you get 1 (very poor), 2 (poor), or 3 (limited), your communication is still not enough, so you need to do remedial roleplay to practice and improve before you can continue.",
+  },
+
+  references: {
+    references: [
+      {
+        text: "Eric H. Glendinning, B. A. S. H. (2005). English in Medicine 37131057416729 (3rd ed., pp. 5–32). Cambridge Professional English.",
+        url: "",
+      },
+      {
+        text: "L, A. (n.d.). OET Medicine Speaking Role Play – Type II Diabetes Patient. Specialistsinexams.Com.",
+        url: "https://www.specialistsinexams.com/oet-speaking-role-plays/oet-speaking-medicine-role-play-diabetes-patient",
+      },
+      {
+        text: "Www.occupationalenglishtest.org. (n.d.). Speaking sub-test: Assessment criteria and level descriptors (pp. 1–2).",
+        url: "https://cdn-aus.aglty.io/oet/pdf-files/Speaking assessment criteria and level descriptors.pdf",
+      },
+      {
+        text: "Yovinalls, A. (2018). The Speaking Task. In Official Guide to OET (Kaplan the Official Guide to Oet) (pp. 157–168).",
+        url: "",
+      },
+    ],
+  },
+
+  reflection: {
+    formUrl: "https://forms.gle/L7MMW1HAfDqb4rtKA",
+    sections: [
+      {
+        title: "Language Reflection",
+        questions: [
+          "Which vocabulary felt most useful today?",
+          "Which grammar structure helped me sound more professional?",
+          "Which part of the learning process do you find interesting? And why?",
+        ],
+      },
+      {
+        title: "Personal Reflection",
+        questions: [
+          "How confident did I feel speaking today?",
+          "One improvement I will focus on next time is?",
+          "How will I improve it?",
+        ],
+      },
+      {
+        title: "AI Chatbot Reflection",
+        questions: [
+          "Does the chatbot help me improve?",
+          "How does the chatbot improve it?",
+        ],
+      },
+    ],
+  },
+};
+
+const sidebarSections = [
+  { id: 'overview', label: 'Overview', group: 'pre-class' },
+  { id: 'vocabulary', label: 'Vocabulary', group: 'pre-class' },
+  { id: 'grammar', label: 'Grammar', group: 'pre-class' },
+  { id: 'practice', label: 'Practice with AI Chatbot', group: 'pre-class' },
+  { id: 'exercise', label: 'Role-Play with Classmates', group: 'in-class' },
+  { id: 'feedback', label: 'Feedback from Lecturer', group: 'in-class' },
+  { id: 'summary', label: 'Summary', group: 'in-class' },
+  { id: 'assessment', label: 'Formative Assessment and Evaluation', group: 'in-class' },
+  { id: 'reflection', label: 'Reflection', group: 'in-class' },
+  { id: 'references', label: 'References', group: 'in-class' },
+];
 ---
 
 <ModuleLayout
   moduleNumber={3}
-  title="Speaking 2"
-  description="Build on foundational skills with advanced scenarios and specialized healthcare communication."
+  title="Speaking 3"
+  description="Master OET Speaking skills with AI chatbot practice, role-plays, and patient-centered communication for diabetes cases."
+  sections={sidebarSections}
 >
-  <SectionCard id="overview" title="Overview">
-    <div class="coming-soon-box">
-      <p>This module is currently under development.</p>
-      <p>It will be available soon. Please check back later.</p>
-    </div>
+  <SectionCard id="objectives" title="Learning Objectives">
+    <Objectives data={moduleData.objectives} />
   </SectionCard>
 
-  <SectionCard id="vocabulary" title="Vocabulary">
-    <p>Content coming soon.</p>
-  </SectionCard>
+  <div class="section-group">
+    <h2 class="group-label">Pre-Class Activities</h2>
+    <SectionCard id="overview" title="Overview">
+      <Overview data={moduleData.overview} />
+    </SectionCard>
+    <SectionCard id="vocabulary" title="Vocabulary">
+      <Vocabulary data={moduleData.vocabulary} />
+    </SectionCard>
+    <SectionCard id="grammar" title="Grammar">
+      <Grammar data={moduleData.grammar} />
+    </SectionCard>
+    <SectionCard id="practice" title="Practice with AI Chatbot">
+      <Practice data={moduleData.practice} />
+    </SectionCard>
+  </div>
 
-  <SectionCard id="grammar" title="Grammar">
-    <p>Content coming soon.</p>
-  </SectionCard>
-
-  <SectionCard id="practice" title="Practice">
-    <p>Content coming soon.</p>
-  </SectionCard>
-
-  <SectionCard id="exercise" title="Exercise">
-    <p>Content coming soon.</p>
-  </SectionCard>
-
-  <SectionCard id="summary" title="Summary">
-    <p>Content coming soon.</p>
-  </SectionCard>
-
-  <SectionCard id="reflection" title="Reflection">
-    <p>Content coming soon.</p>
-  </SectionCard>
+  <div class="section-group">
+    <h2 class="group-label">In-Class Activities</h2>
+    <SectionCard id="exercise" title="Role-Play with Classmates">
+      <Exercise data={moduleData.exercise} />
+    </SectionCard>
+    <SectionCard id="feedback" title="Feedback from Lecturer">
+      <Feedback />
+    </SectionCard>
+    <SectionCard id="summary" title="Summary">
+      <Summary data={moduleData.summary} />
+    </SectionCard>
+    <SectionCard id="assessment" title="Formative Assessment and Evaluation">
+      <Assessment data={moduleData.assessment} />
+    </SectionCard>
+    <SectionCard id="reflection" title="Reflection">
+      <Reflection data={moduleData.reflection} />
+    </SectionCard>
+    <SectionCard id="references" title="References">
+      <References data={moduleData.references} />
+    </SectionCard>
+  </div>
 </ModuleLayout>
 
 <style>
-  .coming-soon-box {
-    background: linear-gradient(135deg, var(--color-warning-light), var(--color-surface));
-    border: 1px solid var(--color-warning);
-    border-radius: var(--card-radius);
-    padding: var(--space-6);
-    text-align: center;
+  .section-group {
+    margin-bottom: var(--space-10);
   }
 
-  .coming-soon-box p {
-    margin-bottom: var(--space-2);
-    color: var(--color-text-secondary);
-  }
-
-  .coming-soon-box p:last-child {
-    margin-bottom: 0;
-    font-weight: 600;
-    color: var(--color-text);
+  .group-label {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: var(--space-4);
+    padding-bottom: var(--space-2);
+    border-bottom: 2px solid var(--color-primary);
   }
 </style>
