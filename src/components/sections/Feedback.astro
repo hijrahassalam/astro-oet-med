@@ -100,7 +100,14 @@ const scoringTemplateUrl = "https://docs.google.com/spreadsheets/d/1BAXEw1zzsxVu
 
   td {
     vertical-align: top;
-    font-size: var(--text-xs);
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--color-bg);
+  }
+
+  tbody tr:hover {
+    background: var(--color-primary-50);
   }
 
   .scoring-cta {
