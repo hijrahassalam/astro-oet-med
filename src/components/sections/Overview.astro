@@ -174,18 +174,22 @@ const { data } = Astro.props;
 
   .quiz-card {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: flex-start;
     gap: var(--space-4);
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--card-radius);
     padding: var(--space-4) var(--space-5);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    text-align: left;
   }
 
   .quiz-card :global(.cta-btn) {
-    text-decoration: none;
+    display: inline-flex !important;
     flex-shrink: 0;
+    text-decoration: none;
   }
 
   .quiz-card .quiz-image {
