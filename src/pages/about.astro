@@ -27,45 +27,6 @@ const subCLOs = [
   'Students evaluate and reflect on their speaking performance by identifying useful vocabulary, grammar improvement, speaking confidence, and areas for further development.',
   'Students produce clear, empathetic, coherent, and patient-centered OET role-plays using appropriate clinical communication strategies.',
 ];
-
-const syntaxRows = [
-  {
-    phase: 'Before Class Phase 1',
-    activity: 'Preparing Learning',
-    lecturer: 'The lecturer provides English learning materials through the LMS and AI platform, such as videos, vocabulary lists, grammar explanations, OET speaking guidelines, and communication examples.',
-    student: 'Students independently study the learning materials provided through the LMS. Students read, watch, and understand the materials related to OET speaking and clinical communication.',
-  },
-  {
-    phase: 'Before Class Phase 1',
-    activity: 'Initial Self-Learning',
-    lecturer: 'The lecturer prepares self-paced learning activities and quizzes through the LMS and AI platform. The lecturer also provides automatic feedback to support students\' understanding before class.',
-    student: 'Students complete self-learning activities, vocabulary exercises, grammar practices, and quizzes independently through the LMS and AI platform. Students review the automatic feedback to improve their understanding.',
-  },
-  {
-    phase: 'Before Class Phase 2',
-    activity: 'Practicing with AI Chatbot',
-    lecturer: 'The lecturer provides chatbot-guided speaking practice activities and role-play instructions through the AI platform. The lecturer monitors students\' learning progress during chatbot interaction activities.',
-    student: 'Students use AI chatbots as learning partners to practice communication step-by-step. Students analyze clinical scenarios, understand role-play tasks, and practice speaking using guided chatbot interaction.',
-  },
-  {
-    phase: 'Before Class Phase 2',
-    activity: 'Applying & Analyzing Communication',
-    lecturer: 'The lecturer facilitates chatbot-based communication simulations and provides guidance for analyzing communication strategies and language use.',
-    student: 'Students interact with conversational chatbots to simulate healthcare communication situations. Students apply linguistic knowledge, practice communication strategies, and analyze their speaking performance based on chatbot feedback.',
-  },
-  {
-    phase: 'In Class',
-    activity: 'Collaborative Role-Play Practice',
-    lecturer: 'The lecturer organizes collaborative role-play activities and provides instructions related to OET-style speaking tasks. The lecturer observes students\' speaking performance during role-play activities.',
-    student: 'Students perform collaborative role-play activities with classmates based on clinical communication scenarios. Students practice using clear, polite, empathetic, and patient-centered communication in English.',
-  },
-  {
-    phase: 'In Class',
-    activity: 'Feedback, Creation, Reflection & Improvement',
-    lecturer: 'The lecturer provides feedback on students\' speaking performance, including pronunciation, fluency, vocabulary, and clinical communication competence. The lecturer guides students in reflecting on their learning process and identifying improvement strategies.',
-    student: 'Students receive feedback from the lecturer and reflect on their speaking performance and create a role-play video. Students identify their strengths and weaknesses and develop strategies for continuous improvement and deeper learning.',
-  },
-];
 ---
 
 <BaseLayout title="About">
@@ -138,7 +99,7 @@ const syntaxRows = [
         </div>
       </section>
 
-      <!-- #5-15: Learning Model -->
+      <!-- #5-22: Learning Model + Syntax -->
       <section class="content-section">
         <div class="section-header">
           <h2 class="section-title">English Learning Model</h2>
@@ -150,6 +111,11 @@ const syntaxRows = [
           </p>
         </div>
 
+        <!-- Syntax Image (moved here — above Before Class) -->
+        <div class="syntax-image-wrapper">
+          <img src="/images/about/syntax.jpg" alt="Syntax diagram showing the Chatbot-Augmented Flipped Learning Framework" class="syntax-image" loading="lazy" />
+        </div>
+
         <!-- Before Class -->
         <div class="phase-group">
           <div class="phase-header">
@@ -157,7 +123,7 @@ const syntaxRows = [
             <span class="phase-label">Asynchronous Learning</span>
           </div>
 
-          <div class="phase-cards">
+          <div class="phase-cards-stacked">
             <div class="info-card phase-card">
               <h3>Phase 1 — Understanding Basic Knowledge</h3>
               <div class="phase-item">
@@ -191,7 +157,7 @@ const syntaxRows = [
             <span class="phase-label">Face-to-Face Session</span>
           </div>
 
-          <div class="phase-cards">
+          <div class="phase-cards-stacked">
             <div class="info-card phase-card">
               <h3>e) Collaborative Role-Play Practice</h3>
               <p>In this phase, students perform collaborative role-play activities with classmates based on OET-style clinical communication scenarios. Students practice using clear, polite, empathetic, and patient-centered communication in English.</p>
@@ -203,44 +169,96 @@ const syntaxRows = [
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- #16-22: Syntax -->
-      <section class="content-section">
-        <div class="section-header">
-          <h2 class="section-title">Syntax</h2>
-          <p class="section-subtitle">Lecturer & Student Activities Across All Phases</p>
-        </div>
-
-        <div class="syntax-image-wrapper">
-          <img src="/images/about/syntax.jpg" alt="Syntax diagram showing the Chatbot-Augmented Flipped Learning Framework" class="syntax-image" loading="lazy" />
-        </div>
-
-        <div class="syntax-table-wrapper">
-          <table class="syntax-table">
-            <thead>
-              <tr>
-                <th class="col-phase">Phase</th>
-                <th class="col-activity">Activity</th>
-                <th class="col-role">Lecturer Activities</th>
-                <th class="col-role">Student Activities</th>
-              </tr>
-            </thead>
-            <tbody>
-              {syntaxRows.map((row, i) => (
-                <tr class={i >= 4 ? 'row-inclass' : ''}>
-                  <td class="col-phase">
-                    <span class={`phase-tag ${i < 2 ? 'tag-async1' : i < 4 ? 'tag-async2' : 'tag-f2f'}`}>
-                      {row.phase}
-                    </span>
-                  </td>
-                  <td class="col-activity"><strong>{row.activity}</strong></td>
-                  <td class="col-role">{row.lecturer}</td>
-                  <td class="col-role">{row.student}</td>
+        <!-- Syntax Table — plek-ketiplek sesuai dokumen sumber -->
+        <div class="syntax-table-section">
+          <h3 class="syntax-table-title">Syntax</h3>
+          <div class="syntax-table-wrapper">
+            <table class="syntax-table">
+              <thead>
+                <tr>
+                  <th>Lecturer Activities</th>
+                  <th>Student Activities</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                <!-- Phase 1 header -->
+                <tr class="phase-row">
+                  <td colspan="2">Before Class Phase 1 – Asynchronous Learning: Understanding Basic Knowledge</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Preparing Learning</strong><br/>
+                    The lecturer provides English learning materials through the LMS and AI platform, such as videos, vocabulary lists, grammar explanations, OET speaking guidelines, and communication examples.
+                  </td>
+                  <td>
+                    Students independently study the learning materials provided through the LMS.<br/>
+                    Students read, watch, and understand the materials related to OET speaking and clinical communication.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Initial Self-Learning</strong><br/>
+                    The lecturer prepares self-paced learning activities and quizzes through the LMS and AI platform. The lecturer also provides automatic feedback to support students' understanding before class.
+                  </td>
+                  <td>
+                    Students complete self-learning activities, vocabulary exercises, grammar practices, and quizzes independently through the LMS and AI platform.<br/>
+                    Students review the automatic feedback to improve their understanding.
+                  </td>
+                </tr>
+
+                <!-- Phase 2 header -->
+                <tr class="phase-row">
+                  <td colspan="2">Before Class Phase 2 – Asynchronous Learning with Chatbot Integration: Apply, Analyze</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Practicing with AI Chatbot</strong><br/>
+                    The lecturer provides chatbot-guided speaking practice activities and role-play instructions through the AI platform. The lecturer monitors students' learning progress during chatbot interaction activities.
+                  </td>
+                  <td>
+                    Students use AI chatbots as learning partners to practice communication step-by-step.<br/>
+                    Students analyze clinical scenarios, understand role-play tasks, and practice speaking using guided chatbot interaction.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Applying and Analyzing Communication with AI Chatbot</strong><br/>
+                    The lecturer facilitates chatbot-based communication simulations and provides guidance for analyzing communication strategies and language use.
+                  </td>
+                  <td>
+                    Students interact with conversational chatbots to simulate healthcare communication situations.<br/>
+                    Students apply linguistic knowledge, practice communication strategies, and analyze their speaking performance based on chatbot feedback.
+                  </td>
+                </tr>
+
+                <!-- In Class header -->
+                <tr class="phase-row phase-row--inclass">
+                  <td colspan="2">Face-to-Face Session (In Class): Evaluate, Create, Reflect, Improve</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Collaborative Role-Play Practice</strong><br/>
+                    The lecturer organizes collaborative role-play activities and provides instructions related to OET-style speaking tasks. The lecturer observes students' speaking performance during role-play activities.
+                  </td>
+                  <td>
+                    Students perform collaborative role-play activities with classmates based on clinical communication scenarios.<br/>
+                    Students practice using clear, polite, empathetic, and patient-centered communication in English.
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>Feedback, Creation, Reflection, and Improvement</strong><br/>
+                    The lecturer provides feedback on students' speaking performance, including pronunciation, fluency, vocabulary, and clinical communication competence. The lecturer guides students in reflecting on their learning process and identifying improvement strategies.
+                  </td>
+                  <td>
+                    Students receive feedback from the lecturer and reflect on their speaking performance and create a role-play video.<br/>
+                    Students identify their strengths and weaknesses and develop strategies for continuous improvement and deeper learning.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -509,6 +527,23 @@ const syntaxRows = [
     font-weight: 700;
   }
 
+  /* Syntax Image */
+  .syntax-image-wrapper {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--card-radius);
+    padding: var(--space-4);
+    margin: var(--space-8) 0;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+  }
+
+  .syntax-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
   /* Phase Groups */
   .phase-group {
     margin-top: var(--space-8);
@@ -548,9 +583,10 @@ const syntaxRows = [
     font-weight: 500;
   }
 
-  .phase-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  /* Stacked layout (vertical, not side-by-side) */
+  .phase-cards-stacked {
+    display: flex;
+    flex-direction: column;
     gap: var(--space-4);
   }
 
@@ -581,21 +617,16 @@ const syntaxRows = [
     line-height: 1.7 !important;
   }
 
-  /* Syntax */
-  .syntax-image-wrapper {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border-light);
-    border-radius: var(--card-radius);
-    padding: var(--space-4);
-    margin-bottom: var(--space-6);
-    box-shadow: var(--card-shadow);
-    text-align: center;
+  /* Syntax Table */
+  .syntax-table-section {
+    margin-top: var(--space-8);
   }
 
-  .syntax-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
+  .syntax-table-title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
   }
 
   .syntax-table-wrapper {
@@ -635,49 +666,26 @@ const syntaxRows = [
     color: var(--color-text-secondary);
   }
 
-  .syntax-table tbody tr:hover {
+  .syntax-table tbody tr:hover:not(.phase-row) {
     background: var(--color-primary-50);
   }
 
-  .col-phase {
-    width: 120px;
-    white-space: nowrap;
-  }
-
-  .col-activity {
-    width: 160px;
-  }
-
-  .col-role {
-    min-width: 200px;
-  }
-
-  .phase-tag {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .tag-async1 {
-    background: var(--color-primary-50);
+  /* Phase merged rows */
+  .phase-row td {
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
+    font-weight: 700;
     color: var(--color-primary);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 2px solid var(--color-primary-200);
   }
 
-  .tag-async2 {
-    background: #eff6ff;
-    color: #3b82f6;
-  }
-
-  .tag-f2f {
-    background: #f0fdf4;
+  .phase-row--inclass td {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
     color: #16a34a;
-  }
-
-  .row-inclass td {
-    border-top: 2px solid #bbf7d0;
+    border-bottom: 2px solid #bbf7d0;
   }
 
   /* Developers */
@@ -695,6 +703,8 @@ const syntaxRows = [
     text-align: center;
     box-shadow: var(--card-shadow);
     transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
   }
 
   .developer-card:hover {
@@ -791,10 +801,6 @@ const syntaxRows = [
 
   /* Responsive */
   @media (max-width: 768px) {
-    .phase-cards {
-      grid-template-columns: 1fr;
-    }
-
     .developers-grid {
       grid-template-columns: 1fr;
       max-width: 320px;
