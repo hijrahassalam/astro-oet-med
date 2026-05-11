@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ModuleCard from '../components/ModuleCard.astro';
+import Footer from '../components/Footer.astro';
 
 const modules = [
   {
@@ -24,13 +25,13 @@ const modules = [
   {
     number: 4,
     title: 'Speaking 4',
-    description: 'Achieve mastery with integrated practice, feedback, and exam-ready performance.',
+    description: 'Respond empathetically to patient concerns, explain medical risks and benefits, and conduct professional counseling role-plays.',
     slug: 'module-4',
   },
   {
     number: 5,
     title: 'Speaking 5',
-    description: 'Achieve mastery with integrated practice, feedback, and exam-ready performance.',
+    description: 'Analyze patient anxiety, explain diagnostic findings, and produce coherent, independent OET-style role-plays.',
     slug: 'module-5',
   },
 ];
@@ -69,7 +70,7 @@ const modules = [
             <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </a>
-        <a href="/about" class="btn btn-outline btn-lg">
+        <a href="/syllabus" class="btn btn-outline btn-lg">
           View Syllabus
         </a>
       </div>
@@ -113,6 +114,8 @@ const modules = [
       </div>
     </div>
   </section>
+
+  <Footer />
 </BaseLayout>
 
 <style>

@@ -1,0 +1,598 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const courseInfo = [
+  { label: 'Course Title', value: 'Medical English Speaking for Healthcare Communication', icon: 'book' },
+  { label: 'Duration', value: '5 Meetings', icon: 'clock' },
+  { label: 'Target Level', value: 'OET Band D → C', icon: 'target' },
+  { label: 'Delivery Mode', value: 'Chatbot-Augmented Flipped Learning', icon: 'cpu' },
+];
+
+const clos = [
+  { id: 'CLO1', text: 'Identify the structure and assessment criteria of OET Speaking.' },
+  { id: 'CLO2', text: 'Use patient-friendly vocabulary and empathetic expressions appropriately in healthcare communication.' },
+  { id: 'CLO3', text: 'Apply appropriate grammar and speaking strategies during healthcare role-plays.' },
+  { id: 'CLO4', text: 'Analyze patient needs, emotional cues, and healthcare situations during interactions.' },
+  { id: 'CLO5', text: 'Reflect critically on speaking performance and AI-supported learning experiences.' },
+  { id: 'CLO6', text: 'Produce clear, empathetic, coherent, and patient-centered OET role-plays.' },
+];
+
+const meetings = [
+  {
+    num: 1,
+    module: 'Module I',
+    case: 'Pregnancy Consultation',
+    outcomes: 'Identify OET speaking structure, use pregnancy-related vocabulary, apply empathy strategies, and perform a simple pregnancy consultation role-play',
+    clo: 'CLO1–CLO6',
+  },
+  {
+    num: 2,
+    module: 'Module II',
+    case: 'Heart Problem Consultation',
+    outcomes: 'Explain heart-problem-related vocabulary, analyze patient concerns, and perform empathetic communication with patients and caregivers',
+    clo: 'CLO1–CLO6',
+  },
+  {
+    num: 3,
+    module: 'Module III',
+    case: 'Diabetes Consultation',
+    outcomes: 'Use diabetes-related vocabulary, explain lifestyle changes, and conduct patient-centered role-play confidently',
+    clo: 'CLO1–CLO6',
+  },
+  {
+    num: 4,
+    module: 'Module IV',
+    case: 'Vaccination Counseling',
+    outcomes: 'Respond empathetically to vaccination concerns and explain risks and benefits professionally and conduct patient-centered role-play confidently',
+    clo: 'CLO1–CLO6',
+  },
+  {
+    num: 5,
+    module: 'Module V',
+    case: 'Epigastric Pain Consultation',
+    outcomes: 'Analyze patient anxiety, explain diagnostic findings, and produce a coherent OET-style role-play independently',
+    clo: 'CLO1–CLO6',
+  },
+];
+---
+
+<BaseLayout title="Syllabus">
+  <div class="syllabus-page">
+    <div class="page-hero">
+      <div class="hero-bg">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+      </div>
+      <div class="container hero-inner">
+        <div class="hero-badge">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M7 1L8.5 4.5L12.5 5L9.75 7.5L10.5 11.5L7 9.5L3.5 11.5L4.25 7.5L1.5 5L5.5 4.5L7 1Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Syllabus
+        </div>
+        <h1>Medical English Speaking</h1>
+        <p>OET-Oriented Speaking Course with One Healthcare Case per Module</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Course Info Cards -->
+      <section class="content-section">
+        <div class="info-grid">
+          {courseInfo.map((item) => (
+            <div class="info-card info-card--compact">
+              <div class="card-icon">
+                {item.icon === 'book' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                  </svg>
+                )}
+                {item.icon === 'clock' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                  </svg>
+                )}
+                {item.icon === 'target' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="6"/>
+                    <circle cx="12" cy="12" r="2"/>
+                  </svg>
+                )}
+                {item.icon === 'cpu' && (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="4" y="4" width="16" height="16" rx="2"/>
+                    <rect x="9" y="9" width="6" height="6"/>
+                    <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/>
+                  </svg>
+                )}
+              </div>
+              <div class="card-content">
+                <span class="card-label">{item.label}</span>
+                <span class="card-value">{item.value}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Course Description -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Course Description</h2>
+        </div>
+        <div class="info-card full-width">
+          <p class="description-text">
+            This course focuses on developing beginner-level OET speaking skills through authentic healthcare cases. Each module emphasizes one healthcare scenario to help students gradually develop clinical communication competence, empathy, grammar awareness, patient-centered interaction, and speaking confidence. The course integrates AI chatbot-assisted speaking practice, reflection, and flipped learning activities to support active and independent speaking development.
+          </p>
+        </div>
+      </section>
+
+      <!-- CLOs -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Course Learning Outcomes</h2>
+          <p class="section-subtitle">CLOs</p>
+        </div>
+        <div class="info-card full-width">
+          <ol class="clo-list">
+            {clos.map((clo) => (
+              <li>
+                <span class="clo-id">{clo.id}</span>
+                <span class="clo-text">{clo.text}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <!-- Weekly Course Plan -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">Weekly Course Plan</h2>
+          <p class="section-subtitle">5 Meetings — One Healthcare Case per Module</p>
+        </div>
+        <div class="plan-table-wrapper">
+          <table class="plan-table">
+            <thead>
+              <tr>
+                <th class="col-num">Meeting</th>
+                <th class="col-module">Module & Case</th>
+                <th class="col-outcomes">Intended Learning Outcomes</th>
+                <th class="col-clo">CLO</th>
+              </tr>
+            </thead>
+            <tbody>
+              {meetings.map((m) => (
+                <tr>
+                  <td class="col-num">
+                    <span class="meeting-badge">{m.num}</span>
+                  </td>
+                  <td class="col-module">
+                    <strong>{m.module}</strong>
+                    <span class="case-label">{m.case}</span>
+                  </td>
+                  <td class="col-outcomes">{m.outcomes}</td>
+                  <td class="col-clo">
+                    <span class="clo-tag">{m.clo}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- AI-Integrated Pedagogical Model -->
+      <section class="content-section">
+        <div class="section-header">
+          <h2 class="section-title">AI-Integrated Pedagogical Model</h2>
+        </div>
+        <div class="info-card full-width">
+          <p class="description-text">
+            The course adopts a chatbot-augmented flipped learning approach in which students complete AI-guided speaking preparation before class, interact with healthcare chatbots for structured speaking practice, receive immediate formative feedback, and participate in classroom role-plays and reflective learning activities. Each module focuses on one authentic healthcare case to support gradual development of linguistic competence, clinical communication skills, empathy, confidence, and independent learning aligned with OET Speaking requirements.
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .syllabus-page {
+    min-height: 100vh;
+    background: var(--color-bg);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+  /* Hero */
+  .page-hero {
+    position: relative;
+    padding: var(--space-16) 0 var(--space-12);
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, var(--color-primary-50) 0%, var(--color-bg) 100%);
+    z-index: 0;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, var(--color-primary-100) 1px, transparent 0);
+    background-size: 32px 32px;
+    opacity: 0.45;
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 60%);
+    -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, transparent 60%);
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: -30%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 6px var(--space-4) 6px var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-6);
+    box-shadow: var(--card-shadow);
+  }
+
+  .hero-badge svg {
+    color: var(--color-primary);
+  }
+
+  .page-hero h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+    margin-bottom: var(--space-3);
+  }
+
+  .page-hero p {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: var(--leading-relaxed);
+  }
+
+  /* Content Section */
+  .content-section {
+    padding: var(--space-12) 0;
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .section-title {
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-text);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-2);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  /* Info Grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+
+  .info-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--card-radius);
+    padding: var(--space-6);
+    box-shadow: var(--card-shadow);
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .info-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+    border-color: var(--color-primary-200);
+  }
+
+  .info-card:hover::before {
+    opacity: 1;
+  }
+
+  .info-card.full-width {
+    margin-bottom: var(--space-4);
+  }
+
+  .info-card--compact {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-5);
+  }
+
+  .info-card--compact .card-icon {
+    flex-shrink: 0;
+  }
+
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .card-label {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .card-value {
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
+    border-radius: 12px;
+    margin-bottom: var(--space-4);
+    color: var(--color-primary);
+  }
+
+  .info-card--compact .card-icon {
+    margin-bottom: 0;
+  }
+
+  .info-card p {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+
+  .description-text {
+    font-size: var(--text-sm) !important;
+    line-height: 1.8 !important;
+  }
+
+  /* CLO List */
+  .clo-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .clo-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+  }
+
+  .clo-id {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    padding: 2px 8px;
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
+    color: var(--color-primary);
+    border-radius: 6px;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .clo-text {
+    padding-top: 2px;
+  }
+
+  /* Weekly Course Plan Table */
+  .plan-table-wrapper {
+    overflow-x: auto;
+    border-radius: var(--card-radius);
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--card-shadow);
+  }
+
+  .plan-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-xs);
+    background: var(--color-surface);
+  }
+
+  .plan-table thead {
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
+  }
+
+  .plan-table th {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    font-weight: 700;
+    color: var(--color-text);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--color-primary-200);
+  }
+
+  .plan-table td {
+    padding: var(--space-3) var(--space-4);
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border-light);
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+
+  .plan-table tbody tr:hover {
+    background: var(--color-primary-50);
+  }
+
+  .col-num {
+    width: 80px;
+    text-align: center;
+  }
+
+  .col-module {
+    width: 200px;
+  }
+
+  .col-clo {
+    width: 100px;
+    text-align: center;
+  }
+
+  .meeting-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
+    color: var(--color-primary);
+    border-radius: 50%;
+    font-size: var(--text-sm);
+    font-weight: 700;
+  }
+
+  .case-label {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-primary);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  .clo-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    background: var(--color-primary-50);
+    color: var(--color-primary);
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Footer */
+  .page-footer {
+    padding: var(--space-12) 0;
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-8);
+  }
+
+  .footer-content {
+    text-align: center;
+  }
+
+  .footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-brand svg {
+    color: var(--color-primary);
+  }
+
+  .footer-content p {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+  }
+
+  .footer-content a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .footer-content a:hover {
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .plan-table th,
+    .plan-table td {
+      padding: var(--space-2) var(--space-3);
+    }
+
+    .col-module {
+      width: auto;
+    }
+  }
+</style>

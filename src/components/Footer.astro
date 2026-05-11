@@ -1,0 +1,122 @@
+---
+---
+<footer class="page-footer">
+  <div class="container footer-inner">
+    <div class="footer-uni">
+      <img src="/images/unj-logo.png" alt="Universitas Negeri Jakarta" class="footer-logo" width="48" height="48" />
+      <span class="footer-uni-name">Doctoral Program in Educational Technology, Graduate School, Universitas Negeri Jakarta</span>
+    </div>
+    <div class="footer-team">
+      <span>Emilius German</span>
+      <span class="footer-sep">|</span>
+      <span>Basuki Wibawa</span>
+      <span class="footer-sep">|</span>
+      <span>Mohamad Syarif S.</span>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 OET Learning Platform</span>
+      <span class="footer-sep">·</span>
+      <span>Crafted with care by <a href="https://hijrahassalam.com" target="_blank" rel="noopener">hijrahassalam.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .page-footer {
+    padding: var(--space-10) 0 var(--space-8);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-8);
+  }
+
+  .footer-inner {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .footer-uni {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    justify-content: center;
+  }
+
+  .footer-logo {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .footer-uni-name {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    max-width: 360px;
+    text-align: left;
+  }
+
+  .footer-team {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: var(--text-xs);
+    color: var(--color-text-secondary);
+    font-weight: 500;
+  }
+
+  .footer-sep {
+    color: var(--color-border);
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: 11px;
+    color: var(--color-text-muted);
+  }
+
+  .footer-copy {
+    font-weight: 600;
+  }
+
+  .footer-bottom a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .footer-bottom a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .footer-uni {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .footer-uni-name {
+      text-align: center;
+    }
+
+    .footer-team {
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+
+    .footer-sep {
+      display: none;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: var(--space-1);
+    }
+  }
+</style>
