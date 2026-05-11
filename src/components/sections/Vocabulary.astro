@@ -55,16 +55,7 @@ const { data } = Astro.props;
   </div>
 
   <div class="vocab-phrases">
-    <div class="phrases-header">
-      <div class="phrases-icon">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-          <path d="M2 17l10 5 10-5"/>
-          <path d="M2 12l10 5 10-5"/>
-        </svg>
-      </div>
-      <h4>Key Vocabulary and Useful Phrases for Speaking Subtest</h4>
-    </div>
+    <p>🔑 <strong>Key Vocabulary and Useful Phrases for Speaking Subtest</strong></p>
     <p>
       You will also learn important vocabulary and useful phrases for the OET speaking subtest.
       The following video explains common verbs and expressions that often appear on the role-play card,
@@ -158,32 +149,6 @@ const { data } = Astro.props;
     border-radius: var(--card-radius);
     padding: var(--space-6);
     margin: var(--space-6) 0;
-  }
-
-  .phrases-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    margin-bottom: var(--space-4);
-  }
-
-  .phrases-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: var(--color-primary);
-    color: white;
-    border-radius: 10px;
-    flex-shrink: 0;
-  }
-
-  .phrases-header h4 {
-    font-size: var(--text-base);
-    font-weight: 700;
-    color: var(--color-text);
-    margin: 0;
   }
 
   .vocab-phrases p {
