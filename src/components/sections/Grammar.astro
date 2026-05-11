@@ -21,7 +21,9 @@ const { data } = Astro.props;
     <img src={data.headerImage} alt="Grammar for OET Speaking" width="386" height="217" />
   </figure>
 
-  <p class="grammar-lead">{data.grammarDescription}</p>
+  <p class="grammar-lead">
+    {data.grammarDescription}
+  </p>
 
   <div class="grammar-pattern">
     <span class="grammar-pattern__label">Key Pattern:</span>
@@ -89,11 +91,11 @@ const { data } = Astro.props;
     font-family: var(--font-mono, monospace);
     font-size: var(--text-base);
     font-weight: 700;
-    color: var(--color-primary-dark);
+    color: var(--color-primary);
     background: white;
     padding: 0.25rem 0.625rem;
     border-radius: 0.375rem;
-    border: 1px solid var(--color-primary-300);
+    border: 1px solid var(--color-primary-200);
     letter-spacing: 0.02em;
   }
 
