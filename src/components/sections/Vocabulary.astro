@@ -54,22 +54,20 @@ const { data } = Astro.props;
     </table>
   </div>
 
-  <div class="vocab-phrases">
-    <p>🔑 <strong>Key Vocabulary and Useful Phrases for Speaking Subtest</strong></p>
-    <p>
-      You will also learn important vocabulary and useful phrases for the OET speaking subtest.
-      The following video explains common verbs and expressions that often appear on the role-play card,
-      such as <em>explain, reassure, suggest,</em> and <em>recommend</em>. You will also learn how to
-      ask questions politely, give information clearly, and speak in a friendly and professional way
-      with patients. By watching this video, you will better understand what to say during the speaking
-      test and how to communicate more naturally and confidently.
-    </p>
-    <p class="phrases-cta-label">Click the following icon to watch it.</p>
-    <div class="cta-row">
-      <CtaButton href="https://www.youtube.com/watch?v=foshAXAtzk0" variant="primary" size="md">
-        📺 Watch Video
-      </CtaButton>
-    </div>
+  <p>🔑 <strong>Key Vocabulary and Useful Phrases for Speaking Subtest</strong></p>
+  <p>
+    You will also learn important vocabulary and useful phrases for the OET speaking subtest.
+    The following video explains common verbs and expressions that often appear on the role-play card,
+    such as <em>explain, reassure, suggest,</em> and <em>recommend</em>. You will also learn how to
+    ask questions politely, give information clearly, and speak in a friendly and professional way
+    with patients. By watching this video, you will better understand what to say during the speaking
+    test and how to communicate more naturally and confidently.
+  </p>
+  <p class="phrases-cta-label">Click the following icon to watch it.</p>
+  <div class="cta-row">
+    <CtaButton href="https://www.youtube.com/watch?v=foshAXAtzk0" variant="primary" size="md">
+      📺 Watch Video
+    </CtaButton>
   </div>
 
   <div class="vocab-exercise">
@@ -142,26 +140,6 @@ const { data } = Astro.props;
     margin: var(--space-4) 0;
   }
 
-  .vocab-phrases {
-    background: linear-gradient(135deg, var(--color-primary-50), #eff6ff);
-    border: 1px solid var(--color-primary-200);
-    border-left: 4px solid var(--color-primary);
-    border-radius: var(--card-radius);
-    padding: var(--space-6);
-    margin: var(--space-6) 0;
-  }
-
-  .vocab-phrases p {
-    font-size: var(--text-sm);
-    line-height: var(--leading-relaxed);
-    margin-bottom: var(--space-3);
-  }
-
-  .phrases-cta-label {
-    margin-bottom: var(--space-4) !important;
-    color: var(--color-text-muted) !important;
-    font-style: italic;
-  }
 
   .cta-row {
     display: flex;
