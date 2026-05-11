@@ -170,25 +170,26 @@ const subCLOs = [
           </div>
         </div>
 
-        <!-- Syntax Table — plek-ketiplek sesuai dokumen sumber -->
+        <!-- Syntax Table — 3 kolom: Activity / Lecturer / Student, plek-ketiplek sesuai dokumen sumber -->
         <div class="syntax-table-section">
           <h3 class="syntax-table-title">Syntax</h3>
           <div class="syntax-table-wrapper">
             <table class="syntax-table">
               <thead>
                 <tr>
-                  <th>Lecturer Activities</th>
-                  <th>Student Activities</th>
+                  <th class="col-activity">Activity</th>
+                  <th class="col-lecturer">Lecturer Activities</th>
+                  <th class="col-student">Student Activities</th>
                 </tr>
               </thead>
               <tbody>
                 <!-- Phase 1 header -->
                 <tr class="phase-row">
-                  <td colspan="2">Before Class Phase 1 – Asynchronous Learning: Understanding Basic Knowledge</td>
+                  <td colspan="3">Before Class Phase 1 – Asynchronous Learning: Understanding Basic Knowledge</td>
                 </tr>
                 <tr>
+                  <td class="col-activity"><strong>Preparing Learning</strong></td>
                   <td>
-                    <strong>Preparing Learning</strong><br/>
                     The lecturer provides English learning materials through the LMS and AI platform, such as videos, vocabulary lists, grammar explanations, OET speaking guidelines, and communication examples.
                   </td>
                   <td>
@@ -197,8 +198,8 @@ const subCLOs = [
                   </td>
                 </tr>
                 <tr>
+                  <td class="col-activity"><strong>Initial Self-Learning</strong></td>
                   <td>
-                    <strong>Initial Self-Learning</strong><br/>
                     The lecturer prepares self-paced learning activities and quizzes through the LMS and AI platform. The lecturer also provides automatic feedback to support students' understanding before class.
                   </td>
                   <td>
@@ -209,11 +210,11 @@ const subCLOs = [
 
                 <!-- Phase 2 header -->
                 <tr class="phase-row">
-                  <td colspan="2">Before Class Phase 2 – Asynchronous Learning with Chatbot Integration: Apply, Analyze</td>
+                  <td colspan="3">Before Class Phase 2 – Asynchronous Learning with Chatbot Integration: Apply, Analyze</td>
                 </tr>
                 <tr>
+                  <td class="col-activity"><strong>Practicing with AI Chatbot</strong></td>
                   <td>
-                    <strong>Practicing with AI Chatbot</strong><br/>
                     The lecturer provides chatbot-guided speaking practice activities and role-play instructions through the AI platform. The lecturer monitors students' learning progress during chatbot interaction activities.
                   </td>
                   <td>
@@ -222,8 +223,8 @@ const subCLOs = [
                   </td>
                 </tr>
                 <tr>
+                  <td class="col-activity"><strong>Applying & Analyzing Communication</strong></td>
                   <td>
-                    <strong>Applying and Analyzing Communication with AI Chatbot</strong><br/>
                     The lecturer facilitates chatbot-based communication simulations and provides guidance for analyzing communication strategies and language use.
                   </td>
                   <td>
@@ -234,11 +235,11 @@ const subCLOs = [
 
                 <!-- In Class header -->
                 <tr class="phase-row phase-row--inclass">
-                  <td colspan="2">Face-to-Face Session (In Class): Evaluate, Create, Reflect, Improve</td>
+                  <td colspan="3">Face-to-Face Session (In Class): Evaluate, Create, Reflect, Improve</td>
                 </tr>
                 <tr>
+                  <td class="col-activity"><strong>Collaborative Role-Play Practice</strong></td>
                   <td>
-                    <strong>Collaborative Role-Play Practice</strong><br/>
                     The lecturer organizes collaborative role-play activities and provides instructions related to OET-style speaking tasks. The lecturer observes students' speaking performance during role-play activities.
                   </td>
                   <td>
@@ -247,8 +248,8 @@ const subCLOs = [
                   </td>
                 </tr>
                 <tr>
+                  <td class="col-activity"><strong>Feedback, Creation, Reflection & Improvement</strong></td>
                   <td>
-                    <strong>Feedback, Creation, Reflection, and Improvement</strong><br/>
                     The lecturer provides feedback on students' speaking performance, including pronunciation, fluency, vocabulary, and clinical communication competence. The lecturer guides students in reflecting on their learning process and identifying improvement strategies.
                   </td>
                   <td>
@@ -533,7 +534,7 @@ const subCLOs = [
     border: 1px solid var(--color-border-light);
     border-radius: var(--card-radius);
     padding: var(--space-4);
-    margin: var(--space-8) 0;
+    margin: var(--space-12) 0;
     box-shadow: var(--card-shadow);
     text-align: center;
   }
@@ -546,7 +547,7 @@ const subCLOs = [
 
   /* Phase Groups */
   .phase-group {
-    margin-top: var(--space-8);
+    margin-top: var(--space-12);
   }
 
   .phase-header {
@@ -587,7 +588,7 @@ const subCLOs = [
   .phase-cards-stacked {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
+    gap: var(--space-6);
   }
 
   .phase-card h3 {
@@ -619,7 +620,7 @@ const subCLOs = [
 
   /* Syntax Table */
   .syntax-table-section {
-    margin-top: var(--space-8);
+    margin-top: var(--space-12);
   }
 
   .syntax-table-title {
@@ -673,11 +674,10 @@ const subCLOs = [
   /* Phase merged rows */
   .phase-row td {
     background: linear-gradient(135deg, var(--color-primary-50), var(--color-primary-100));
-    font-weight: 700;
+    font-weight: 600;
     color: var(--color-primary);
-    font-size: var(--text-xs);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
+    font-size: var(--text-sm);
+    font-style: italic;
     padding: var(--space-3) var(--space-4);
     border-bottom: 2px solid var(--color-primary-200);
   }
@@ -686,6 +686,19 @@ const subCLOs = [
     background: linear-gradient(135deg, #f0fdf4, #dcfce7);
     color: #16a34a;
     border-bottom: 2px solid #bbf7d0;
+  }
+
+  /* Syntax table column widths */
+  .col-activity {
+    width: 160px;
+    white-space: nowrap;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .col-lecturer,
+  .col-student {
+    min-width: 200px;
   }
 
   /* Developers */
