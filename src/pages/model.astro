@@ -46,15 +46,6 @@ const phases = [
   },
 ];
 
-const bloomLevels = [
-  { level: 'Understand', phase: 'Phase 1', desc: 'Foundational knowledge' },
-  { level: 'Apply', phase: 'Phase 2', desc: 'Practice with chatbot' },
-  { level: 'Analyze', phase: 'Phase 2', desc: 'Clinical scenarios' },
-  { level: 'Evaluate', phase: 'Phase 3', desc: 'Self & peer feedback' },
-  { level: 'Create', phase: 'Phase 3', desc: 'Role-play videos' },
-  { level: 'Reflect', phase: 'Phase 3', desc: 'Metacognitive growth' },
-  { level: 'Deep Learning', phase: 'Goal', desc: 'OET Band D → C' },
-];
 ---
 
 <BaseLayout title="Learning Model">
@@ -146,20 +137,52 @@ const bloomLevels = [
           <h2 class="section-title">Bloom's Taxonomy Alignment</h2>
           <p class="section-subtitle">Progressive cognitive engagement toward deep learning</p>
         </div>
-        <div class="bloom-visual">
-          {bloomLevels.map((item, i) => (
-            <div class={`bloom-step ${i === bloomLevels.length - 1 ? 'bloom-step--goal' : ''}`}>
-              <div class="bloom-node">
-                {i < bloomLevels.length - 1 && <div class="bloom-connector" />}
+
+        <div class="pyramid">
+          <!-- Peak -->
+          <div class="pyramid-tier pyramid-tier--goal">
+            <div class="pyramid-bar">
+              <div class="pyramid-content">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="pyramid-icon">
+                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                </svg>
+                <span class="pyramid-level">Deep Learning</span>
               </div>
-              <div class="bloom-content">
-                <span class="bloom-level">{item.level}</span>
-                <span class="bloom-phase">{item.phase}</span>
-                <span class="bloom-desc">{item.desc}</span>
-              </div>
+              <span class="pyramid-phase-tag pyramid-phase-tag--goal">Goal</span>
             </div>
-          ))}
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="pyramid-tier pyramid-tier--phase3">
+            <div class="pyramid-bar">
+              <div class="pyramid-content">
+                <span class="pyramid-level">Evaluate · Create · Reflect</span>
+              </div>
+              <span class="pyramid-phase-tag pyramid-phase-tag--phase3">Phase 3 — In Class</span>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="pyramid-tier pyramid-tier--phase2">
+            <div class="pyramid-bar">
+              <div class="pyramid-content">
+                <span class="pyramid-level">Apply · Analyze</span>
+              </div>
+              <span class="pyramid-phase-tag pyramid-phase-tag--phase2">Phase 2 — Chatbot</span>
+            </div>
+          </div>
+
+          <!-- Base -->
+          <div class="pyramid-tier pyramid-tier--phase1">
+            <div class="pyramid-bar">
+              <div class="pyramid-content">
+                <span class="pyramid-level">Understand</span>
+              </div>
+              <span class="pyramid-phase-tag pyramid-phase-tag--phase1">Phase 1 — Async</span>
+            </div>
+          </div>
         </div>
+
         <div class="bloom-legend">
           <div class="legend-item">
             <span class="legend-dot legend-dot--phase1" />
@@ -516,96 +539,116 @@ const bloomLevels = [
   .phase-green .phase-activities li::before { background: #16a34a; }
   .phase-purple .phase-activities li::before { background: #9333ea; }
 
-  /* Bloom's Taxonomy Visual */
-  .bloom-visual {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    margin-bottom: var(--space-8);
-  }
-
-  .bloom-step {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-4);
-    position: relative;
-  }
-
-  .bloom-node {
+  /* Bloom's Pyramid */
+  .pyramid {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-shrink: 0;
-    width: 24px;
+    gap: 6px;
+    margin-bottom: var(--space-10);
+    padding: var(--space-6) 0;
+  }
+
+  .pyramid-tier {
+    display: flex;
+    justify-content: center;
+  }
+
+  .pyramid-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4) var(--space-6);
+    border-radius: 12px;
+    border: 1px solid;
+    transition: all var(--transition-base);
     position: relative;
   }
 
-  .bloom-node::before {
-    content: '';
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    border: 3px solid var(--color-primary-100);
-    flex-shrink: 0;
-    z-index: 1;
+  .pyramid-bar:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--card-shadow-hover);
   }
 
-  .bloom-step--goal .bloom-node::before {
-    width: 18px;
-    height: 18px;
-    background: linear-gradient(135deg, #f59e0b, #f97316);
-    border-color: #fef3c7;
-    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15);
-  }
-
-  .bloom-connector {
-    width: 2px;
-    height: 32px;
-    background: var(--color-primary-200);
-  }
-
-  .bloom-step--goal .bloom-connector {
-    display: none;
-  }
-
-  .bloom-content {
+  .pyramid-content {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    padding: var(--space-2) 0;
-    flex: 1;
   }
 
-  .bloom-level {
+  .pyramid-icon {
+    flex-shrink: 0;
+  }
+
+  .pyramid-level {
     font-size: var(--text-sm);
     font-weight: 700;
-    color: var(--color-text);
-    min-width: 100px;
-  }
-
-  .bloom-step--goal .bloom-level {
-    color: #f59e0b;
-  }
-
-  .bloom-phase {
-    font-size: var(--text-xs);
-    color: var(--color-primary);
-    font-weight: 600;
-    background: var(--color-primary-50);
-    padding: 2px 8px;
-    border-radius: 4px;
     white-space: nowrap;
   }
 
-  .bloom-step--goal .bloom-phase {
-    background: #fef3c7;
-    color: #f59e0b;
+  .pyramid-phase-tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
   }
 
-  .bloom-desc {
-    font-size: var(--text-xs);
-    color: var(--color-text-muted);
+  /* Tier widths — gets narrower toward the top */
+  .pyramid-tier--phase1 .pyramid-bar { width: 100%; max-width: 700px; }
+  .pyramid-tier--phase2 .pyramid-bar { width: 100%; max-width: 560px; }
+  .pyramid-tier--phase3 .pyramid-bar { width: 100%; max-width: 440px; }
+  .pyramid-tier--goal   .pyramid-bar { width: 100%; max-width: 300px; }
+
+  /* Phase 1 — Blue */
+  .pyramid-tier--phase1 .pyramid-bar {
+    background: linear-gradient(135deg, #eff6ff, #dbeafe);
+    border-color: #93c5fd;
+    color: #1e40af;
+  }
+  .pyramid-tier--phase1 .pyramid-level { color: #1e40af; }
+  .pyramid-phase-tag--phase1 {
+    background: #2563eb;
+    color: white;
+  }
+
+  /* Phase 2 — Green */
+  .pyramid-tier--phase2 .pyramid-bar {
+    background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+    border-color: #86efac;
+    color: #166534;
+  }
+  .pyramid-tier--phase2 .pyramid-level { color: #166534; }
+  .pyramid-phase-tag--phase2 {
+    background: #16a34a;
+    color: white;
+  }
+
+  /* Phase 3 — Purple */
+  .pyramid-tier--phase3 .pyramid-bar {
+    background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+    border-color: #d8b4fe;
+    color: #6b21a8;
+  }
+  .pyramid-tier--phase3 .pyramid-level { color: #6b21a8; }
+  .pyramid-phase-tag--phase3 {
+    background: #9333ea;
+    color: white;
+  }
+
+  /* Goal — Gold */
+  .pyramid-tier--goal .pyramid-bar {
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border-color: #fcd34d;
+    color: #92400e;
+    box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.1);
+  }
+  .pyramid-tier--goal .pyramid-level { color: #92400e; }
+  .pyramid-tier--goal .pyramid-icon { color: #f59e0b; }
+  .pyramid-phase-tag--goal {
+    background: #f59e0b;
+    color: white;
   }
 
   /* Bloom Legend */
