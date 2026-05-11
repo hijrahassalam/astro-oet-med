@@ -10,6 +10,11 @@ const { data } = Astro.props;
 ---
 
 <div class="assessment">
+  <p class="assessment-ready">
+    Now, you are ready to create a role-play video based on the same case. Your role-play should take
+    into account the feedback from your lecturer so that it improves on your previous performance.
+    Your video submission will be assessed by your lecturer.
+  </p>
   <p class="assessment-description">{data.description}</p>
   <div class="score-scale">
     <div class="scale-item scale-high">
@@ -23,11 +28,6 @@ const { data } = Astro.props;
       <span class="note">You need to do remedial role-play to practice and improve before continuing.</span>
     </div>
   </div>
-  <p class="assessment-ready">
-    Now, you are ready to create a role-play video based on the same case. Your role-play should take
-    into account the feedback from your lecturer so that it improves on your previous performance.
-    Your video submission will be assessed by your lecturer.
-  </p>
 </div>
 
 <style>
