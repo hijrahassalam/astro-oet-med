@@ -23,6 +23,11 @@ const { data } = Astro.props;
       <span class="note">You need to do remedial role-play to practice and improve before continuing.</span>
     </div>
   </div>
+  <p class="assessment-ready">
+    Now, you are ready to create a role-play video based on the same case. Your role-play should take
+    into account the feedback from your lecturer so that it improves on your previous performance.
+    Your video submission will be assessed by your lecturer.
+  </p>
 </div>
 
 <style>
@@ -80,6 +85,17 @@ const { data } = Astro.props;
     font-size: var(--text-sm, 0.875rem);
     color: var(--color-text-muted, #6b7280);
     line-height: 1.5;
+  }
+
+  .assessment-ready {
+    font-size: var(--text-base, 0.9375rem);
+    line-height: 1.7;
+    color: var(--color-text, #374151);
+    margin-top: var(--space-6, 1.5rem);
+    padding: var(--space-4, 1rem);
+    background: var(--color-primary-50, #eff6ff);
+    border-left: 3px solid var(--color-primary, #2563eb);
+    border-radius: 0 0.5rem 0.5rem 0;
   }
 
   @media (max-width: 640px) {

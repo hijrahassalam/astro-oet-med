@@ -59,6 +59,24 @@ const { data } = Astro.props;
     <p>To identify how well your understanding of the vocabulary is, take the following quiz:</p>
     <QuizCard quizUrl={data.quizUrl} quizImage={data.quizImage} label="Vocabulary Quiz" />
   </div>
+
+  <div class="vocab-phrases">
+    <p><strong>🔑 Key Vocabulary and Useful Phrases for Speaking Subtest</strong></p>
+    <p>
+      You will also learn important vocabulary and useful phrases for the OET speaking subtest.
+      The following video explains common verbs and expressions that often appear on the role-play card,
+      such as <em>explain, reassure, suggest,</em> and <em>recommend</em>. You will also learn how to
+      ask questions politely, give information clearly, and speak in a friendly and professional way
+      with patients. By watching this video, you will better understand what to say during the speaking
+      test and how to communicate more naturally and confidently.
+    </p>
+    <p>Click the following icon to watch it.</p>
+    <div class="cta-row">
+      <CtaButton href="https://www.youtube.com/watch?v=foshAXAtzk0" variant="primary" size="md">
+        📺 Watch Video
+      </CtaButton>
+    </div>
+  </div>
 </div>
 
 <style>
@@ -122,5 +140,27 @@ const { data } = Astro.props;
     border-radius: var(--card-radius);
     padding: var(--space-5);
     margin: var(--space-4) 0;
+  }
+
+  .vocab-phrases {
+    background: var(--color-primary-50);
+    border: 1px solid var(--color-primary-200);
+    border-radius: var(--card-radius);
+    padding: var(--space-5);
+    margin: var(--space-6) 0;
+  }
+
+  .vocab-phrases p {
+    margin-bottom: var(--space-3);
+  }
+
+  .vocab-phrases p:last-of-type {
+    margin-bottom: var(--space-4);
+  }
+
+  .cta-row {
+    display: flex;
+    gap: var(--space-3);
+    margin-top: var(--space-3);
   }
 </style>
