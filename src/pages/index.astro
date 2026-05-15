@@ -7,35 +7,35 @@ const modules = [
   {
     number: 1,
     title: 'Speaking 1',
-    description: 'Master foundational speaking skills with AI chatbot practice, role-plays, and patient-centered communication strategies.',
+    description: 'Doing role-play on pregnancy case — master foundational speaking skills with AI chatbot practice and patient-centered communication strategies.',
     slug: 'module-1',
     image: '/images/modules/speaking-1.jpg',
   },
   {
     number: 2,
     title: 'Speaking 2',
-    description: 'Build on foundational skills with advanced scenarios and specialized healthcare communication.',
+    description: 'Doing role-play on heart problem — build on foundational skills with advanced scenarios and specialized healthcare communication.',
     slug: 'module-2',
     image: '/images/modules/speaking-2.jpg',
   },
   {
     number: 3,
     title: 'Speaking 3',
-    description: 'Develop professional fluency in complex clinical dialogues and difficult conversations.',
+    description: 'Doing role-play on blood sugar problem (diabetes) — develop professional fluency in complex clinical dialogues.',
     slug: 'module-3',
     image: '/images/modules/speaking-3.jpg',
   },
   {
     number: 4,
     title: 'Speaking 4',
-    description: 'Respond empathetically to patient concerns, explain medical risks and benefits, and conduct professional counseling role-plays.',
+    description: 'Doing role-play on vaccination — respond empathetically to patient concerns and explain medical risks and benefits.',
     slug: 'module-4',
     image: '/images/modules/speaking-4.jpg',
   },
   {
     number: 5,
     title: 'Speaking 5',
-    description: 'Analyze patient anxiety, explain diagnostic findings, and produce coherent, independent OET-style role-plays.',
+    description: 'Doing role-play on epigastric pain — analyze patient anxiety, explain diagnostic findings, and produce coherent OET-style role-plays.',
     slug: 'module-5',
     image: '/images/modules/speaking-5.jpg',
   },
@@ -43,7 +43,7 @@ const modules = [
 ---
 
 <BaseLayout title="OET Learning Platform">
-  <!-- Hero Section -->
+  <!-- Welcome Section -->
   <section class="hero">
     <div class="hero-bg">
       <div class="hero-grid"></div>
@@ -54,18 +54,19 @@ const modules = [
         <svg class="hero-badge-icon" width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M7 1L8.5 4.5L12.5 5L9.75 7.5L10.5 11.5L7 9.5L3.5 11.5L4.25 7.5L1.5 5L5.5 4.5L7 1Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        For Healthcare Professionals
+        OET Speaking Preparation
       </div>
 
       <h1 class="hero-title">
-        Build the English Skills<br/>
-        <span class="hero-title-accent">You Need for the OET</span>
+        Welcome!
       </h1>
 
       <p class="hero-subtitle">
-        A free, structured platform covering medical vocabulary, clinical
-        grammar, letter writing, and speaking strategies — designed for
-        doctors, nurses, and allied health professionals.
+        Welcome to the OET Speaking Preparation course, designed to support active, independent, and meaningful learning in Medical English communication. Through the Chatbot-Augmented Flipped Learning framework, this platform provides structured learning materials integrated with AI chatbot support, flipped learning activities, collaborative role-plays, and reflective learning experiences.
+      </p>
+
+      <p class="hero-subtitle-secondary">
+        Students are expected to develop linguistic competence and clinical communication skills through flexible, interactive, and authentic healthcare communication practices. Happy learning, practicing, and growing throughout your learning journey!
       </p>
 
       <div class="hero-actions">
@@ -79,20 +80,37 @@ const modules = [
           View Syllabus
         </a>
       </div>
+    </div>
+  </section>
 
-      <div class="hero-stats">
-        <div class="stat-card">
-          <span class="stat-value">5</span>
-          <span class="stat-label">Modules</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">35+</span>
-          <span class="stat-label">Lessons</span>
-        </div>
-        <div class="stat-card">
-          <span class="stat-value">100%</span>
-          <span class="stat-label">Free</span>
-        </div>
+  <!-- Framework Section -->
+  <section class="framework-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-heading">A Chatbot-Augmented Flipped Learning Framework</h2>
+      </div>
+      <div class="framework-card">
+        <p class="framework-text">
+          A Chatbot-Augmented Flipped Learning Framework is a technology-enhanced instructional framework that integrates flipped learning, AI chatbot scaffolding, collaborative role-play, lecturer feedback, and reflective learning to support the development of linguistic and clinical communication competence. The framework provides a systematic, interactive, and student-centered learning environment in which students actively engage in authentic healthcare communication tasks while continuously improving their speaking performance.
+        </p>
+        <p class="framework-text">
+          This framework is particularly suitable for OET-oriented instruction and EMI healthcare education contexts because it promotes flexibility, personalization, interaction, and deep learning within a structured instructional process.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Topics Section -->
+  <section class="topics-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-heading">Topics</h2>
+        <p class="section-subheading">
+          Five speaking modules covering essential healthcare communication scenarios.
+        </p>
+      </div>
+      <div class="topics-image-wrapper">
+        <img src="/images/topics.jpg" alt="The Three Phases — From foundational understanding to deep learning" class="topics-image" loading="lazy" />
       </div>
     </div>
   </section>
@@ -121,14 +139,29 @@ const modules = [
     </div>
   </section>
 
+  <!-- User Guide Section -->
+  <section class="guide-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-heading">User Guide</h2>
+        <p class="section-subheading">
+          Your 3-Phase Path to Confident Medical English Communication
+        </p>
+      </div>
+      <div class="guide-image-wrapper">
+        <img src="/images/user-guide.jpg" alt="User Guide — Your 3-Phase Path to Confident Medical English Communication" class="guide-image" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
   <Footer />
 </BaseLayout>
 
 <style>
-  /* Hero */
+  /* Hero / Welcome */
   .hero {
     position: relative;
-    padding: var(--space-20) 0 var(--space-16);
+    padding: var(--space-16) 0 var(--space-12);
     overflow: hidden;
   }
 
@@ -174,7 +207,6 @@ const modules = [
     align-items: center;
   }
 
-  /* Badge */
   .hero-badge {
     display: inline-flex;
     align-items: center;
@@ -186,7 +218,7 @@ const modules = [
     font-size: var(--text-sm);
     font-weight: 500;
     color: var(--color-text-secondary);
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-6);
     box-shadow: var(--card-shadow);
   }
 
@@ -195,7 +227,6 @@ const modules = [
     flex-shrink: 0;
   }
 
-  /* Title */
   .hero-title {
     font-size: clamp(2.5rem, 5.5vw, 3.75rem);
     font-weight: 800;
@@ -203,83 +234,39 @@ const modules = [
     line-height: 1.1;
     margin-bottom: var(--space-6);
     max-width: 700px;
-  }
-
-  .hero-title-accent {
     background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  /* Subtitle */
   .hero-subtitle {
     font-size: var(--text-lg);
     color: var(--color-text-secondary);
-    max-width: 520px;
+    max-width: 640px;
+    margin: 0 0 var(--space-4);
+    line-height: var(--leading-relaxed);
+  }
+
+  .hero-subtitle-secondary {
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+    max-width: 600px;
     margin: 0 0 var(--space-8);
     line-height: var(--leading-relaxed);
   }
 
-  /* Actions */
   .hero-actions {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    margin-bottom: var(--space-12);
+    margin-bottom: var(--space-4);
   }
 
-  /* Stats */
-  .hero-stats {
-    display: flex;
-    align-items: stretch;
-    gap: var(--space-4);
-  }
-
-  .stat-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-1);
-    padding: var(--space-5) var(--space-6);
-    min-width: 120px;
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 14px;
-    box-shadow: var(--card-shadow);
-    transition: all var(--transition-base);
-  }
-
-  .stat-card:hover {
-    box-shadow: var(--card-shadow-hover);
-    transform: translateY(-2px);
-    border-color: var(--color-primary-200);
-  }
-
-  .stat-value {
-    font-size: var(--text-2xl);
-    font-weight: 800;
-    color: var(--color-text);
-    letter-spacing: -0.03em;
-    line-height: 1;
-  }
-
-  .stat-label {
-    font-size: var(--text-xs);
-    font-weight: 600;
-    color: var(--color-text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
-  /* Modules Section */
-  .modules-section {
-    padding: var(--space-16) 0 var(--space-20);
-  }
-
+  /* Section Headers */
   .section-header {
     text-align: center;
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-8);
   }
 
   .section-heading {
@@ -290,8 +277,63 @@ const modules = [
   .section-subheading {
     font-size: var(--text-base);
     color: var(--color-text-secondary);
-    max-width: 480px;
+    max-width: 520px;
     margin: 0 auto;
+  }
+
+  /* Framework Section */
+  .framework-section {
+    padding: var(--space-12) 0;
+  }
+
+  .framework-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--card-radius);
+    padding: var(--space-8);
+    box-shadow: var(--card-shadow);
+    border-left: 3px solid var(--color-primary);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .framework-text {
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    margin: 0 0 var(--space-4);
+  }
+
+  .framework-text:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Topics Section */
+  .topics-section {
+    padding: var(--space-12) 0;
+    background: var(--color-primary-50);
+  }
+
+  .topics-image-wrapper {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--card-radius);
+    padding: var(--space-4);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .topics-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* Modules Section */
+  .modules-section {
+    padding: var(--space-16) 0;
   }
 
   .modules-grid {
@@ -300,9 +342,32 @@ const modules = [
     gap: var(--space-6);
   }
 
+  /* User Guide Section */
+  .guide-section {
+    padding: var(--space-12) 0 var(--space-16);
+  }
+
+  .guide-image-wrapper {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--card-radius);
+    padding: var(--space-4);
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .guide-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  /* Responsive */
   @media (max-width: 768px) {
     .hero {
-      padding: var(--space-12) 0 var(--space-10);
+      padding: var(--space-12) 0 var(--space-8);
     }
 
     .hero-actions {
@@ -313,22 +378,6 @@ const modules = [
     .hero-actions .btn {
       width: 100%;
       justify-content: center;
-    }
-
-    .hero-stats {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .stat-card {
-      flex-direction: row;
-      gap: var(--space-3);
-      min-width: auto;
-      padding: var(--space-4) var(--space-5);
-    }
-
-    .stat-value {
-      font-size: var(--text-xl);
     }
 
     .modules-grid {
