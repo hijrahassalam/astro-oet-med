@@ -9,30 +9,35 @@ const modules = [
     title: 'Speaking 1',
     description: 'Master foundational speaking skills with AI chatbot practice, role-plays, and patient-centered communication strategies.',
     slug: 'module-1',
+    image: '/images/modules/speaking-1.jpg',
   },
   {
     number: 2,
     title: 'Speaking 2',
     description: 'Build on foundational skills with advanced scenarios and specialized healthcare communication.',
     slug: 'module-2',
+    image: '/images/modules/speaking-2.jpg',
   },
   {
     number: 3,
     title: 'Speaking 3',
     description: 'Develop professional fluency in complex clinical dialogues and difficult conversations.',
     slug: 'module-3',
+    image: '/images/modules/speaking-3.jpg',
   },
   {
     number: 4,
     title: 'Speaking 4',
     description: 'Respond empathetically to patient concerns, explain medical risks and benefits, and conduct professional counseling role-plays.',
     slug: 'module-4',
+    image: '/images/modules/speaking-4.jpg',
   },
   {
     number: 5,
     title: 'Speaking 5',
     description: 'Analyze patient anxiety, explain diagnostic findings, and produce coherent, independent OET-style role-plays.',
     slug: 'module-5',
+    image: '/images/modules/speaking-5.jpg',
   },
 ];
 ---
@@ -109,6 +114,7 @@ const modules = [
             title={mod.title}
             description={mod.description}
             slug={mod.slug}
+            image={mod.image}
           />
         ))}
       </div>
